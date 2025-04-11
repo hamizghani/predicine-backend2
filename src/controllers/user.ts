@@ -17,27 +17,52 @@ const {
 
 
 export const getSelf = async (req: Request, res: Response) => {
-    if (!req?.user?.id) {res.sendStatus(403);return;}
+    if (!req?.user?.id) { res.sendStatus(403); return; }
+
     const selfData = await prismaClient.user.findUnique({
         where: {
             id: req.user.id
         }
     })
-    res.json({'user':selfData})
+
+    const maxSold = await prismaClient.userStock.aggregate({
+        where: {
+            userId: req.user.id,
+        },
+        _max: {
+            sold: true,
+        },
+    });
+
+    const mostSoldProduct = await prismaClient.userStock.findFirst({
+        where: {
+            userId: req.user.id,
+            sold: maxSold._max.sold ?? 0,
+        },
+        select: {
+            medicine: {
+                select: {
+                    name: true
+                }
+            }
+        }
+    });
+
+    res.json({ 'user': {...selfData, 'bestselling': mostSoldProduct?.medicine.name} })
 }
 
 
 // Post
 // accounts are created by a super user.
 export const create = async (req: Request, res: Response) => {
-    const { username, password, name, region, sales=0, quantitySold=0 } = req.body
-    if (!username || !password || (password as string).length < 8) {res.sendStatus(400);return;}
+    const { username, password, name, region, sales = 0, quantitySold = 0 } = req.body
+    if (!username || !password || (password as string).length < 8) { res.sendStatus(400); return; }
 
     try {
         const duplicateUser = await prismaClient.user.findUnique({
             where: { username: username }
         })
-        if (duplicateUser) {res.sendStatus(400);return;}
+        if (duplicateUser) { res.sendStatus(400); return; }
 
         const passwordHash = await bcrypt.hash(password, 10)
 
@@ -58,7 +83,7 @@ export const create = async (req: Request, res: Response) => {
                 region: true
             }
         })
-        {res.json({ user });return;}
+        { res.json({ user }); return; }
     } catch (e) {
         console.log(e)
     }
@@ -68,8 +93,8 @@ export const create = async (req: Request, res: Response) => {
 // Post
 export const login = async (req: Request, res: Response) => {
     const { username, password } = req.body
-    if (req.user) {res.sendStatus(403);return;}
-    if (!username || !password) {res.sendStatus(400);return;}
+    if (req.user) { res.sendStatus(403); return; }
+    if (!username || !password) { res.sendStatus(400); return; }
 
     try {
         const { id, passwordHash } = await prismaClient.user.findUniqueOrThrow({
@@ -80,7 +105,7 @@ export const login = async (req: Request, res: Response) => {
             }
         })
         const isMatch = await bcrypt.compare(password, passwordHash);
-        if (!isMatch) {res.sendStatus(401);;return;}
+        if (!isMatch) { res.sendStatus(401);; return; }
         const refreshToken = jwt.sign({ id, username }, REFRESH_TOKEN_SECRET as string, {
             expiresIn: REFRESH_TOKEN_LIFETIME
         })
@@ -122,9 +147,9 @@ export const login = async (req: Request, res: Response) => {
 // Patch
 export const changePassword = async (req: Request, res: Response) => {
     const { password = "", newPassword } = req.body
-    if (!req.user) {res.sendStatus(403);return;}
+    if (!req.user) { res.sendStatus(403); return; }
     if (!password || !newPassword || (newPassword as string).length < 8) {
-        {res.sendStatus(400);return;}
+        { res.sendStatus(400); return; }
     }
 
     try {
@@ -136,7 +161,7 @@ export const changePassword = async (req: Request, res: Response) => {
         })
 
         const isMatch = await bcrypt.compare(password, passwordHash);
-        if (!isMatch) {res.sendStatus(400);;return;}
+        if (!isMatch) { res.sendStatus(400);; return; }
 
         const newPasswordHash = await bcrypt.hash(newPassword, 10);
 
@@ -189,9 +214,9 @@ export const changePassword = async (req: Request, res: Response) => {
 }
 
 export const updatePrice = async (req: Request, res: Response) => {
-    if (!req.user?.id) {res.sendStatus(403);return;}
-    const {id, price}: UpdateProductPriceParams = req.body
-    if (id<=0 || id>50) {res.sendStatus(400);return;}
+    if (!req.user?.id) { res.sendStatus(403); return; }
+    const { id, price }: UpdateProductPriceParams = req.body
+    if (id <= 0 || id > 50) { res.sendStatus(400); return; }
 
     try {
         const user = await prismaClient.user.findUnique({
@@ -211,7 +236,7 @@ export const updatePrice = async (req: Request, res: Response) => {
                 price: newPriceArray
             }
         })
-        res.json({user: newUser})
+        res.json({ user: newUser })
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
@@ -222,8 +247,8 @@ export const updatePrice = async (req: Request, res: Response) => {
 // Patch
 export const update = async (req: Request, res: Response) => {
     const { password = "", name, region } = req.body
-    if (!req.user ) {res.sendStatus(403);return;}
-    if ((password && password.length < 8)) {res.sendStatus(400);return;}
+    if (!req.user) { res.sendStatus(403); return; }
+    if ((password && password.length < 8)) { res.sendStatus(400); return; }
 
     try {
         const originalUser = await prismaClient.user.findUniqueOrThrow({
@@ -257,7 +282,7 @@ export const update = async (req: Request, res: Response) => {
             })
         }
 
-        {res.json({ user });return;}
+        { res.json({ user }); return; }
     } catch (e) {
         console.log(e)
     }
@@ -266,7 +291,7 @@ export const update = async (req: Request, res: Response) => {
 
 // Post
 export const logout = async (req: Request, res: Response) => {
-    if (!req.user) {res.sendStatus(200);return;}
+    if (!req.user) { res.sendStatus(200); return; }
 
     try {
         const user = await prismaClient.user.findUnique({
@@ -279,7 +304,7 @@ export const logout = async (req: Request, res: Response) => {
             }
         })
 
-        if (!user) {res.sendStatus(404);return;}
+        if (!user) { res.sendStatus(404); return; }
 
         const tokens = await prismaClient.tokens.findUnique({
             where: { userId: req.user.id }
@@ -292,17 +317,17 @@ export const logout = async (req: Request, res: Response) => {
         }
 
         res.clearCookie('refreshToken')
-        {res.sendStatus(200);return;}
+        { res.sendStatus(200); return; }
     } catch (e) {
         console.log(e)
-        {res.sendStatus(500);return;}
+        { res.sendStatus(500); return; }
     }
 }
 
 
 // Delete
 export const deleteOne = async (req: Request, res: Response) => {
-    if (!req.user) {res.sendStatus(403);return;}
+    if (!req.user) { res.sendStatus(403); return; }
 
     try {
         const user = await prismaClient.user.findUniqueOrThrow({
@@ -321,10 +346,10 @@ export const deleteOne = async (req: Request, res: Response) => {
             }
         })
 
-        {res.sendStatus(201);return;}
+        { res.sendStatus(201); return; }
     } catch (e) {
         if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2025') {
-            {res.sendStatus(404);return;}
+            { res.sendStatus(404); return; }
         } else {
             console.log(e)
         }

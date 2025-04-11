@@ -8,7 +8,7 @@ import { updateProductPriceSchema } from "../../zodSchema/product";
 
 const userRouter = Router({ mergeParams: true, caseSensitive:true })
 
-userRouter.get('/self', getSelf)
+userRouter.get('/self', verifyToken, getSelf)
 userRouter.post('/create', create)
 userRouter.post('/login', login)
 userRouter.patch('/changePassword', verifyToken, changePassword)

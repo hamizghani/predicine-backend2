@@ -73,6 +73,7 @@ model UserStock {
   forecastedUserStock ForecastedUserStock?
 
   @@unique([userId, medicineId])
+  @@index([userId, sold(sort: Desc)])
 }
 
 model StockBatch {
