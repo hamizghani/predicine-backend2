@@ -10,11 +10,6 @@ const productRouter = Router({ mergeParams: true, caseSensitive:true })
 productRouter.post('/add', verifyToken, zodSchemaValidator(addProductSchema), addProduct)
 productRouter.get('/mine', verifyToken, getAllMine)
 productRouter.patch('/sell', verifyToken, sellStock)
-productRouter.patch('/delete', verifyToken, deleteStock)
-// productRouter.post('/login', login)
-// productRouter.patch('/changePassword', verifyToken, changePassword)
-// productRouter.patch('/update', verifyToken, update)
-// productRouter.post('/logout', verifyToken, logout)
-// productRouter.delete('/delete', verifyToken, deleteOne)
+productRouter.delete('/delete', verifyToken, deleteStock)
 
 export default productRouter

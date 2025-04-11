@@ -273,7 +273,13 @@ export const deleteStock = async (req: Request, res: Response) => {
                     }
                 })
             }
-            )
+            ),
+            prismaClient.userStock.update({
+                where: { id: availableStock.id },
+                data: {
+                    total: { decrement: amount }
+                }
+            }),
         ])
         res.json({ status: "Success"})
     } catch (e) {

@@ -25,3 +25,15 @@ export const sellProductSchema = z.object({
 
 
 export type SellProductParams = z.infer<typeof sellProductSchema>;
+
+
+export const editStockBatchSchema = z.object({
+  id: z.number().int(),
+  amount: z.number().int(),
+  expirationDate: z
+    .string()
+    .transform((val) => new Date(val))
+    .refine((date) => !isNaN(date.getTime()), { message: "Invalid date format" }),
+})
+
+export type EditStockBatchParams = z.infer<typeof editStockBatchSchema>;
