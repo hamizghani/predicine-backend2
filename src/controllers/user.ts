@@ -42,7 +42,7 @@ export const getSelf = async (req: Request, res: Response) => {
 // Post
 // accounts are created by a super user.
 export const create = async (req: Request, res: Response) => {
-    const { username, password, name, region, sales, quantitySold } = req.body
+    const { username, password, name, region, sales=0, quantitySold=0 } = req.body
     if (!username || !password || (password as string).length < 8) {res.sendStatus(400);return;}
 
     try {
