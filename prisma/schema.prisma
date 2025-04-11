@@ -17,12 +17,23 @@ datasource db {
 model User {
   id                 Int                  @id @default(autoincrement())
   username           String               @unique
-  password           String
+  name               String
+  passwordHash       String
   region             String
-  price              Int[]
-  TransactionHistory TransactionHistory[]
-  UserStock          UserStock[]
-  ForecastedMedicine ForecastedMedicine[]
+  sales Int @default(0)
+  quantitySold Int @default(0)
+  price              Int[] @default([])
+  transactionHistory TransactionHistory[]
+  userStock          UserStock[]
+  forecastedMedicine ForecastedMedicine[]
+  tokens             Tokens[]
+}
+
+model Tokens {
+  user    User   @relation(references: [id], fields: [userId], onUpdate: Cascade, onDelete: Cascade)
+  userId  Int    @id
+  refresh String @unique
+  access  String @unique
 }
 
 model TransactionHistory {
@@ -30,9 +41,9 @@ model TransactionHistory {
   createdAt  DateTime
   updatedAt  DateTime @updatedAt
   medicineId Int
-  amount     Int
+  amount     Int @default(0)
   userId     Int
-  price      Int
+  price      Int @default(0)
   user       User     @relation(fields: [userId], references: [id])
   medicine   Medicine @relation(fields: [medicineId], references: [id])
 
@@ -46,21 +57,31 @@ model Medicine {
   description                String
   brief                      String
   photoLink                  String
-  TransactionHistory         TransactionHistory[]
-  UserStock                  UserStock[]
-  DiseaseMedicineCorrelation DiseaseMedicineCorrelation[]
-  ForecastedMedicine         ForecastedMedicine[]
+  transactionHistory         TransactionHistory[]
+  userStock                  UserStock[]
+  diseaseMedicineCorrelation DiseaseMedicineCorrelation[]
+  forecastedMedicine         ForecastedMedicine[]
 }
 
 model UserStock {
   id         Int      @id @default(autoincrement())
   medicineId Int
   medicine   Medicine @relation(fields: [medicineId], references: [id])
-  expirationDate DateTime
   userId     Int
   user       User     @relation(fields: [userId], references: [id])
+  batches      StockBatch[]
 
   @@index([userId])
+}
+
+model StockBatch {
+  id             Int       @id @default(autoincrement())
+  expirationDate DateTime
+  amount         Int @default(0)
+  userStockId    Int
+  userStock      UserStock @relation(fields: [userStockId], references: [id])
+
+  @@index([userStockId])
 }
 
 model ForecastedMedicine {
@@ -79,8 +100,8 @@ model ForecastedMedicine {
 model Disease {
   id                         Int                          @id @default(autoincrement())
   name                       String
-  DiseaseMedicineCorrelation DiseaseMedicineCorrelation[]
-  DiseaseRecords             DiseaseRecords[]
+  diseaseMedicineCorrelation DiseaseMedicineCorrelation[]
+  diseaseRecords             DiseaseRecords[]
 }
 
 model DiseaseRecords {

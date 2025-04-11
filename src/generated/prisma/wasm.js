@@ -120,9 +120,18 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   username: 'username',
-  password: 'password',
+  name: 'name',
+  passwordHash: 'passwordHash',
   region: 'region',
+  sales: 'sales',
+  quantitySold: 'quantitySold',
   price: 'price'
+};
+
+exports.Prisma.TokensScalarFieldEnum = {
+  userId: 'userId',
+  refresh: 'refresh',
+  access: 'access'
 };
 
 exports.Prisma.TransactionHistoryScalarFieldEnum = {
@@ -146,8 +155,14 @@ exports.Prisma.MedicineScalarFieldEnum = {
 exports.Prisma.UserStockScalarFieldEnum = {
   id: 'id',
   medicineId: 'medicineId',
-  expirationDate: 'expirationDate',
   userId: 'userId'
+};
+
+exports.Prisma.StockBatchScalarFieldEnum = {
+  id: 'id',
+  expirationDate: 'expirationDate',
+  amount: 'amount',
+  userStockId: 'userStockId'
 };
 
 exports.Prisma.ForecastedMedicineScalarFieldEnum = {
@@ -189,9 +204,11 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   User: 'User',
+  Tokens: 'Tokens',
   TransactionHistory: 'TransactionHistory',
   Medicine: 'Medicine',
   UserStock: 'UserStock',
+  StockBatch: 'StockBatch',
   ForecastedMedicine: 'ForecastedMedicine',
   Disease: 'Disease',
   DiseaseRecords: 'DiseaseRecords',

@@ -1,0 +1,11 @@
+-- AlterTable
+ALTER TABLE "StockBatch" ALTER COLUMN "amount" SET DEFAULT 0;
+
+-- AlterTable
+ALTER TABLE "TransactionHistory" ALTER COLUMN "amount" SET DEFAULT 0,
+ALTER COLUMN "price" SET DEFAULT 0;
+
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "quantitySold" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "sales" INTEGER NOT NULL DEFAULT 0,
+ALTER COLUMN "price" SET DEFAULT ARRAY[]::INTEGER[];
