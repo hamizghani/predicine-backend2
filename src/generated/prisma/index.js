@@ -229,12 +229,11 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": null
+        "value": "postgresql://postgres:7Zg1331gZ7@localhost:5432/predicine-db-testing?schema=public"
       }
     }
   },

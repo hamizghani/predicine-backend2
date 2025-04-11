@@ -1,23 +1,29 @@
-# Use an official lightweight Node.js image.
-FROM node:18-alpine
+# Base image
+FROM node:22-alpine
 
-# Set the working directory in the container.
+# Enable pnpm
+RUN corepack enable && corepack prepare pnpm@10.6.2 --activate
+
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json (if available)
-COPY package*.json ./
+# Copy only the package manager files first (for better caching)
+COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies.
-RUN npm install
+# Install dependencies (including dev dependencies for build)
+RUN pnpm install --frozen-lockfile
 
-# Copy the rest of the source code.
+
+# Copy the rest of the code
 COPY . .
 
-# Build the project (assuming tsc is configured to output to the 'dist' folder)
-RUN npm run build
+RUN npx prisma generate
 
-# Expose the port (make sure this matches your config; here we assume 3000)
+# Build the TypeScript project
+RUN pnpm run build
+
+# Expose the port used by your Express app
 EXPOSE 3000
 
-# Start the application.
-CMD ["npm", "start"]
+# Set the start command (from your package.json)
+CMD ["pnpm", "run", "start"]

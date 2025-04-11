@@ -2,7 +2,7 @@ import { env } from "process";
 import { Request, Response } from "../types";
 import jwt from "jsonwebtoken";
 import prismaClient from "../services/db";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "../generated/prisma";
 import { TokenEnv } from "../types/user";
 
 const {

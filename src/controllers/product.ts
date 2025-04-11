@@ -90,7 +90,12 @@ export const sellStock = async (req: Request, res: Response) => {
         const { id, amount }: SellProductParams = req.body;
 
         const availableStock = await prismaClient.userStock.findUniqueOrThrow({
-            where: { id },
+            where: { 
+                userId_medicineId: {
+                    medicineId: id, 
+                    userId: req.user.id
+                }
+            }, 
             include: {
                 batches: {
                     select: {
@@ -132,20 +137,31 @@ export const sellStock = async (req: Request, res: Response) => {
                 newAmount: batch.amount - deduct
             });
         }
+        console.log(batchUpdates)
 
         if (remaining > 0) {
             throw new Error('Not enough stock to fulfill the request');
         }
 
         const result = await prismaClient.$transaction([
-            ...batchUpdates.map(({ id, newAmount }) =>
-                prismaClient.stockBatch.update({
-                    where: { id },
-                    data: { amount: newAmount }
+            ...batchUpdates.map(({ id, newAmount }) => {
+                if (newAmount==0) {
+                    return prismaClient.stockBatch.delete({
+                        where: { id }
+                    })
+                }
+                return prismaClient.stockBatch.update({
+                    where: {
+                        id
+                    },
+                    data: {
+                        amount: newAmount
+                    }
                 })
+            }
             ),
             prismaClient.userStock.update({
-                where: { id },
+                where: { id: availableStock.id },
                 data: {
                     sold: { increment: amount },
                     total: { decrement: amount }
