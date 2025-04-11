@@ -155,6 +155,8 @@ exports.Prisma.MedicineScalarFieldEnum = {
 exports.Prisma.UserStockScalarFieldEnum = {
   id: 'id',
   medicineId: 'medicineId',
+  total: 'total',
+  sold: 'sold',
   userId: 'userId'
 };
 

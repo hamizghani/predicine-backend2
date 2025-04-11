@@ -1787,12 +1787,10 @@ export namespace Prisma {
 
   export type UserStockCountOutputType = {
     batches: number
-    ForecastedUserStock: number
   }
 
   export type UserStockCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     batches?: boolean | UserStockCountOutputTypeCountBatchesArgs
-    ForecastedUserStock?: boolean | UserStockCountOutputTypeCountForecastedUserStockArgs
   }
 
   // Custom InputTypes
@@ -1811,13 +1809,6 @@ export namespace Prisma {
    */
   export type UserStockCountOutputTypeCountBatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: StockBatchWhereInput
-  }
-
-  /**
-   * UserStockCountOutputType without action
-   */
-  export type UserStockCountOutputTypeCountForecastedUserStockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ForecastedUserStockWhereInput
   }
 
 
@@ -6455,30 +6446,40 @@ export namespace Prisma {
   export type UserStockAvgAggregateOutputType = {
     id: number | null
     medicineId: number | null
+    total: number | null
+    sold: number | null
     userId: number | null
   }
 
   export type UserStockSumAggregateOutputType = {
     id: number | null
     medicineId: number | null
+    total: number | null
+    sold: number | null
     userId: number | null
   }
 
   export type UserStockMinAggregateOutputType = {
     id: number | null
     medicineId: number | null
+    total: number | null
+    sold: number | null
     userId: number | null
   }
 
   export type UserStockMaxAggregateOutputType = {
     id: number | null
     medicineId: number | null
+    total: number | null
+    sold: number | null
     userId: number | null
   }
 
   export type UserStockCountAggregateOutputType = {
     id: number
     medicineId: number
+    total: number
+    sold: number
     userId: number
     _all: number
   }
@@ -6487,30 +6488,40 @@ export namespace Prisma {
   export type UserStockAvgAggregateInputType = {
     id?: true
     medicineId?: true
+    total?: true
+    sold?: true
     userId?: true
   }
 
   export type UserStockSumAggregateInputType = {
     id?: true
     medicineId?: true
+    total?: true
+    sold?: true
     userId?: true
   }
 
   export type UserStockMinAggregateInputType = {
     id?: true
     medicineId?: true
+    total?: true
+    sold?: true
     userId?: true
   }
 
   export type UserStockMaxAggregateInputType = {
     id?: true
     medicineId?: true
+    total?: true
+    sold?: true
     userId?: true
   }
 
   export type UserStockCountAggregateInputType = {
     id?: true
     medicineId?: true
+    total?: true
+    sold?: true
     userId?: true
     _all?: true
   }
@@ -6604,6 +6615,8 @@ export namespace Prisma {
   export type UserStockGroupByOutputType = {
     id: number
     medicineId: number
+    total: number
+    sold: number
     userId: number
     _count: UserStockCountAggregateOutputType | null
     _avg: UserStockAvgAggregateOutputType | null
@@ -6629,17 +6642,21 @@ export namespace Prisma {
   export type UserStockSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     medicineId?: boolean
+    total?: boolean
+    sold?: boolean
     userId?: boolean
     medicine?: boolean | MedicineDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     batches?: boolean | UserStock$batchesArgs<ExtArgs>
-    ForecastedUserStock?: boolean | UserStock$ForecastedUserStockArgs<ExtArgs>
+    forecastedUserStock?: boolean | UserStock$forecastedUserStockArgs<ExtArgs>
     _count?: boolean | UserStockCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStock"]>
 
   export type UserStockSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     medicineId?: boolean
+    total?: boolean
+    sold?: boolean
     userId?: boolean
     medicine?: boolean | MedicineDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6648,6 +6665,8 @@ export namespace Prisma {
   export type UserStockSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     medicineId?: boolean
+    total?: boolean
+    sold?: boolean
     userId?: boolean
     medicine?: boolean | MedicineDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6656,15 +6675,17 @@ export namespace Prisma {
   export type UserStockSelectScalar = {
     id?: boolean
     medicineId?: boolean
+    total?: boolean
+    sold?: boolean
     userId?: boolean
   }
 
-  export type UserStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "medicineId" | "userId", ExtArgs["result"]["userStock"]>
+  export type UserStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "medicineId" | "total" | "sold" | "userId", ExtArgs["result"]["userStock"]>
   export type UserStockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     medicine?: boolean | MedicineDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     batches?: boolean | UserStock$batchesArgs<ExtArgs>
-    ForecastedUserStock?: boolean | UserStock$ForecastedUserStockArgs<ExtArgs>
+    forecastedUserStock?: boolean | UserStock$forecastedUserStockArgs<ExtArgs>
     _count?: boolean | UserStockCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserStockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6682,11 +6703,13 @@ export namespace Prisma {
       medicine: Prisma.$MedicinePayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
       batches: Prisma.$StockBatchPayload<ExtArgs>[]
-      ForecastedUserStock: Prisma.$ForecastedUserStockPayload<ExtArgs>[]
+      forecastedUserStock: Prisma.$ForecastedUserStockPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       medicineId: number
+      total: number
+      sold: number
       userId: number
     }, ExtArgs["result"]["userStock"]>
     composites: {}
@@ -7085,7 +7108,7 @@ export namespace Prisma {
     medicine<T extends MedicineDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MedicineDefaultArgs<ExtArgs>>): Prisma__MedicineClient<$Result.GetResult<Prisma.$MedicinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     batches<T extends UserStock$batchesArgs<ExtArgs> = {}>(args?: Subset<T, UserStock$batchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StockBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    ForecastedUserStock<T extends UserStock$ForecastedUserStockArgs<ExtArgs> = {}>(args?: Subset<T, UserStock$ForecastedUserStockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    forecastedUserStock<T extends UserStock$forecastedUserStockArgs<ExtArgs> = {}>(args?: Subset<T, UserStock$forecastedUserStockArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7117,6 +7140,8 @@ export namespace Prisma {
   interface UserStockFieldRefs {
     readonly id: FieldRef<"UserStock", 'Int'>
     readonly medicineId: FieldRef<"UserStock", 'Int'>
+    readonly total: FieldRef<"UserStock", 'Int'>
+    readonly sold: FieldRef<"UserStock", 'Int'>
     readonly userId: FieldRef<"UserStock", 'Int'>
   }
     
@@ -7538,9 +7563,9 @@ export namespace Prisma {
   }
 
   /**
-   * UserStock.ForecastedUserStock
+   * UserStock.forecastedUserStock
    */
-  export type UserStock$ForecastedUserStockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserStock$forecastedUserStockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ForecastedUserStock
      */
@@ -7554,11 +7579,6 @@ export namespace Prisma {
      */
     include?: ForecastedUserStockInclude<ExtArgs> | null
     where?: ForecastedUserStockWhereInput
-    orderBy?: ForecastedUserStockOrderByWithRelationInput | ForecastedUserStockOrderByWithRelationInput[]
-    cursor?: ForecastedUserStockWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ForecastedUserStockScalarFieldEnum | ForecastedUserStockScalarFieldEnum[]
   }
 
   /**
@@ -13114,6 +13134,8 @@ export namespace Prisma {
   export const UserStockScalarFieldEnum: {
     id: 'id',
     medicineId: 'medicineId',
+    total: 'total',
+    sold: 'sold',
     userId: 'userId'
   };
 
@@ -13513,21 +13535,25 @@ export namespace Prisma {
     NOT?: UserStockWhereInput | UserStockWhereInput[]
     id?: IntFilter<"UserStock"> | number
     medicineId?: IntFilter<"UserStock"> | number
+    total?: IntFilter<"UserStock"> | number
+    sold?: IntFilter<"UserStock"> | number
     userId?: IntFilter<"UserStock"> | number
     medicine?: XOR<MedicineScalarRelationFilter, MedicineWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     batches?: StockBatchListRelationFilter
-    ForecastedUserStock?: ForecastedUserStockListRelationFilter
+    forecastedUserStock?: XOR<ForecastedUserStockNullableScalarRelationFilter, ForecastedUserStockWhereInput> | null
   }
 
   export type UserStockOrderByWithRelationInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
     medicine?: MedicineOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     batches?: StockBatchOrderByRelationAggregateInput
-    ForecastedUserStock?: ForecastedUserStockOrderByRelationAggregateInput
+    forecastedUserStock?: ForecastedUserStockOrderByWithRelationInput
   }
 
   export type UserStockWhereUniqueInput = Prisma.AtLeast<{
@@ -13537,16 +13563,20 @@ export namespace Prisma {
     OR?: UserStockWhereInput[]
     NOT?: UserStockWhereInput | UserStockWhereInput[]
     medicineId?: IntFilter<"UserStock"> | number
+    total?: IntFilter<"UserStock"> | number
+    sold?: IntFilter<"UserStock"> | number
     userId?: IntFilter<"UserStock"> | number
     medicine?: XOR<MedicineScalarRelationFilter, MedicineWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     batches?: StockBatchListRelationFilter
-    ForecastedUserStock?: ForecastedUserStockListRelationFilter
+    forecastedUserStock?: XOR<ForecastedUserStockNullableScalarRelationFilter, ForecastedUserStockWhereInput> | null
   }, "id" | "userId_medicineId">
 
   export type UserStockOrderByWithAggregationInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
     _count?: UserStockCountOrderByAggregateInput
     _avg?: UserStockAvgOrderByAggregateInput
@@ -13561,6 +13591,8 @@ export namespace Prisma {
     NOT?: UserStockScalarWhereWithAggregatesInput | UserStockScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"UserStock"> | number
     medicineId?: IntWithAggregatesFilter<"UserStock"> | number
+    total?: IntWithAggregatesFilter<"UserStock"> | number
+    sold?: IntWithAggregatesFilter<"UserStock"> | number
     userId?: IntWithAggregatesFilter<"UserStock"> | number
   }
 
@@ -13640,15 +13672,16 @@ export namespace Prisma {
 
   export type ForecastedUserStockWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    userStockId?: number
+    id_userStockId?: ForecastedUserStockIdUserStockIdCompoundUniqueInput
     AND?: ForecastedUserStockWhereInput | ForecastedUserStockWhereInput[]
     OR?: ForecastedUserStockWhereInput[]
     NOT?: ForecastedUserStockWhereInput | ForecastedUserStockWhereInput[]
-    userStockId?: IntFilter<"ForecastedUserStock"> | number
     requiredStock?: IntFilter<"ForecastedUserStock"> | number
     percentage?: IntFilter<"ForecastedUserStock"> | number
     stockoutDate?: DateTimeFilter<"ForecastedUserStock"> | Date | string
     userStock?: XOR<UserStockScalarRelationFilter, UserStockWhereInput>
-  }, "id">
+  }, "id" | "userStockId" | "id_userStockId">
 
   export type ForecastedUserStockOrderByWithAggregationInput = {
     id?: SortOrder
@@ -13955,7 +13988,7 @@ export namespace Prisma {
   }
 
   export type TransactionHistoryCreateInput = {
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     amount?: number
     price?: number
@@ -13965,7 +13998,7 @@ export namespace Prisma {
 
   export type TransactionHistoryUncheckedCreateInput = {
     id?: number
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     medicineId: number
     amount?: number
@@ -13994,7 +14027,7 @@ export namespace Prisma {
 
   export type TransactionHistoryCreateManyInput = {
     id?: number
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     medicineId: number
     amount?: number
@@ -14085,48 +14118,61 @@ export namespace Prisma {
   }
 
   export type UserStockCreateInput = {
+    total?: number
+    sold?: number
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     user: UserCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateInput = {
     id?: number
     medicineId: number
+    total?: number
+    sold?: number
     userId: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockUncheckedCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockUpdateInput = {
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUncheckedUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockCreateManyInput = {
     id?: number
     medicineId: number
+    total?: number
+    sold?: number
     userId: number
   }
 
   export type UserStockUpdateManyMutationInput = {
-
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserStockUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -14654,17 +14700,12 @@ export namespace Prisma {
     none?: StockBatchWhereInput
   }
 
-  export type ForecastedUserStockListRelationFilter = {
-    every?: ForecastedUserStockWhereInput
-    some?: ForecastedUserStockWhereInput
-    none?: ForecastedUserStockWhereInput
+  export type ForecastedUserStockNullableScalarRelationFilter = {
+    is?: ForecastedUserStockWhereInput | null
+    isNot?: ForecastedUserStockWhereInput | null
   }
 
   export type StockBatchOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ForecastedUserStockOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14676,30 +14717,40 @@ export namespace Prisma {
   export type UserStockCountOrderByAggregateInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
   }
 
   export type UserStockAvgOrderByAggregateInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
   }
 
   export type UserStockMaxOrderByAggregateInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
   }
 
   export type UserStockMinOrderByAggregateInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
   }
 
   export type UserStockSumOrderByAggregateInput = {
     id?: SortOrder
     medicineId?: SortOrder
+    total?: SortOrder
+    sold?: SortOrder
     userId?: SortOrder
   }
 
@@ -14744,6 +14795,11 @@ export namespace Prisma {
     id?: SortOrder
     amount?: SortOrder
     userStockId?: SortOrder
+  }
+
+  export type ForecastedUserStockIdUserStockIdCompoundUniqueInput = {
+    id: number
+    userStockId: number
   }
 
   export type ForecastedUserStockCountOrderByAggregateInput = {
@@ -15260,11 +15316,10 @@ export namespace Prisma {
     connect?: StockBatchWhereUniqueInput | StockBatchWhereUniqueInput[]
   }
 
-  export type ForecastedUserStockCreateNestedManyWithoutUserStockInput = {
-    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
-    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
-    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
-    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+  export type ForecastedUserStockCreateNestedOneWithoutUserStockInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput
+    connect?: ForecastedUserStockWhereUniqueInput
   }
 
   export type StockBatchUncheckedCreateNestedManyWithoutUserStockInput = {
@@ -15274,11 +15329,10 @@ export namespace Prisma {
     connect?: StockBatchWhereUniqueInput | StockBatchWhereUniqueInput[]
   }
 
-  export type ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput = {
-    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
-    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
-    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
-    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+  export type ForecastedUserStockUncheckedCreateNestedOneWithoutUserStockInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput
+    connect?: ForecastedUserStockWhereUniqueInput
   }
 
   export type MedicineUpdateOneRequiredWithoutUserStockNestedInput = {
@@ -15311,18 +15365,14 @@ export namespace Prisma {
     deleteMany?: StockBatchScalarWhereInput | StockBatchScalarWhereInput[]
   }
 
-  export type ForecastedUserStockUpdateManyWithoutUserStockNestedInput = {
-    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
-    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
-    upsert?: ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput[]
-    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
-    set?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    disconnect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    delete?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    update?: ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput[]
-    updateMany?: ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput | ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput[]
-    deleteMany?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
+  export type ForecastedUserStockUpdateOneWithoutUserStockNestedInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput
+    upsert?: ForecastedUserStockUpsertWithoutUserStockInput
+    disconnect?: ForecastedUserStockWhereInput | boolean
+    delete?: ForecastedUserStockWhereInput | boolean
+    connect?: ForecastedUserStockWhereUniqueInput
+    update?: XOR<XOR<ForecastedUserStockUpdateToOneWithWhereWithoutUserStockInput, ForecastedUserStockUpdateWithoutUserStockInput>, ForecastedUserStockUncheckedUpdateWithoutUserStockInput>
   }
 
   export type StockBatchUncheckedUpdateManyWithoutUserStockNestedInput = {
@@ -15339,18 +15389,14 @@ export namespace Prisma {
     deleteMany?: StockBatchScalarWhereInput | StockBatchScalarWhereInput[]
   }
 
-  export type ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput = {
-    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
-    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
-    upsert?: ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput[]
-    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
-    set?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    disconnect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    delete?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
-    update?: ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput[]
-    updateMany?: ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput | ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput[]
-    deleteMany?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
+  export type ForecastedUserStockUncheckedUpdateOneWithoutUserStockNestedInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput
+    upsert?: ForecastedUserStockUpsertWithoutUserStockInput
+    disconnect?: ForecastedUserStockWhereInput | boolean
+    delete?: ForecastedUserStockWhereInput | boolean
+    connect?: ForecastedUserStockWhereUniqueInput
+    update?: XOR<XOR<ForecastedUserStockUpdateToOneWithWhereWithoutUserStockInput, ForecastedUserStockUpdateWithoutUserStockInput>, ForecastedUserStockUncheckedUpdateWithoutUserStockInput>
   }
 
   export type UserStockCreateNestedOneWithoutBatchesInput = {
@@ -15626,7 +15672,7 @@ export namespace Prisma {
   }
 
   export type TransactionHistoryCreateWithoutUserInput = {
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     amount?: number
     price?: number
@@ -15635,7 +15681,7 @@ export namespace Prisma {
 
   export type TransactionHistoryUncheckedCreateWithoutUserInput = {
     id?: number
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     medicineId: number
     amount?: number
@@ -15653,16 +15699,20 @@ export namespace Prisma {
   }
 
   export type UserStockCreateWithoutUserInput = {
+    total?: number
+    sold?: number
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateWithoutUserInput = {
     id?: number
     medicineId: number
+    total?: number
+    sold?: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockUncheckedCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockCreateOrConnectWithoutUserInput = {
@@ -15746,6 +15796,8 @@ export namespace Prisma {
     NOT?: UserStockScalarWhereInput | UserStockScalarWhereInput[]
     id?: IntFilter<"UserStock"> | number
     medicineId?: IntFilter<"UserStock"> | number
+    total?: IntFilter<"UserStock"> | number
+    sold?: IntFilter<"UserStock"> | number
     userId?: IntFilter<"UserStock"> | number
   }
 
@@ -15961,7 +16013,7 @@ export namespace Prisma {
   }
 
   export type TransactionHistoryCreateWithoutMedicineInput = {
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     amount?: number
     price?: number
@@ -15970,7 +16022,7 @@ export namespace Prisma {
 
   export type TransactionHistoryUncheckedCreateWithoutMedicineInput = {
     id?: number
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     amount?: number
     userId: number
@@ -15988,16 +16040,20 @@ export namespace Prisma {
   }
 
   export type UserStockCreateWithoutMedicineInput = {
+    total?: number
+    sold?: number
     user: UserCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateWithoutMedicineInput = {
     id?: number
+    total?: number
+    sold?: number
     userId: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockUncheckedCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockCreateOrConnectWithoutMedicineInput = {
@@ -16182,11 +16238,6 @@ export namespace Prisma {
     create: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
   }
 
-  export type ForecastedUserStockCreateManyUserStockInputEnvelope = {
-    data: ForecastedUserStockCreateManyUserStockInput | ForecastedUserStockCreateManyUserStockInput[]
-    skipDuplicates?: boolean
-  }
-
   export type MedicineUpsertWithoutUserStockInput = {
     update: XOR<MedicineUpdateWithoutUserStockInput, MedicineUncheckedUpdateWithoutUserStockInput>
     create: XOR<MedicineCreateWithoutUserStockInput, MedicineUncheckedCreateWithoutUserStockInput>
@@ -16279,44 +16330,45 @@ export namespace Prisma {
     userStockId?: IntFilter<"StockBatch"> | number
   }
 
-  export type ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput = {
-    where: ForecastedUserStockWhereUniqueInput
+  export type ForecastedUserStockUpsertWithoutUserStockInput = {
     update: XOR<ForecastedUserStockUpdateWithoutUserStockInput, ForecastedUserStockUncheckedUpdateWithoutUserStockInput>
     create: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+    where?: ForecastedUserStockWhereInput
   }
 
-  export type ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput = {
-    where: ForecastedUserStockWhereUniqueInput
+  export type ForecastedUserStockUpdateToOneWithWhereWithoutUserStockInput = {
+    where?: ForecastedUserStockWhereInput
     data: XOR<ForecastedUserStockUpdateWithoutUserStockInput, ForecastedUserStockUncheckedUpdateWithoutUserStockInput>
   }
 
-  export type ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput = {
-    where: ForecastedUserStockScalarWhereInput
-    data: XOR<ForecastedUserStockUpdateManyMutationInput, ForecastedUserStockUncheckedUpdateManyWithoutUserStockInput>
+  export type ForecastedUserStockUpdateWithoutUserStockInput = {
+    requiredStock?: IntFieldUpdateOperationsInput | number
+    percentage?: IntFieldUpdateOperationsInput | number
+    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ForecastedUserStockScalarWhereInput = {
-    AND?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
-    OR?: ForecastedUserStockScalarWhereInput[]
-    NOT?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
-    id?: IntFilter<"ForecastedUserStock"> | number
-    userStockId?: IntFilter<"ForecastedUserStock"> | number
-    requiredStock?: IntFilter<"ForecastedUserStock"> | number
-    percentage?: IntFilter<"ForecastedUserStock"> | number
-    stockoutDate?: DateTimeFilter<"ForecastedUserStock"> | Date | string
+  export type ForecastedUserStockUncheckedUpdateWithoutUserStockInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    requiredStock?: IntFieldUpdateOperationsInput | number
+    percentage?: IntFieldUpdateOperationsInput | number
+    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserStockCreateWithoutBatchesInput = {
+    total?: number
+    sold?: number
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     user: UserCreateNestedOneWithoutUserStockInput
-    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateWithoutBatchesInput = {
     id?: number
     medicineId: number
+    total?: number
+    sold?: number
     userId: number
-    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
+    forecastedUserStock?: ForecastedUserStockUncheckedCreateNestedOneWithoutUserStockInput
   }
 
   export type UserStockCreateOrConnectWithoutBatchesInput = {
@@ -16336,19 +16388,25 @@ export namespace Prisma {
   }
 
   export type UserStockUpdateWithoutBatchesInput = {
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateWithoutBatchesInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
-    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUncheckedUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockCreateWithoutForecastedUserStockInput = {
+    total?: number
+    sold?: number
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     user: UserCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
@@ -16357,6 +16415,8 @@ export namespace Prisma {
   export type UserStockUncheckedCreateWithoutForecastedUserStockInput = {
     id?: number
     medicineId: number
+    total?: number
+    sold?: number
     userId: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
   }
@@ -16378,6 +16438,8 @@ export namespace Prisma {
   }
 
   export type UserStockUpdateWithoutForecastedUserStockInput = {
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
@@ -16386,6 +16448,8 @@ export namespace Prisma {
   export type UserStockUncheckedUpdateWithoutForecastedUserStockInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
   }
@@ -16606,7 +16670,7 @@ export namespace Prisma {
 
   export type TransactionHistoryCreateManyUserInput = {
     id?: number
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     medicineId: number
     amount?: number
@@ -16616,6 +16680,8 @@ export namespace Prisma {
   export type UserStockCreateManyUserInput = {
     id?: number
     medicineId: number
+    total?: number
+    sold?: number
   }
 
   export type TokensCreateManyUserInput = {
@@ -16650,21 +16716,27 @@ export namespace Prisma {
   }
 
   export type UserStockUpdateWithoutUserInput = {
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUncheckedUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
   }
 
   export type TokensUpdateWithoutUserInput = {
@@ -16684,7 +16756,7 @@ export namespace Prisma {
 
   export type TransactionHistoryCreateManyMedicineInput = {
     id?: number
-    createdAt: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     amount?: number
     userId: number
@@ -16693,6 +16765,8 @@ export namespace Prisma {
 
   export type UserStockCreateManyMedicineInput = {
     id?: number
+    total?: number
+    sold?: number
     userId: number
   }
 
@@ -16729,20 +16803,26 @@ export namespace Prisma {
   }
 
   export type UserStockUpdateWithoutMedicineInput = {
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateWithoutMedicineInput = {
     id?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
-    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
+    forecastedUserStock?: ForecastedUserStockUncheckedUpdateOneWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateManyWithoutMedicineInput = {
     id?: IntFieldUpdateOperationsInput | number
+    total?: IntFieldUpdateOperationsInput | number
+    sold?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -16769,13 +16849,6 @@ export namespace Prisma {
     amount?: number
   }
 
-  export type ForecastedUserStockCreateManyUserStockInput = {
-    id?: number
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
-  }
-
   export type StockBatchUpdateWithoutUserStockInput = {
     expirationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
@@ -16791,26 +16864,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     expirationDate?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type ForecastedUserStockUpdateWithoutUserStockInput = {
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ForecastedUserStockUncheckedUpdateWithoutUserStockInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ForecastedUserStockUncheckedUpdateManyWithoutUserStockInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DiseaseMedicineCorrelationCreateManyDiseaseInput = {

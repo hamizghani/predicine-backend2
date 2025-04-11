@@ -37,7 +37,7 @@ model Tokens {
 
 model TransactionHistory {
   id         Int      @id @default(autoincrement())
-  createdAt  DateTime
+  createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   medicineId Int
   amount     Int      @default(0)
@@ -62,13 +62,15 @@ model Medicine {
 }
 
 model UserStock {
-  id                  Int                   @id @default(autoincrement())
+  id                  Int                  @id @default(autoincrement())
   medicineId          Int
-  medicine            Medicine              @relation(fields: [medicineId], references: [id])
+  medicine            Medicine             @relation(fields: [medicineId], references: [id])
+  total               Int @default(0)
+  sold                Int @default(0)
   userId              Int
-  user                User                  @relation(fields: [userId], references: [id])
+  user                User                 @relation(fields: [userId], references: [id])
   batches             StockBatch[]
-  ForecastedUserStock ForecastedUserStock[]
+  forecastedUserStock ForecastedUserStock?
 
   @@unique([userId, medicineId])
 }
@@ -85,12 +87,13 @@ model StockBatch {
 
 model ForecastedUserStock {
   id            Int       @id @default(autoincrement())
-  userStockId   Int
+  userStockId   Int       @unique
   userStock     UserStock @relation(fields: [userStockId], references: [id])
   requiredStock Int
   percentage    Int
   stockoutDate  DateTime
 
+  @@unique([id, userStockId])
   @@index([userStockId])
 }
 

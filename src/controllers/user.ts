@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import prismaClient from "../services/db";
 import { Prisma } from "@prisma/client";
 import { TokenEnv } from "../types/user";
+import { UpdateProductPriceParams } from "../../zodSchema/product";
 
 const {
     REFRESH_TOKEN_SECRET,
@@ -20,19 +21,6 @@ export const getSelf = async (req: Request, res: Response) => {
     const selfData = await prismaClient.user.findUnique({
         where: {
             id: req.user.id
-        },
-        include: {
-            userStock: {
-                include: {
-                    batches: true,
-                    ForecastedUserStock: true,
-                }
-            },
-            transactionHistory: {
-                include: {
-                    medicine: true
-                }
-            }
         }
     })
     res.json({'user':selfData})
@@ -60,7 +48,8 @@ export const create = async (req: Request, res: Response) => {
                 name,
                 region,
                 sales,
-                quantitySold
+                quantitySold,
+                price: Array(51).fill(20000)
             },
             select: {
                 id: true,
@@ -193,6 +182,36 @@ export const changePassword = async (req: Request, res: Response) => {
             maxAge: 24 * 60 * 60 * 1000 // 1 day
         })
         res.json({ accessToken })
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
+}
+
+export const updatePrice = async (req: Request, res: Response) => {
+    if (!req.user?.id) {res.sendStatus(403);return;}
+    const {id, price}: UpdateProductPriceParams = req.body
+    if (id<=0 || id>50) {res.sendStatus(400);return;}
+
+    try {
+        const user = await prismaClient.user.findUnique({
+            where: {
+                id: req.user.id
+            }
+        })
+
+        const newPriceArray = user?.price || Array(51).fill(20000)
+        newPriceArray[id] = price
+
+        const newUser = await prismaClient.user.update({
+            where: {
+                id: req.user.id
+            },
+            data: {
+                price: newPriceArray
+            }
+        })
+        res.json({user: newUser})
     } catch (e) {
         console.log(e)
         res.sendStatus(500)

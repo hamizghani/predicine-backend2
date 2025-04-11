@@ -10,3 +10,18 @@ export const addProductSchema = z.object({
 });
 
 export type AddProductParams = z.infer<typeof addProductSchema>;
+
+export const updateProductPriceSchema = z.object({
+  id: z.number().int(),
+  price: z.number().int()
+})
+
+export type UpdateProductPriceParams = z.infer<typeof updateProductPriceSchema>;
+
+export const sellProductSchema = z.object({
+  id: z.number().int(),
+  amount: z.number().int()
+})
+
+
+export type SellProductParams = z.infer<typeof sellProductSchema>;
