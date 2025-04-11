@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import prismaClient from "../services/db";
 import { Prisma } from "@prisma/client";
 import { TokenEnv } from "../types/user";
-import { UpdateProductPriceParams } from "../../zodSchema/product";
+import { UpdateProductPriceParams } from "../zodSchema/product";
 
 const {
     REFRESH_TOKEN_SECRET,

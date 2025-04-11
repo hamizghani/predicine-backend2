@@ -3,7 +3,7 @@ import { refreshToken } from "../controllers/refreshToken";
 import { create, login, changePassword, update, logout, deleteOne, updatePrice, getSelf } from "../controllers/user";
 import verifyToken from "../middlewares/verifyToken";
 import zodSchemaValidator from "../lib/zodSchemaValidator";
-import { updateProductPriceSchema } from "../../zodSchema/product";
+import { updateProductPriceSchema } from "../zodSchema/product";
 
 
 const userRouter = Router({ mergeParams: true, caseSensitive:true })

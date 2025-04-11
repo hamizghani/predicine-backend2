@@ -3,7 +3,7 @@
 // add product
 
 import { Request, Response } from "../types";
-import { AddProductParams, SellProductParams } from "../../zodSchema/product";
+import { AddProductParams, SellProductParams } from "../zodSchema/product";
 import prismaClient from "../services/db";
 
 export const addProduct = async (req: Request, res: Response) => {
@@ -72,7 +72,8 @@ export const getAllMine = async (req: Request, res: Response) => {
                 userId: req.user.id
             },
             include: {
-                medicine: true
+                medicine: true,
+                batches: true
             }
         })
         res.json({ 'stocks': myStocks })

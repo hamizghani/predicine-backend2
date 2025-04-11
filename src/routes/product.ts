@@ -2,7 +2,7 @@ import { Router } from "express";
 import { addProduct, getAllMine, sellStock } from "../controllers/product";
 import verifyToken from "../middlewares/verifyToken";
 import zodSchemaValidator from "../lib/zodSchemaValidator";
-import { addProductSchema } from "../../zodSchema/product";
+import { addProductSchema } from "../zodSchema/product";
 
 
 const productRouter = Router({ mergeParams: true, caseSensitive:true })
