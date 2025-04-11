@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/src/server.js",
-    "dev": "nodemon --watch '**/*.ts' --exec ts-node src/server.ts",
-    "lint": "eslint 'src/**/*.ts'"
+    "copy:prisma": "cpx 'src/generated/prisma/**' 'dist/src/generated/prisma'",
+    "start": "pnpm run copy:prisma && node dist/src/server.js",
+    "start:dev": "pnpm run copy:prisma && nest start --watch"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.14.0",
+    "cpx": "^1.5.0",
     "dotenv": "^16.5.0",
     "eslint": "^9.24.0",
     "express": "^5.1.0",
@@ -45,10 +46,12 @@
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
-      "bcrypt"
+      "bcrypt",
+      "core-js"
     ],
     "onlyBuiltDependencies": [
-      "bcrypt"
+      "bcrypt",
+      "core-js"
     ]
   }
 }
