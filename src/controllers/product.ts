@@ -195,3 +195,89 @@ export const sellStock = async (req: Request, res: Response) => {
         res.json({ status: "Failed", error: e }).sendStatus(400)
     }
 }
+
+
+export const deleteStock = async (req: Request, res: Response) => {
+    if (!req.user) { res.sendStatus(403); return; }
+
+    try {
+        const { id, amount }: SellProductParams = req.body;
+
+        const availableStock = await prismaClient.userStock.findUniqueOrThrow({
+            where: { 
+                userId_medicineId: {
+                    medicineId: id, 
+                    userId: req.user.id
+                }
+            }, 
+            include: {
+                batches: {
+                    select: {
+                        id: true,
+                        amount: true,
+                        expirationDate: true
+                    },
+                    orderBy: {
+                        expirationDate: 'asc'
+                    }
+                }
+            }
+        });
+
+        const {price: currentUserPrices = []} = await prismaClient.user.findUniqueOrThrow({
+            where: {
+                id: req.user.id
+            },
+            select: {
+                price: true
+            }
+        })
+
+        if (!availableStock) {
+            throw new Error('Stock not found');
+        }
+
+        let remaining = amount;
+        const batchUpdates = [];
+
+        for (const batch of availableStock.batches) {
+            if (remaining <= 0) break;
+
+            const deduct = Math.min(batch.amount, remaining);
+            remaining -= deduct;
+
+            batchUpdates.push({
+                id: batch.id,
+                newAmount: batch.amount - deduct
+            });
+        }
+        console.log(batchUpdates)
+
+        if (remaining > 0) {
+            throw new Error('Not enough stock to fulfill the request');
+        }
+
+        const result = await prismaClient.$transaction([
+            ...batchUpdates.map(({ id, newAmount }) => {
+                if (newAmount==0) {
+                    return prismaClient.stockBatch.delete({
+                        where: { id }
+                    })
+                }
+                return prismaClient.stockBatch.update({
+                    where: {
+                        id
+                    },
+                    data: {
+                        amount: newAmount
+                    }
+                })
+            }
+            )
+        ])
+        res.json({ status: "Success"})
+    } catch (e) {
+        console.log(e)
+        res.json({ status: "Failed", error: e }).sendStatus(400)
+    }
+}
