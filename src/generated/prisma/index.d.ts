@@ -44,20 +44,20 @@ export type UserStock = $Result.DefaultSelection<Prisma.$UserStockPayload>
  */
 export type StockBatch = $Result.DefaultSelection<Prisma.$StockBatchPayload>
 /**
- * Model ForecastedMedicine
+ * Model ForecastedUserStock
  * 
  */
-export type ForecastedMedicine = $Result.DefaultSelection<Prisma.$ForecastedMedicinePayload>
+export type ForecastedUserStock = $Result.DefaultSelection<Prisma.$ForecastedUserStockPayload>
 /**
  * Model Disease
  * 
  */
 export type Disease = $Result.DefaultSelection<Prisma.$DiseasePayload>
 /**
- * Model DiseaseRecords
+ * Model DiseaseRecord
  * 
  */
-export type DiseaseRecords = $Result.DefaultSelection<Prisma.$DiseaseRecordsPayload>
+export type DiseaseRecord = $Result.DefaultSelection<Prisma.$DiseaseRecordPayload>
 /**
  * Model DiseaseMedicineCorrelation
  * 
@@ -250,14 +250,14 @@ export class PrismaClient<
   get stockBatch(): Prisma.StockBatchDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.forecastedMedicine`: Exposes CRUD operations for the **ForecastedMedicine** model.
+   * `prisma.forecastedUserStock`: Exposes CRUD operations for the **ForecastedUserStock** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ForecastedMedicines
-    * const forecastedMedicines = await prisma.forecastedMedicine.findMany()
+    * // Fetch zero or more ForecastedUserStocks
+    * const forecastedUserStocks = await prisma.forecastedUserStock.findMany()
     * ```
     */
-  get forecastedMedicine(): Prisma.ForecastedMedicineDelegate<ExtArgs, ClientOptions>;
+  get forecastedUserStock(): Prisma.ForecastedUserStockDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.disease`: Exposes CRUD operations for the **Disease** model.
@@ -270,14 +270,14 @@ export class PrismaClient<
   get disease(): Prisma.DiseaseDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.diseaseRecords`: Exposes CRUD operations for the **DiseaseRecords** model.
+   * `prisma.diseaseRecord`: Exposes CRUD operations for the **DiseaseRecord** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more DiseaseRecords
-    * const diseaseRecords = await prisma.diseaseRecords.findMany()
+    * const diseaseRecords = await prisma.diseaseRecord.findMany()
     * ```
     */
-  get diseaseRecords(): Prisma.DiseaseRecordsDelegate<ExtArgs, ClientOptions>;
+  get diseaseRecord(): Prisma.DiseaseRecordDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.diseaseMedicineCorrelation`: Exposes CRUD operations for the **DiseaseMedicineCorrelation** model.
@@ -734,9 +734,9 @@ export namespace Prisma {
     Medicine: 'Medicine',
     UserStock: 'UserStock',
     StockBatch: 'StockBatch',
-    ForecastedMedicine: 'ForecastedMedicine',
+    ForecastedUserStock: 'ForecastedUserStock',
     Disease: 'Disease',
-    DiseaseRecords: 'DiseaseRecords',
+    DiseaseRecord: 'DiseaseRecord',
     DiseaseMedicineCorrelation: 'DiseaseMedicineCorrelation'
   };
 
@@ -756,7 +756,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "tokens" | "transactionHistory" | "medicine" | "userStock" | "stockBatch" | "forecastedMedicine" | "disease" | "diseaseRecords" | "diseaseMedicineCorrelation"
+      modelProps: "user" | "tokens" | "transactionHistory" | "medicine" | "userStock" | "stockBatch" | "forecastedUserStock" | "disease" | "diseaseRecord" | "diseaseMedicineCorrelation"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1204,77 +1204,77 @@ export namespace Prisma {
           }
         }
       }
-      ForecastedMedicine: {
-        payload: Prisma.$ForecastedMedicinePayload<ExtArgs>
-        fields: Prisma.ForecastedMedicineFieldRefs
+      ForecastedUserStock: {
+        payload: Prisma.$ForecastedUserStockPayload<ExtArgs>
+        fields: Prisma.ForecastedUserStockFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ForecastedMedicineFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload> | null
+            args: Prisma.ForecastedUserStockFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ForecastedMedicineFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>
+            args: Prisma.ForecastedUserStockFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>
           }
           findFirst: {
-            args: Prisma.ForecastedMedicineFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload> | null
+            args: Prisma.ForecastedUserStockFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ForecastedMedicineFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>
+            args: Prisma.ForecastedUserStockFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>
           }
           findMany: {
-            args: Prisma.ForecastedMedicineFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>[]
+            args: Prisma.ForecastedUserStockFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>[]
           }
           create: {
-            args: Prisma.ForecastedMedicineCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>
+            args: Prisma.ForecastedUserStockCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>
           }
           createMany: {
-            args: Prisma.ForecastedMedicineCreateManyArgs<ExtArgs>
+            args: Prisma.ForecastedUserStockCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.ForecastedMedicineCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>[]
+            args: Prisma.ForecastedUserStockCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>[]
           }
           delete: {
-            args: Prisma.ForecastedMedicineDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>
+            args: Prisma.ForecastedUserStockDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>
           }
           update: {
-            args: Prisma.ForecastedMedicineUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>
+            args: Prisma.ForecastedUserStockUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>
           }
           deleteMany: {
-            args: Prisma.ForecastedMedicineDeleteManyArgs<ExtArgs>
+            args: Prisma.ForecastedUserStockDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ForecastedMedicineUpdateManyArgs<ExtArgs>
+            args: Prisma.ForecastedUserStockUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.ForecastedMedicineUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>[]
+            args: Prisma.ForecastedUserStockUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>[]
           }
           upsert: {
-            args: Prisma.ForecastedMedicineUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ForecastedMedicinePayload>
+            args: Prisma.ForecastedUserStockUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ForecastedUserStockPayload>
           }
           aggregate: {
-            args: Prisma.ForecastedMedicineAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateForecastedMedicine>
+            args: Prisma.ForecastedUserStockAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateForecastedUserStock>
           }
           groupBy: {
-            args: Prisma.ForecastedMedicineGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ForecastedMedicineGroupByOutputType>[]
+            args: Prisma.ForecastedUserStockGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ForecastedUserStockGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ForecastedMedicineCountArgs<ExtArgs>
-            result: $Utils.Optional<ForecastedMedicineCountAggregateOutputType> | number
+            args: Prisma.ForecastedUserStockCountArgs<ExtArgs>
+            result: $Utils.Optional<ForecastedUserStockCountAggregateOutputType> | number
           }
         }
       }
@@ -1352,77 +1352,77 @@ export namespace Prisma {
           }
         }
       }
-      DiseaseRecords: {
-        payload: Prisma.$DiseaseRecordsPayload<ExtArgs>
-        fields: Prisma.DiseaseRecordsFieldRefs
+      DiseaseRecord: {
+        payload: Prisma.$DiseaseRecordPayload<ExtArgs>
+        fields: Prisma.DiseaseRecordFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.DiseaseRecordsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload> | null
+            args: Prisma.DiseaseRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.DiseaseRecordsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>
+            args: Prisma.DiseaseRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>
           }
           findFirst: {
-            args: Prisma.DiseaseRecordsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload> | null
+            args: Prisma.DiseaseRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.DiseaseRecordsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>
+            args: Prisma.DiseaseRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>
           }
           findMany: {
-            args: Prisma.DiseaseRecordsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>[]
+            args: Prisma.DiseaseRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>[]
           }
           create: {
-            args: Prisma.DiseaseRecordsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>
+            args: Prisma.DiseaseRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>
           }
           createMany: {
-            args: Prisma.DiseaseRecordsCreateManyArgs<ExtArgs>
+            args: Prisma.DiseaseRecordCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.DiseaseRecordsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>[]
+            args: Prisma.DiseaseRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>[]
           }
           delete: {
-            args: Prisma.DiseaseRecordsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>
+            args: Prisma.DiseaseRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>
           }
           update: {
-            args: Prisma.DiseaseRecordsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>
+            args: Prisma.DiseaseRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>
           }
           deleteMany: {
-            args: Prisma.DiseaseRecordsDeleteManyArgs<ExtArgs>
+            args: Prisma.DiseaseRecordDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.DiseaseRecordsUpdateManyArgs<ExtArgs>
+            args: Prisma.DiseaseRecordUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.DiseaseRecordsUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>[]
+            args: Prisma.DiseaseRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>[]
           }
           upsert: {
-            args: Prisma.DiseaseRecordsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordsPayload>
+            args: Prisma.DiseaseRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DiseaseRecordPayload>
           }
           aggregate: {
-            args: Prisma.DiseaseRecordsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDiseaseRecords>
+            args: Prisma.DiseaseRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDiseaseRecord>
           }
           groupBy: {
-            args: Prisma.DiseaseRecordsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DiseaseRecordsGroupByOutputType>[]
+            args: Prisma.DiseaseRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DiseaseRecordGroupByOutputType>[]
           }
           count: {
-            args: Prisma.DiseaseRecordsCountArgs<ExtArgs>
-            result: $Utils.Optional<DiseaseRecordsCountAggregateOutputType> | number
+            args: Prisma.DiseaseRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<DiseaseRecordCountAggregateOutputType> | number
           }
         }
       }
@@ -1590,9 +1590,9 @@ export namespace Prisma {
     medicine?: MedicineOmit
     userStock?: UserStockOmit
     stockBatch?: StockBatchOmit
-    forecastedMedicine?: ForecastedMedicineOmit
+    forecastedUserStock?: ForecastedUserStockOmit
     disease?: DiseaseOmit
-    diseaseRecords?: DiseaseRecordsOmit
+    diseaseRecord?: DiseaseRecordOmit
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationOmit
   }
 
@@ -1690,14 +1690,12 @@ export namespace Prisma {
   export type UserCountOutputType = {
     transactionHistory: number
     userStock: number
-    forecastedMedicine: number
     tokens: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactionHistory?: boolean | UserCountOutputTypeCountTransactionHistoryArgs
     userStock?: boolean | UserCountOutputTypeCountUserStockArgs
-    forecastedMedicine?: boolean | UserCountOutputTypeCountForecastedMedicineArgs
     tokens?: boolean | UserCountOutputTypeCountTokensArgs
   }
 
@@ -1729,13 +1727,6 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountForecastedMedicineArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ForecastedMedicineWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
   export type UserCountOutputTypeCountTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TokensWhereInput
   }
@@ -1749,14 +1740,12 @@ export namespace Prisma {
     transactionHistory: number
     userStock: number
     diseaseMedicineCorrelation: number
-    forecastedMedicine: number
   }
 
   export type MedicineCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactionHistory?: boolean | MedicineCountOutputTypeCountTransactionHistoryArgs
     userStock?: boolean | MedicineCountOutputTypeCountUserStockArgs
     diseaseMedicineCorrelation?: boolean | MedicineCountOutputTypeCountDiseaseMedicineCorrelationArgs
-    forecastedMedicine?: boolean | MedicineCountOutputTypeCountForecastedMedicineArgs
   }
 
   // Custom InputTypes
@@ -1791,13 +1780,6 @@ export namespace Prisma {
     where?: DiseaseMedicineCorrelationWhereInput
   }
 
-  /**
-   * MedicineCountOutputType without action
-   */
-  export type MedicineCountOutputTypeCountForecastedMedicineArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ForecastedMedicineWhereInput
-  }
-
 
   /**
    * Count Type UserStockCountOutputType
@@ -1805,10 +1787,12 @@ export namespace Prisma {
 
   export type UserStockCountOutputType = {
     batches: number
+    ForecastedUserStock: number
   }
 
   export type UserStockCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     batches?: boolean | UserStockCountOutputTypeCountBatchesArgs
+    ForecastedUserStock?: boolean | UserStockCountOutputTypeCountForecastedUserStockArgs
   }
 
   // Custom InputTypes
@@ -1827,6 +1811,13 @@ export namespace Prisma {
    */
   export type UserStockCountOutputTypeCountBatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: StockBatchWhereInput
+  }
+
+  /**
+   * UserStockCountOutputType without action
+   */
+  export type UserStockCountOutputTypeCountForecastedUserStockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ForecastedUserStockWhereInput
   }
 
 
@@ -1866,7 +1857,7 @@ export namespace Prisma {
    * DiseaseCountOutputType without action
    */
   export type DiseaseCountOutputTypeCountDiseaseRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
   }
 
 
@@ -2106,7 +2097,6 @@ export namespace Prisma {
     price?: boolean
     transactionHistory?: boolean | User$transactionHistoryArgs<ExtArgs>
     userStock?: boolean | User$userStockArgs<ExtArgs>
-    forecastedMedicine?: boolean | User$forecastedMedicineArgs<ExtArgs>
     tokens?: boolean | User$tokensArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -2148,7 +2138,6 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactionHistory?: boolean | User$transactionHistoryArgs<ExtArgs>
     userStock?: boolean | User$userStockArgs<ExtArgs>
-    forecastedMedicine?: boolean | User$forecastedMedicineArgs<ExtArgs>
     tokens?: boolean | User$tokensArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -2160,7 +2149,6 @@ export namespace Prisma {
     objects: {
       transactionHistory: Prisma.$TransactionHistoryPayload<ExtArgs>[]
       userStock: Prisma.$UserStockPayload<ExtArgs>[]
-      forecastedMedicine: Prisma.$ForecastedMedicinePayload<ExtArgs>[]
       tokens: Prisma.$TokensPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -2568,7 +2556,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     transactionHistory<T extends User$transactionHistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$transactionHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userStock<T extends User$userStockArgs<ExtArgs> = {}>(args?: Subset<T, User$userStockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    forecastedMedicine<T extends User$forecastedMedicineArgs<ExtArgs> = {}>(args?: Subset<T, User$forecastedMedicineArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tokens<T extends User$tokensArgs<ExtArgs> = {}>(args?: Subset<T, User$tokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TokensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3040,30 +3027,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserStockScalarFieldEnum | UserStockScalarFieldEnum[]
-  }
-
-  /**
-   * User.forecastedMedicine
-   */
-  export type User$forecastedMedicineArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ForecastedMedicine
-     */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ForecastedMedicine
-     */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
-    where?: ForecastedMedicineWhereInput
-    orderBy?: ForecastedMedicineOrderByWithRelationInput | ForecastedMedicineOrderByWithRelationInput[]
-    cursor?: ForecastedMedicineWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ForecastedMedicineScalarFieldEnum | ForecastedMedicineScalarFieldEnum[]
   }
 
   /**
@@ -5342,7 +5305,7 @@ export namespace Prisma {
     name: string | null
     description: string | null
     brief: string | null
-    photoLink: string | null
+    imageUrl: string | null
   }
 
   export type MedicineMaxAggregateOutputType = {
@@ -5350,7 +5313,7 @@ export namespace Prisma {
     name: string | null
     description: string | null
     brief: string | null
-    photoLink: string | null
+    imageUrl: string | null
   }
 
   export type MedicineCountAggregateOutputType = {
@@ -5358,7 +5321,7 @@ export namespace Prisma {
     name: number
     description: number
     brief: number
-    photoLink: number
+    imageUrl: number
     _all: number
   }
 
@@ -5376,7 +5339,7 @@ export namespace Prisma {
     name?: true
     description?: true
     brief?: true
-    photoLink?: true
+    imageUrl?: true
   }
 
   export type MedicineMaxAggregateInputType = {
@@ -5384,7 +5347,7 @@ export namespace Prisma {
     name?: true
     description?: true
     brief?: true
-    photoLink?: true
+    imageUrl?: true
   }
 
   export type MedicineCountAggregateInputType = {
@@ -5392,7 +5355,7 @@ export namespace Prisma {
     name?: true
     description?: true
     brief?: true
-    photoLink?: true
+    imageUrl?: true
     _all?: true
   }
 
@@ -5487,7 +5450,7 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     _count: MedicineCountAggregateOutputType | null
     _avg: MedicineAvgAggregateOutputType | null
     _sum: MedicineSumAggregateOutputType | null
@@ -5514,11 +5477,10 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
     brief?: boolean
-    photoLink?: boolean
+    imageUrl?: boolean
     transactionHistory?: boolean | Medicine$transactionHistoryArgs<ExtArgs>
     userStock?: boolean | Medicine$userStockArgs<ExtArgs>
     diseaseMedicineCorrelation?: boolean | Medicine$diseaseMedicineCorrelationArgs<ExtArgs>
-    forecastedMedicine?: boolean | Medicine$forecastedMedicineArgs<ExtArgs>
     _count?: boolean | MedicineCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["medicine"]>
 
@@ -5527,7 +5489,7 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
     brief?: boolean
-    photoLink?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["medicine"]>
 
   export type MedicineSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5535,7 +5497,7 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
     brief?: boolean
-    photoLink?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["medicine"]>
 
   export type MedicineSelectScalar = {
@@ -5543,15 +5505,14 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
     brief?: boolean
-    photoLink?: boolean
+    imageUrl?: boolean
   }
 
-  export type MedicineOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "brief" | "photoLink", ExtArgs["result"]["medicine"]>
+  export type MedicineOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "brief" | "imageUrl", ExtArgs["result"]["medicine"]>
   export type MedicineInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transactionHistory?: boolean | Medicine$transactionHistoryArgs<ExtArgs>
     userStock?: boolean | Medicine$userStockArgs<ExtArgs>
     diseaseMedicineCorrelation?: boolean | Medicine$diseaseMedicineCorrelationArgs<ExtArgs>
-    forecastedMedicine?: boolean | Medicine$forecastedMedicineArgs<ExtArgs>
     _count?: boolean | MedicineCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type MedicineIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5563,14 +5524,13 @@ export namespace Prisma {
       transactionHistory: Prisma.$TransactionHistoryPayload<ExtArgs>[]
       userStock: Prisma.$UserStockPayload<ExtArgs>[]
       diseaseMedicineCorrelation: Prisma.$DiseaseMedicineCorrelationPayload<ExtArgs>[]
-      forecastedMedicine: Prisma.$ForecastedMedicinePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
       description: string
       brief: string
-      photoLink: string
+      imageUrl: string
     }, ExtArgs["result"]["medicine"]>
     composites: {}
   }
@@ -5968,7 +5928,6 @@ export namespace Prisma {
     transactionHistory<T extends Medicine$transactionHistoryArgs<ExtArgs> = {}>(args?: Subset<T, Medicine$transactionHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userStock<T extends Medicine$userStockArgs<ExtArgs> = {}>(args?: Subset<T, Medicine$userStockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     diseaseMedicineCorrelation<T extends Medicine$diseaseMedicineCorrelationArgs<ExtArgs> = {}>(args?: Subset<T, Medicine$diseaseMedicineCorrelationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseMedicineCorrelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    forecastedMedicine<T extends Medicine$forecastedMedicineArgs<ExtArgs> = {}>(args?: Subset<T, Medicine$forecastedMedicineArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6002,7 +5961,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Medicine", 'String'>
     readonly description: FieldRef<"Medicine", 'String'>
     readonly brief: FieldRef<"Medicine", 'String'>
-    readonly photoLink: FieldRef<"Medicine", 'String'>
+    readonly imageUrl: FieldRef<"Medicine", 'String'>
   }
     
 
@@ -6463,30 +6422,6 @@ export namespace Prisma {
   }
 
   /**
-   * Medicine.forecastedMedicine
-   */
-  export type Medicine$forecastedMedicineArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ForecastedMedicine
-     */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ForecastedMedicine
-     */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
-    where?: ForecastedMedicineWhereInput
-    orderBy?: ForecastedMedicineOrderByWithRelationInput | ForecastedMedicineOrderByWithRelationInput[]
-    cursor?: ForecastedMedicineWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ForecastedMedicineScalarFieldEnum | ForecastedMedicineScalarFieldEnum[]
-  }
-
-  /**
    * Medicine without action
    */
   export type MedicineDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6698,6 +6633,7 @@ export namespace Prisma {
     medicine?: boolean | MedicineDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     batches?: boolean | UserStock$batchesArgs<ExtArgs>
+    ForecastedUserStock?: boolean | UserStock$ForecastedUserStockArgs<ExtArgs>
     _count?: boolean | UserStockCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userStock"]>
 
@@ -6728,6 +6664,7 @@ export namespace Prisma {
     medicine?: boolean | MedicineDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     batches?: boolean | UserStock$batchesArgs<ExtArgs>
+    ForecastedUserStock?: boolean | UserStock$ForecastedUserStockArgs<ExtArgs>
     _count?: boolean | UserStockCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserStockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6745,6 +6682,7 @@ export namespace Prisma {
       medicine: Prisma.$MedicinePayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
       batches: Prisma.$StockBatchPayload<ExtArgs>[]
+      ForecastedUserStock: Prisma.$ForecastedUserStockPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7147,6 +7085,7 @@ export namespace Prisma {
     medicine<T extends MedicineDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MedicineDefaultArgs<ExtArgs>>): Prisma__MedicineClient<$Result.GetResult<Prisma.$MedicinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     batches<T extends UserStock$batchesArgs<ExtArgs> = {}>(args?: Subset<T, UserStock$batchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StockBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ForecastedUserStock<T extends UserStock$ForecastedUserStockArgs<ExtArgs> = {}>(args?: Subset<T, UserStock$ForecastedUserStockArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7596,6 +7535,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: StockBatchScalarFieldEnum | StockBatchScalarFieldEnum[]
+  }
+
+  /**
+   * UserStock.ForecastedUserStock
+   */
+  export type UserStock$ForecastedUserStockArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ForecastedUserStock
+     */
+    select?: ForecastedUserStockSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ForecastedUserStock
+     */
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ForecastedUserStockInclude<ExtArgs> | null
+    where?: ForecastedUserStockWhereInput
+    orderBy?: ForecastedUserStockOrderByWithRelationInput | ForecastedUserStockOrderByWithRelationInput[]
+    cursor?: ForecastedUserStockWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ForecastedUserStockScalarFieldEnum | ForecastedUserStockScalarFieldEnum[]
   }
 
   /**
@@ -8705,55 +8668,50 @@ export namespace Prisma {
 
 
   /**
-   * Model ForecastedMedicine
+   * Model ForecastedUserStock
    */
 
-  export type AggregateForecastedMedicine = {
-    _count: ForecastedMedicineCountAggregateOutputType | null
-    _avg: ForecastedMedicineAvgAggregateOutputType | null
-    _sum: ForecastedMedicineSumAggregateOutputType | null
-    _min: ForecastedMedicineMinAggregateOutputType | null
-    _max: ForecastedMedicineMaxAggregateOutputType | null
+  export type AggregateForecastedUserStock = {
+    _count: ForecastedUserStockCountAggregateOutputType | null
+    _avg: ForecastedUserStockAvgAggregateOutputType | null
+    _sum: ForecastedUserStockSumAggregateOutputType | null
+    _min: ForecastedUserStockMinAggregateOutputType | null
+    _max: ForecastedUserStockMaxAggregateOutputType | null
   }
 
-  export type ForecastedMedicineAvgAggregateOutputType = {
+  export type ForecastedUserStockAvgAggregateOutputType = {
     id: number | null
-    medicineId: number | null
-    userId: number | null
+    userStockId: number | null
     requiredStock: number | null
     percentage: number | null
   }
 
-  export type ForecastedMedicineSumAggregateOutputType = {
+  export type ForecastedUserStockSumAggregateOutputType = {
     id: number | null
-    medicineId: number | null
-    userId: number | null
+    userStockId: number | null
     requiredStock: number | null
     percentage: number | null
   }
 
-  export type ForecastedMedicineMinAggregateOutputType = {
+  export type ForecastedUserStockMinAggregateOutputType = {
     id: number | null
-    medicineId: number | null
-    userId: number | null
+    userStockId: number | null
     requiredStock: number | null
     percentage: number | null
     stockoutDate: Date | null
   }
 
-  export type ForecastedMedicineMaxAggregateOutputType = {
+  export type ForecastedUserStockMaxAggregateOutputType = {
     id: number | null
-    medicineId: number | null
-    userId: number | null
+    userStockId: number | null
     requiredStock: number | null
     percentage: number | null
     stockoutDate: Date | null
   }
 
-  export type ForecastedMedicineCountAggregateOutputType = {
+  export type ForecastedUserStockCountAggregateOutputType = {
     id: number
-    medicineId: number
-    userId: number
+    userStockId: number
     requiredStock: number
     percentage: number
     stockoutDate: number
@@ -8761,363 +8719,345 @@ export namespace Prisma {
   }
 
 
-  export type ForecastedMedicineAvgAggregateInputType = {
+  export type ForecastedUserStockAvgAggregateInputType = {
     id?: true
-    medicineId?: true
-    userId?: true
+    userStockId?: true
     requiredStock?: true
     percentage?: true
   }
 
-  export type ForecastedMedicineSumAggregateInputType = {
+  export type ForecastedUserStockSumAggregateInputType = {
     id?: true
-    medicineId?: true
-    userId?: true
+    userStockId?: true
     requiredStock?: true
     percentage?: true
   }
 
-  export type ForecastedMedicineMinAggregateInputType = {
+  export type ForecastedUserStockMinAggregateInputType = {
     id?: true
-    medicineId?: true
-    userId?: true
+    userStockId?: true
     requiredStock?: true
     percentage?: true
     stockoutDate?: true
   }
 
-  export type ForecastedMedicineMaxAggregateInputType = {
+  export type ForecastedUserStockMaxAggregateInputType = {
     id?: true
-    medicineId?: true
-    userId?: true
+    userStockId?: true
     requiredStock?: true
     percentage?: true
     stockoutDate?: true
   }
 
-  export type ForecastedMedicineCountAggregateInputType = {
+  export type ForecastedUserStockCountAggregateInputType = {
     id?: true
-    medicineId?: true
-    userId?: true
+    userStockId?: true
     requiredStock?: true
     percentage?: true
     stockoutDate?: true
     _all?: true
   }
 
-  export type ForecastedMedicineAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ForecastedMedicine to aggregate.
+     * Filter which ForecastedUserStock to aggregate.
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ForecastedMedicines to fetch.
+     * Determine the order of ForecastedUserStocks to fetch.
      */
-    orderBy?: ForecastedMedicineOrderByWithRelationInput | ForecastedMedicineOrderByWithRelationInput[]
+    orderBy?: ForecastedUserStockOrderByWithRelationInput | ForecastedUserStockOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ForecastedMedicineWhereUniqueInput
+    cursor?: ForecastedUserStockWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ForecastedMedicines from the position of the cursor.
+     * Take `±n` ForecastedUserStocks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ForecastedMedicines.
+     * Skip the first `n` ForecastedUserStocks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ForecastedMedicines
+     * Count returned ForecastedUserStocks
     **/
-    _count?: true | ForecastedMedicineCountAggregateInputType
+    _count?: true | ForecastedUserStockCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ForecastedMedicineAvgAggregateInputType
+    _avg?: ForecastedUserStockAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ForecastedMedicineSumAggregateInputType
+    _sum?: ForecastedUserStockSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ForecastedMedicineMinAggregateInputType
+    _min?: ForecastedUserStockMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ForecastedMedicineMaxAggregateInputType
+    _max?: ForecastedUserStockMaxAggregateInputType
   }
 
-  export type GetForecastedMedicineAggregateType<T extends ForecastedMedicineAggregateArgs> = {
-        [P in keyof T & keyof AggregateForecastedMedicine]: P extends '_count' | 'count'
+  export type GetForecastedUserStockAggregateType<T extends ForecastedUserStockAggregateArgs> = {
+        [P in keyof T & keyof AggregateForecastedUserStock]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateForecastedMedicine[P]>
-      : GetScalarType<T[P], AggregateForecastedMedicine[P]>
+        : GetScalarType<T[P], AggregateForecastedUserStock[P]>
+      : GetScalarType<T[P], AggregateForecastedUserStock[P]>
   }
 
 
 
 
-  export type ForecastedMedicineGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ForecastedMedicineWhereInput
-    orderBy?: ForecastedMedicineOrderByWithAggregationInput | ForecastedMedicineOrderByWithAggregationInput[]
-    by: ForecastedMedicineScalarFieldEnum[] | ForecastedMedicineScalarFieldEnum
-    having?: ForecastedMedicineScalarWhereWithAggregatesInput
+  export type ForecastedUserStockGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ForecastedUserStockWhereInput
+    orderBy?: ForecastedUserStockOrderByWithAggregationInput | ForecastedUserStockOrderByWithAggregationInput[]
+    by: ForecastedUserStockScalarFieldEnum[] | ForecastedUserStockScalarFieldEnum
+    having?: ForecastedUserStockScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ForecastedMedicineCountAggregateInputType | true
-    _avg?: ForecastedMedicineAvgAggregateInputType
-    _sum?: ForecastedMedicineSumAggregateInputType
-    _min?: ForecastedMedicineMinAggregateInputType
-    _max?: ForecastedMedicineMaxAggregateInputType
+    _count?: ForecastedUserStockCountAggregateInputType | true
+    _avg?: ForecastedUserStockAvgAggregateInputType
+    _sum?: ForecastedUserStockSumAggregateInputType
+    _min?: ForecastedUserStockMinAggregateInputType
+    _max?: ForecastedUserStockMaxAggregateInputType
   }
 
-  export type ForecastedMedicineGroupByOutputType = {
+  export type ForecastedUserStockGroupByOutputType = {
     id: number
-    medicineId: number
-    userId: number
+    userStockId: number
     requiredStock: number
     percentage: number
     stockoutDate: Date
-    _count: ForecastedMedicineCountAggregateOutputType | null
-    _avg: ForecastedMedicineAvgAggregateOutputType | null
-    _sum: ForecastedMedicineSumAggregateOutputType | null
-    _min: ForecastedMedicineMinAggregateOutputType | null
-    _max: ForecastedMedicineMaxAggregateOutputType | null
+    _count: ForecastedUserStockCountAggregateOutputType | null
+    _avg: ForecastedUserStockAvgAggregateOutputType | null
+    _sum: ForecastedUserStockSumAggregateOutputType | null
+    _min: ForecastedUserStockMinAggregateOutputType | null
+    _max: ForecastedUserStockMaxAggregateOutputType | null
   }
 
-  type GetForecastedMedicineGroupByPayload<T extends ForecastedMedicineGroupByArgs> = Prisma.PrismaPromise<
+  type GetForecastedUserStockGroupByPayload<T extends ForecastedUserStockGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ForecastedMedicineGroupByOutputType, T['by']> &
+      PickEnumerable<ForecastedUserStockGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ForecastedMedicineGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ForecastedUserStockGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ForecastedMedicineGroupByOutputType[P]>
-            : GetScalarType<T[P], ForecastedMedicineGroupByOutputType[P]>
+              : GetScalarType<T[P], ForecastedUserStockGroupByOutputType[P]>
+            : GetScalarType<T[P], ForecastedUserStockGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ForecastedMedicineSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ForecastedUserStockSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    medicineId?: boolean
-    userId?: boolean
+    userStockId?: boolean
     requiredStock?: boolean
     percentage?: boolean
     stockoutDate?: boolean
-    medicine?: boolean | MedicineDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["forecastedMedicine"]>
+    userStock?: boolean | UserStockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["forecastedUserStock"]>
 
-  export type ForecastedMedicineSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ForecastedUserStockSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    medicineId?: boolean
-    userId?: boolean
+    userStockId?: boolean
     requiredStock?: boolean
     percentage?: boolean
     stockoutDate?: boolean
-    medicine?: boolean | MedicineDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["forecastedMedicine"]>
+    userStock?: boolean | UserStockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["forecastedUserStock"]>
 
-  export type ForecastedMedicineSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ForecastedUserStockSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    medicineId?: boolean
-    userId?: boolean
+    userStockId?: boolean
     requiredStock?: boolean
     percentage?: boolean
     stockoutDate?: boolean
-    medicine?: boolean | MedicineDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["forecastedMedicine"]>
+    userStock?: boolean | UserStockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["forecastedUserStock"]>
 
-  export type ForecastedMedicineSelectScalar = {
+  export type ForecastedUserStockSelectScalar = {
     id?: boolean
-    medicineId?: boolean
-    userId?: boolean
+    userStockId?: boolean
     requiredStock?: boolean
     percentage?: boolean
     stockoutDate?: boolean
   }
 
-  export type ForecastedMedicineOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "medicineId" | "userId" | "requiredStock" | "percentage" | "stockoutDate", ExtArgs["result"]["forecastedMedicine"]>
-  export type ForecastedMedicineInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    medicine?: boolean | MedicineDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+  export type ForecastedUserStockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userStockId" | "requiredStock" | "percentage" | "stockoutDate", ExtArgs["result"]["forecastedUserStock"]>
+  export type ForecastedUserStockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userStock?: boolean | UserStockDefaultArgs<ExtArgs>
   }
-  export type ForecastedMedicineIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    medicine?: boolean | MedicineDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+  export type ForecastedUserStockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userStock?: boolean | UserStockDefaultArgs<ExtArgs>
   }
-  export type ForecastedMedicineIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    medicine?: boolean | MedicineDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+  export type ForecastedUserStockIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userStock?: boolean | UserStockDefaultArgs<ExtArgs>
   }
 
-  export type $ForecastedMedicinePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ForecastedMedicine"
+  export type $ForecastedUserStockPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ForecastedUserStock"
     objects: {
-      medicine: Prisma.$MedicinePayload<ExtArgs>
-      user: Prisma.$UserPayload<ExtArgs>
+      userStock: Prisma.$UserStockPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      medicineId: number
-      userId: number
+      userStockId: number
       requiredStock: number
       percentage: number
       stockoutDate: Date
-    }, ExtArgs["result"]["forecastedMedicine"]>
+    }, ExtArgs["result"]["forecastedUserStock"]>
     composites: {}
   }
 
-  type ForecastedMedicineGetPayload<S extends boolean | null | undefined | ForecastedMedicineDefaultArgs> = $Result.GetResult<Prisma.$ForecastedMedicinePayload, S>
+  type ForecastedUserStockGetPayload<S extends boolean | null | undefined | ForecastedUserStockDefaultArgs> = $Result.GetResult<Prisma.$ForecastedUserStockPayload, S>
 
-  type ForecastedMedicineCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ForecastedMedicineFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ForecastedMedicineCountAggregateInputType | true
+  type ForecastedUserStockCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ForecastedUserStockFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ForecastedUserStockCountAggregateInputType | true
     }
 
-  export interface ForecastedMedicineDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ForecastedMedicine'], meta: { name: 'ForecastedMedicine' } }
+  export interface ForecastedUserStockDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ForecastedUserStock'], meta: { name: 'ForecastedUserStock' } }
     /**
-     * Find zero or one ForecastedMedicine that matches the filter.
-     * @param {ForecastedMedicineFindUniqueArgs} args - Arguments to find a ForecastedMedicine
+     * Find zero or one ForecastedUserStock that matches the filter.
+     * @param {ForecastedUserStockFindUniqueArgs} args - Arguments to find a ForecastedUserStock
      * @example
-     * // Get one ForecastedMedicine
-     * const forecastedMedicine = await prisma.forecastedMedicine.findUnique({
+     * // Get one ForecastedUserStock
+     * const forecastedUserStock = await prisma.forecastedUserStock.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ForecastedMedicineFindUniqueArgs>(args: SelectSubset<T, ForecastedMedicineFindUniqueArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ForecastedUserStockFindUniqueArgs>(args: SelectSubset<T, ForecastedUserStockFindUniqueArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one ForecastedMedicine that matches the filter or throw an error with `error.code='P2025'`
+     * Find one ForecastedUserStock that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ForecastedMedicineFindUniqueOrThrowArgs} args - Arguments to find a ForecastedMedicine
+     * @param {ForecastedUserStockFindUniqueOrThrowArgs} args - Arguments to find a ForecastedUserStock
      * @example
-     * // Get one ForecastedMedicine
-     * const forecastedMedicine = await prisma.forecastedMedicine.findUniqueOrThrow({
+     * // Get one ForecastedUserStock
+     * const forecastedUserStock = await prisma.forecastedUserStock.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ForecastedMedicineFindUniqueOrThrowArgs>(args: SelectSubset<T, ForecastedMedicineFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ForecastedUserStockFindUniqueOrThrowArgs>(args: SelectSubset<T, ForecastedUserStockFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first ForecastedMedicine that matches the filter.
+     * Find the first ForecastedUserStock that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineFindFirstArgs} args - Arguments to find a ForecastedMedicine
+     * @param {ForecastedUserStockFindFirstArgs} args - Arguments to find a ForecastedUserStock
      * @example
-     * // Get one ForecastedMedicine
-     * const forecastedMedicine = await prisma.forecastedMedicine.findFirst({
+     * // Get one ForecastedUserStock
+     * const forecastedUserStock = await prisma.forecastedUserStock.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ForecastedMedicineFindFirstArgs>(args?: SelectSubset<T, ForecastedMedicineFindFirstArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ForecastedUserStockFindFirstArgs>(args?: SelectSubset<T, ForecastedUserStockFindFirstArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first ForecastedMedicine that matches the filter or
+     * Find the first ForecastedUserStock that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineFindFirstOrThrowArgs} args - Arguments to find a ForecastedMedicine
+     * @param {ForecastedUserStockFindFirstOrThrowArgs} args - Arguments to find a ForecastedUserStock
      * @example
-     * // Get one ForecastedMedicine
-     * const forecastedMedicine = await prisma.forecastedMedicine.findFirstOrThrow({
+     * // Get one ForecastedUserStock
+     * const forecastedUserStock = await prisma.forecastedUserStock.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ForecastedMedicineFindFirstOrThrowArgs>(args?: SelectSubset<T, ForecastedMedicineFindFirstOrThrowArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ForecastedUserStockFindFirstOrThrowArgs>(args?: SelectSubset<T, ForecastedUserStockFindFirstOrThrowArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more ForecastedMedicines that matches the filter.
+     * Find zero or more ForecastedUserStocks that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ForecastedUserStockFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ForecastedMedicines
-     * const forecastedMedicines = await prisma.forecastedMedicine.findMany()
+     * // Get all ForecastedUserStocks
+     * const forecastedUserStocks = await prisma.forecastedUserStock.findMany()
      * 
-     * // Get first 10 ForecastedMedicines
-     * const forecastedMedicines = await prisma.forecastedMedicine.findMany({ take: 10 })
+     * // Get first 10 ForecastedUserStocks
+     * const forecastedUserStocks = await prisma.forecastedUserStock.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const forecastedMedicineWithIdOnly = await prisma.forecastedMedicine.findMany({ select: { id: true } })
+     * const forecastedUserStockWithIdOnly = await prisma.forecastedUserStock.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends ForecastedMedicineFindManyArgs>(args?: SelectSubset<T, ForecastedMedicineFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ForecastedUserStockFindManyArgs>(args?: SelectSubset<T, ForecastedUserStockFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a ForecastedMedicine.
-     * @param {ForecastedMedicineCreateArgs} args - Arguments to create a ForecastedMedicine.
+     * Create a ForecastedUserStock.
+     * @param {ForecastedUserStockCreateArgs} args - Arguments to create a ForecastedUserStock.
      * @example
-     * // Create one ForecastedMedicine
-     * const ForecastedMedicine = await prisma.forecastedMedicine.create({
+     * // Create one ForecastedUserStock
+     * const ForecastedUserStock = await prisma.forecastedUserStock.create({
      *   data: {
-     *     // ... data to create a ForecastedMedicine
+     *     // ... data to create a ForecastedUserStock
      *   }
      * })
      * 
      */
-    create<T extends ForecastedMedicineCreateArgs>(args: SelectSubset<T, ForecastedMedicineCreateArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ForecastedUserStockCreateArgs>(args: SelectSubset<T, ForecastedUserStockCreateArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many ForecastedMedicines.
-     * @param {ForecastedMedicineCreateManyArgs} args - Arguments to create many ForecastedMedicines.
+     * Create many ForecastedUserStocks.
+     * @param {ForecastedUserStockCreateManyArgs} args - Arguments to create many ForecastedUserStocks.
      * @example
-     * // Create many ForecastedMedicines
-     * const forecastedMedicine = await prisma.forecastedMedicine.createMany({
+     * // Create many ForecastedUserStocks
+     * const forecastedUserStock = await prisma.forecastedUserStock.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ForecastedMedicineCreateManyArgs>(args?: SelectSubset<T, ForecastedMedicineCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ForecastedUserStockCreateManyArgs>(args?: SelectSubset<T, ForecastedUserStockCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many ForecastedMedicines and returns the data saved in the database.
-     * @param {ForecastedMedicineCreateManyAndReturnArgs} args - Arguments to create many ForecastedMedicines.
+     * Create many ForecastedUserStocks and returns the data saved in the database.
+     * @param {ForecastedUserStockCreateManyAndReturnArgs} args - Arguments to create many ForecastedUserStocks.
      * @example
-     * // Create many ForecastedMedicines
-     * const forecastedMedicine = await prisma.forecastedMedicine.createManyAndReturn({
+     * // Create many ForecastedUserStocks
+     * const forecastedUserStock = await prisma.forecastedUserStock.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many ForecastedMedicines and only return the `id`
-     * const forecastedMedicineWithIdOnly = await prisma.forecastedMedicine.createManyAndReturn({
+     * // Create many ForecastedUserStocks and only return the `id`
+     * const forecastedUserStockWithIdOnly = await prisma.forecastedUserStock.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -9127,28 +9067,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends ForecastedMedicineCreateManyAndReturnArgs>(args?: SelectSubset<T, ForecastedMedicineCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ForecastedUserStockCreateManyAndReturnArgs>(args?: SelectSubset<T, ForecastedUserStockCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a ForecastedMedicine.
-     * @param {ForecastedMedicineDeleteArgs} args - Arguments to delete one ForecastedMedicine.
+     * Delete a ForecastedUserStock.
+     * @param {ForecastedUserStockDeleteArgs} args - Arguments to delete one ForecastedUserStock.
      * @example
-     * // Delete one ForecastedMedicine
-     * const ForecastedMedicine = await prisma.forecastedMedicine.delete({
+     * // Delete one ForecastedUserStock
+     * const ForecastedUserStock = await prisma.forecastedUserStock.delete({
      *   where: {
-     *     // ... filter to delete one ForecastedMedicine
+     *     // ... filter to delete one ForecastedUserStock
      *   }
      * })
      * 
      */
-    delete<T extends ForecastedMedicineDeleteArgs>(args: SelectSubset<T, ForecastedMedicineDeleteArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ForecastedUserStockDeleteArgs>(args: SelectSubset<T, ForecastedUserStockDeleteArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one ForecastedMedicine.
-     * @param {ForecastedMedicineUpdateArgs} args - Arguments to update one ForecastedMedicine.
+     * Update one ForecastedUserStock.
+     * @param {ForecastedUserStockUpdateArgs} args - Arguments to update one ForecastedUserStock.
      * @example
-     * // Update one ForecastedMedicine
-     * const forecastedMedicine = await prisma.forecastedMedicine.update({
+     * // Update one ForecastedUserStock
+     * const forecastedUserStock = await prisma.forecastedUserStock.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9158,30 +9098,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ForecastedMedicineUpdateArgs>(args: SelectSubset<T, ForecastedMedicineUpdateArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ForecastedUserStockUpdateArgs>(args: SelectSubset<T, ForecastedUserStockUpdateArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more ForecastedMedicines.
-     * @param {ForecastedMedicineDeleteManyArgs} args - Arguments to filter ForecastedMedicines to delete.
+     * Delete zero or more ForecastedUserStocks.
+     * @param {ForecastedUserStockDeleteManyArgs} args - Arguments to filter ForecastedUserStocks to delete.
      * @example
-     * // Delete a few ForecastedMedicines
-     * const { count } = await prisma.forecastedMedicine.deleteMany({
+     * // Delete a few ForecastedUserStocks
+     * const { count } = await prisma.forecastedUserStock.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ForecastedMedicineDeleteManyArgs>(args?: SelectSubset<T, ForecastedMedicineDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ForecastedUserStockDeleteManyArgs>(args?: SelectSubset<T, ForecastedUserStockDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ForecastedMedicines.
+     * Update zero or more ForecastedUserStocks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ForecastedUserStockUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ForecastedMedicines
-     * const forecastedMedicine = await prisma.forecastedMedicine.updateMany({
+     * // Update many ForecastedUserStocks
+     * const forecastedUserStock = await prisma.forecastedUserStock.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9191,14 +9131,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ForecastedMedicineUpdateManyArgs>(args: SelectSubset<T, ForecastedMedicineUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ForecastedUserStockUpdateManyArgs>(args: SelectSubset<T, ForecastedUserStockUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ForecastedMedicines and returns the data updated in the database.
-     * @param {ForecastedMedicineUpdateManyAndReturnArgs} args - Arguments to update many ForecastedMedicines.
+     * Update zero or more ForecastedUserStocks and returns the data updated in the database.
+     * @param {ForecastedUserStockUpdateManyAndReturnArgs} args - Arguments to update many ForecastedUserStocks.
      * @example
-     * // Update many ForecastedMedicines
-     * const forecastedMedicine = await prisma.forecastedMedicine.updateManyAndReturn({
+     * // Update many ForecastedUserStocks
+     * const forecastedUserStock = await prisma.forecastedUserStock.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9207,8 +9147,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ForecastedMedicines and only return the `id`
-     * const forecastedMedicineWithIdOnly = await prisma.forecastedMedicine.updateManyAndReturn({
+     * // Update zero or more ForecastedUserStocks and only return the `id`
+     * const forecastedUserStockWithIdOnly = await prisma.forecastedUserStock.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -9221,56 +9161,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends ForecastedMedicineUpdateManyAndReturnArgs>(args: SelectSubset<T, ForecastedMedicineUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ForecastedUserStockUpdateManyAndReturnArgs>(args: SelectSubset<T, ForecastedUserStockUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one ForecastedMedicine.
-     * @param {ForecastedMedicineUpsertArgs} args - Arguments to update or create a ForecastedMedicine.
+     * Create or update one ForecastedUserStock.
+     * @param {ForecastedUserStockUpsertArgs} args - Arguments to update or create a ForecastedUserStock.
      * @example
-     * // Update or create a ForecastedMedicine
-     * const forecastedMedicine = await prisma.forecastedMedicine.upsert({
+     * // Update or create a ForecastedUserStock
+     * const forecastedUserStock = await prisma.forecastedUserStock.upsert({
      *   create: {
-     *     // ... data to create a ForecastedMedicine
+     *     // ... data to create a ForecastedUserStock
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ForecastedMedicine we want to update
+     *     // ... the filter for the ForecastedUserStock we want to update
      *   }
      * })
      */
-    upsert<T extends ForecastedMedicineUpsertArgs>(args: SelectSubset<T, ForecastedMedicineUpsertArgs<ExtArgs>>): Prisma__ForecastedMedicineClient<$Result.GetResult<Prisma.$ForecastedMedicinePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ForecastedUserStockUpsertArgs>(args: SelectSubset<T, ForecastedUserStockUpsertArgs<ExtArgs>>): Prisma__ForecastedUserStockClient<$Result.GetResult<Prisma.$ForecastedUserStockPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of ForecastedMedicines.
+     * Count the number of ForecastedUserStocks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineCountArgs} args - Arguments to filter ForecastedMedicines to count.
+     * @param {ForecastedUserStockCountArgs} args - Arguments to filter ForecastedUserStocks to count.
      * @example
-     * // Count the number of ForecastedMedicines
-     * const count = await prisma.forecastedMedicine.count({
+     * // Count the number of ForecastedUserStocks
+     * const count = await prisma.forecastedUserStock.count({
      *   where: {
-     *     // ... the filter for the ForecastedMedicines we want to count
+     *     // ... the filter for the ForecastedUserStocks we want to count
      *   }
      * })
     **/
-    count<T extends ForecastedMedicineCountArgs>(
-      args?: Subset<T, ForecastedMedicineCountArgs>,
+    count<T extends ForecastedUserStockCountArgs>(
+      args?: Subset<T, ForecastedUserStockCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ForecastedMedicineCountAggregateOutputType>
+          : GetScalarType<T['select'], ForecastedUserStockCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ForecastedMedicine.
+     * Allows you to perform aggregations operations on a ForecastedUserStock.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ForecastedUserStockAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -9290,13 +9230,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ForecastedMedicineAggregateArgs>(args: Subset<T, ForecastedMedicineAggregateArgs>): Prisma.PrismaPromise<GetForecastedMedicineAggregateType<T>>
+    aggregate<T extends ForecastedUserStockAggregateArgs>(args: Subset<T, ForecastedUserStockAggregateArgs>): Prisma.PrismaPromise<GetForecastedUserStockAggregateType<T>>
 
     /**
-     * Group by ForecastedMedicine.
+     * Group by ForecastedUserStock.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ForecastedMedicineGroupByArgs} args - Group by arguments.
+     * @param {ForecastedUserStockGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -9311,14 +9251,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ForecastedMedicineGroupByArgs,
+      T extends ForecastedUserStockGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ForecastedMedicineGroupByArgs['orderBy'] }
-        : { orderBy?: ForecastedMedicineGroupByArgs['orderBy'] },
+        ? { orderBy: ForecastedUserStockGroupByArgs['orderBy'] }
+        : { orderBy?: ForecastedUserStockGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -9367,23 +9307,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ForecastedMedicineGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetForecastedMedicineGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ForecastedUserStockGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetForecastedUserStockGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ForecastedMedicine model
+   * Fields of the ForecastedUserStock model
    */
-  readonly fields: ForecastedMedicineFieldRefs;
+  readonly fields: ForecastedUserStockFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ForecastedMedicine.
+   * The delegate class that acts as a "Promise-like" for ForecastedUserStock.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ForecastedMedicineClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ForecastedUserStockClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    medicine<T extends MedicineDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MedicineDefaultArgs<ExtArgs>>): Prisma__MedicineClient<$Result.GetResult<Prisma.$MedicinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    userStock<T extends UserStockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserStockDefaultArgs<ExtArgs>>): Prisma__UserStockClient<$Result.GetResult<Prisma.$UserStockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9410,426 +9349,425 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ForecastedMedicine model
+   * Fields of the ForecastedUserStock model
    */
-  interface ForecastedMedicineFieldRefs {
-    readonly id: FieldRef<"ForecastedMedicine", 'Int'>
-    readonly medicineId: FieldRef<"ForecastedMedicine", 'Int'>
-    readonly userId: FieldRef<"ForecastedMedicine", 'Int'>
-    readonly requiredStock: FieldRef<"ForecastedMedicine", 'Int'>
-    readonly percentage: FieldRef<"ForecastedMedicine", 'Int'>
-    readonly stockoutDate: FieldRef<"ForecastedMedicine", 'DateTime'>
+  interface ForecastedUserStockFieldRefs {
+    readonly id: FieldRef<"ForecastedUserStock", 'Int'>
+    readonly userStockId: FieldRef<"ForecastedUserStock", 'Int'>
+    readonly requiredStock: FieldRef<"ForecastedUserStock", 'Int'>
+    readonly percentage: FieldRef<"ForecastedUserStock", 'Int'>
+    readonly stockoutDate: FieldRef<"ForecastedUserStock", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * ForecastedMedicine findUnique
+   * ForecastedUserStock findUnique
    */
-  export type ForecastedMedicineFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * Filter, which ForecastedMedicine to fetch.
+     * Filter, which ForecastedUserStock to fetch.
      */
-    where: ForecastedMedicineWhereUniqueInput
+    where: ForecastedUserStockWhereUniqueInput
   }
 
   /**
-   * ForecastedMedicine findUniqueOrThrow
+   * ForecastedUserStock findUniqueOrThrow
    */
-  export type ForecastedMedicineFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * Filter, which ForecastedMedicine to fetch.
+     * Filter, which ForecastedUserStock to fetch.
      */
-    where: ForecastedMedicineWhereUniqueInput
+    where: ForecastedUserStockWhereUniqueInput
   }
 
   /**
-   * ForecastedMedicine findFirst
+   * ForecastedUserStock findFirst
    */
-  export type ForecastedMedicineFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * Filter, which ForecastedMedicine to fetch.
+     * Filter, which ForecastedUserStock to fetch.
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ForecastedMedicines to fetch.
+     * Determine the order of ForecastedUserStocks to fetch.
      */
-    orderBy?: ForecastedMedicineOrderByWithRelationInput | ForecastedMedicineOrderByWithRelationInput[]
+    orderBy?: ForecastedUserStockOrderByWithRelationInput | ForecastedUserStockOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ForecastedMedicines.
+     * Sets the position for searching for ForecastedUserStocks.
      */
-    cursor?: ForecastedMedicineWhereUniqueInput
+    cursor?: ForecastedUserStockWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ForecastedMedicines from the position of the cursor.
+     * Take `±n` ForecastedUserStocks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ForecastedMedicines.
+     * Skip the first `n` ForecastedUserStocks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ForecastedMedicines.
+     * Filter by unique combinations of ForecastedUserStocks.
      */
-    distinct?: ForecastedMedicineScalarFieldEnum | ForecastedMedicineScalarFieldEnum[]
+    distinct?: ForecastedUserStockScalarFieldEnum | ForecastedUserStockScalarFieldEnum[]
   }
 
   /**
-   * ForecastedMedicine findFirstOrThrow
+   * ForecastedUserStock findFirstOrThrow
    */
-  export type ForecastedMedicineFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * Filter, which ForecastedMedicine to fetch.
+     * Filter, which ForecastedUserStock to fetch.
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ForecastedMedicines to fetch.
+     * Determine the order of ForecastedUserStocks to fetch.
      */
-    orderBy?: ForecastedMedicineOrderByWithRelationInput | ForecastedMedicineOrderByWithRelationInput[]
+    orderBy?: ForecastedUserStockOrderByWithRelationInput | ForecastedUserStockOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ForecastedMedicines.
+     * Sets the position for searching for ForecastedUserStocks.
      */
-    cursor?: ForecastedMedicineWhereUniqueInput
+    cursor?: ForecastedUserStockWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ForecastedMedicines from the position of the cursor.
+     * Take `±n` ForecastedUserStocks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ForecastedMedicines.
+     * Skip the first `n` ForecastedUserStocks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ForecastedMedicines.
+     * Filter by unique combinations of ForecastedUserStocks.
      */
-    distinct?: ForecastedMedicineScalarFieldEnum | ForecastedMedicineScalarFieldEnum[]
+    distinct?: ForecastedUserStockScalarFieldEnum | ForecastedUserStockScalarFieldEnum[]
   }
 
   /**
-   * ForecastedMedicine findMany
+   * ForecastedUserStock findMany
    */
-  export type ForecastedMedicineFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * Filter, which ForecastedMedicines to fetch.
+     * Filter, which ForecastedUserStocks to fetch.
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ForecastedMedicines to fetch.
+     * Determine the order of ForecastedUserStocks to fetch.
      */
-    orderBy?: ForecastedMedicineOrderByWithRelationInput | ForecastedMedicineOrderByWithRelationInput[]
+    orderBy?: ForecastedUserStockOrderByWithRelationInput | ForecastedUserStockOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ForecastedMedicines.
+     * Sets the position for listing ForecastedUserStocks.
      */
-    cursor?: ForecastedMedicineWhereUniqueInput
+    cursor?: ForecastedUserStockWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ForecastedMedicines from the position of the cursor.
+     * Take `±n` ForecastedUserStocks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ForecastedMedicines.
+     * Skip the first `n` ForecastedUserStocks.
      */
     skip?: number
-    distinct?: ForecastedMedicineScalarFieldEnum | ForecastedMedicineScalarFieldEnum[]
+    distinct?: ForecastedUserStockScalarFieldEnum | ForecastedUserStockScalarFieldEnum[]
   }
 
   /**
-   * ForecastedMedicine create
+   * ForecastedUserStock create
    */
-  export type ForecastedMedicineCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * The data needed to create a ForecastedMedicine.
+     * The data needed to create a ForecastedUserStock.
      */
-    data: XOR<ForecastedMedicineCreateInput, ForecastedMedicineUncheckedCreateInput>
+    data: XOR<ForecastedUserStockCreateInput, ForecastedUserStockUncheckedCreateInput>
   }
 
   /**
-   * ForecastedMedicine createMany
+   * ForecastedUserStock createMany
    */
-  export type ForecastedMedicineCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ForecastedMedicines.
+     * The data used to create many ForecastedUserStocks.
      */
-    data: ForecastedMedicineCreateManyInput | ForecastedMedicineCreateManyInput[]
+    data: ForecastedUserStockCreateManyInput | ForecastedUserStockCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * ForecastedMedicine createManyAndReturn
+   * ForecastedUserStock createManyAndReturn
    */
-  export type ForecastedMedicineCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ForecastedUserStockSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
-     * The data used to create many ForecastedMedicines.
+     * The data used to create many ForecastedUserStocks.
      */
-    data: ForecastedMedicineCreateManyInput | ForecastedMedicineCreateManyInput[]
+    data: ForecastedUserStockCreateManyInput | ForecastedUserStockCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: ForecastedUserStockIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * ForecastedMedicine update
+   * ForecastedUserStock update
    */
-  export type ForecastedMedicineUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * The data needed to update a ForecastedMedicine.
+     * The data needed to update a ForecastedUserStock.
      */
-    data: XOR<ForecastedMedicineUpdateInput, ForecastedMedicineUncheckedUpdateInput>
+    data: XOR<ForecastedUserStockUpdateInput, ForecastedUserStockUncheckedUpdateInput>
     /**
-     * Choose, which ForecastedMedicine to update.
+     * Choose, which ForecastedUserStock to update.
      */
-    where: ForecastedMedicineWhereUniqueInput
+    where: ForecastedUserStockWhereUniqueInput
   }
 
   /**
-   * ForecastedMedicine updateMany
+   * ForecastedUserStock updateMany
    */
-  export type ForecastedMedicineUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update ForecastedMedicines.
+     * The data used to update ForecastedUserStocks.
      */
-    data: XOR<ForecastedMedicineUpdateManyMutationInput, ForecastedMedicineUncheckedUpdateManyInput>
+    data: XOR<ForecastedUserStockUpdateManyMutationInput, ForecastedUserStockUncheckedUpdateManyInput>
     /**
-     * Filter which ForecastedMedicines to update
+     * Filter which ForecastedUserStocks to update
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
-     * Limit how many ForecastedMedicines to update.
+     * Limit how many ForecastedUserStocks to update.
      */
     limit?: number
   }
 
   /**
-   * ForecastedMedicine updateManyAndReturn
+   * ForecastedUserStock updateManyAndReturn
    */
-  export type ForecastedMedicineUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ForecastedUserStockSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
-     * The data used to update ForecastedMedicines.
+     * The data used to update ForecastedUserStocks.
      */
-    data: XOR<ForecastedMedicineUpdateManyMutationInput, ForecastedMedicineUncheckedUpdateManyInput>
+    data: XOR<ForecastedUserStockUpdateManyMutationInput, ForecastedUserStockUncheckedUpdateManyInput>
     /**
-     * Filter which ForecastedMedicines to update
+     * Filter which ForecastedUserStocks to update
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
-     * Limit how many ForecastedMedicines to update.
+     * Limit how many ForecastedUserStocks to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: ForecastedUserStockIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * ForecastedMedicine upsert
+   * ForecastedUserStock upsert
    */
-  export type ForecastedMedicineUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * The filter to search for the ForecastedMedicine to update in case it exists.
+     * The filter to search for the ForecastedUserStock to update in case it exists.
      */
-    where: ForecastedMedicineWhereUniqueInput
+    where: ForecastedUserStockWhereUniqueInput
     /**
-     * In case the ForecastedMedicine found by the `where` argument doesn't exist, create a new ForecastedMedicine with this data.
+     * In case the ForecastedUserStock found by the `where` argument doesn't exist, create a new ForecastedUserStock with this data.
      */
-    create: XOR<ForecastedMedicineCreateInput, ForecastedMedicineUncheckedCreateInput>
+    create: XOR<ForecastedUserStockCreateInput, ForecastedUserStockUncheckedCreateInput>
     /**
-     * In case the ForecastedMedicine was found with the provided `where` argument, update it with this data.
+     * In case the ForecastedUserStock was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ForecastedMedicineUpdateInput, ForecastedMedicineUncheckedUpdateInput>
+    update: XOR<ForecastedUserStockUpdateInput, ForecastedUserStockUncheckedUpdateInput>
   }
 
   /**
-   * ForecastedMedicine delete
+   * ForecastedUserStock delete
    */
-  export type ForecastedMedicineDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
     /**
-     * Filter which ForecastedMedicine to delete.
+     * Filter which ForecastedUserStock to delete.
      */
-    where: ForecastedMedicineWhereUniqueInput
+    where: ForecastedUserStockWhereUniqueInput
   }
 
   /**
-   * ForecastedMedicine deleteMany
+   * ForecastedUserStock deleteMany
    */
-  export type ForecastedMedicineDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ForecastedMedicines to delete
+     * Filter which ForecastedUserStocks to delete
      */
-    where?: ForecastedMedicineWhereInput
+    where?: ForecastedUserStockWhereInput
     /**
-     * Limit how many ForecastedMedicines to delete.
+     * Limit how many ForecastedUserStocks to delete.
      */
     limit?: number
   }
 
   /**
-   * ForecastedMedicine without action
+   * ForecastedUserStock without action
    */
-  export type ForecastedMedicineDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ForecastedUserStockDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ForecastedMedicine
+     * Select specific fields to fetch from the ForecastedUserStock
      */
-    select?: ForecastedMedicineSelect<ExtArgs> | null
+    select?: ForecastedUserStockSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ForecastedMedicine
+     * Omit specific fields from the ForecastedUserStock
      */
-    omit?: ForecastedMedicineOmit<ExtArgs> | null
+    omit?: ForecastedUserStockOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ForecastedMedicineInclude<ExtArgs> | null
+    include?: ForecastedUserStockInclude<ExtArgs> | null
   }
 
 
@@ -10040,7 +9978,7 @@ export namespace Prisma {
     name: "Disease"
     objects: {
       diseaseMedicineCorrelation: Prisma.$DiseaseMedicineCorrelationPayload<ExtArgs>[]
-      diseaseRecords: Prisma.$DiseaseRecordsPayload<ExtArgs>[]
+      diseaseRecords: Prisma.$DiseaseRecordPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -10440,7 +10378,7 @@ export namespace Prisma {
   export interface Prisma__DiseaseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     diseaseMedicineCorrelation<T extends Disease$diseaseMedicineCorrelationArgs<ExtArgs> = {}>(args?: Subset<T, Disease$diseaseMedicineCorrelationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseMedicineCorrelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    diseaseRecords<T extends Disease$diseaseRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Disease$diseaseRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    diseaseRecords<T extends Disease$diseaseRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Disease$diseaseRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10888,23 +10826,23 @@ export namespace Prisma {
    */
   export type Disease$diseaseRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
-    where?: DiseaseRecordsWhereInput
-    orderBy?: DiseaseRecordsOrderByWithRelationInput | DiseaseRecordsOrderByWithRelationInput[]
-    cursor?: DiseaseRecordsWhereUniqueInput
+    include?: DiseaseRecordInclude<ExtArgs> | null
+    where?: DiseaseRecordWhereInput
+    orderBy?: DiseaseRecordOrderByWithRelationInput | DiseaseRecordOrderByWithRelationInput[]
+    cursor?: DiseaseRecordWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: DiseaseRecordsScalarFieldEnum | DiseaseRecordsScalarFieldEnum[]
+    distinct?: DiseaseRecordScalarFieldEnum | DiseaseRecordScalarFieldEnum[]
   }
 
   /**
@@ -10927,87 +10865,103 @@ export namespace Prisma {
 
 
   /**
-   * Model DiseaseRecords
+   * Model DiseaseRecord
    */
 
-  export type AggregateDiseaseRecords = {
-    _count: DiseaseRecordsCountAggregateOutputType | null
-    _avg: DiseaseRecordsAvgAggregateOutputType | null
-    _sum: DiseaseRecordsSumAggregateOutputType | null
-    _min: DiseaseRecordsMinAggregateOutputType | null
-    _max: DiseaseRecordsMaxAggregateOutputType | null
+  export type AggregateDiseaseRecord = {
+    _count: DiseaseRecordCountAggregateOutputType | null
+    _avg: DiseaseRecordAvgAggregateOutputType | null
+    _sum: DiseaseRecordSumAggregateOutputType | null
+    _min: DiseaseRecordMinAggregateOutputType | null
+    _max: DiseaseRecordMaxAggregateOutputType | null
   }
 
-  export type DiseaseRecordsAvgAggregateOutputType = {
+  export type DiseaseRecordAvgAggregateOutputType = {
     id: number | null
     diseaseId: number | null
+    amount: number | null
   }
 
-  export type DiseaseRecordsSumAggregateOutputType = {
+  export type DiseaseRecordSumAggregateOutputType = {
     id: number | null
     diseaseId: number | null
+    amount: number | null
   }
 
-  export type DiseaseRecordsMinAggregateOutputType = {
+  export type DiseaseRecordMinAggregateOutputType = {
     id: number | null
     diseaseId: number | null
+    amount: number | null
+    timestamp: Date | null
   }
 
-  export type DiseaseRecordsMaxAggregateOutputType = {
+  export type DiseaseRecordMaxAggregateOutputType = {
     id: number | null
     diseaseId: number | null
+    amount: number | null
+    timestamp: Date | null
   }
 
-  export type DiseaseRecordsCountAggregateOutputType = {
+  export type DiseaseRecordCountAggregateOutputType = {
     id: number
     diseaseId: number
+    amount: number
+    timestamp: number
     _all: number
   }
 
 
-  export type DiseaseRecordsAvgAggregateInputType = {
+  export type DiseaseRecordAvgAggregateInputType = {
     id?: true
     diseaseId?: true
+    amount?: true
   }
 
-  export type DiseaseRecordsSumAggregateInputType = {
+  export type DiseaseRecordSumAggregateInputType = {
     id?: true
     diseaseId?: true
+    amount?: true
   }
 
-  export type DiseaseRecordsMinAggregateInputType = {
+  export type DiseaseRecordMinAggregateInputType = {
     id?: true
     diseaseId?: true
+    amount?: true
+    timestamp?: true
   }
 
-  export type DiseaseRecordsMaxAggregateInputType = {
+  export type DiseaseRecordMaxAggregateInputType = {
     id?: true
     diseaseId?: true
+    amount?: true
+    timestamp?: true
   }
 
-  export type DiseaseRecordsCountAggregateInputType = {
+  export type DiseaseRecordCountAggregateInputType = {
     id?: true
     diseaseId?: true
+    amount?: true
+    timestamp?: true
     _all?: true
   }
 
-  export type DiseaseRecordsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which DiseaseRecords to aggregate.
+     * Filter which DiseaseRecord to aggregate.
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of DiseaseRecords to fetch.
      */
-    orderBy?: DiseaseRecordsOrderByWithRelationInput | DiseaseRecordsOrderByWithRelationInput[]
+    orderBy?: DiseaseRecordOrderByWithRelationInput | DiseaseRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: DiseaseRecordsWhereUniqueInput
+    cursor?: DiseaseRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -11025,254 +10979,266 @@ export namespace Prisma {
      * 
      * Count returned DiseaseRecords
     **/
-    _count?: true | DiseaseRecordsCountAggregateInputType
+    _count?: true | DiseaseRecordCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: DiseaseRecordsAvgAggregateInputType
+    _avg?: DiseaseRecordAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: DiseaseRecordsSumAggregateInputType
+    _sum?: DiseaseRecordSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: DiseaseRecordsMinAggregateInputType
+    _min?: DiseaseRecordMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: DiseaseRecordsMaxAggregateInputType
+    _max?: DiseaseRecordMaxAggregateInputType
   }
 
-  export type GetDiseaseRecordsAggregateType<T extends DiseaseRecordsAggregateArgs> = {
-        [P in keyof T & keyof AggregateDiseaseRecords]: P extends '_count' | 'count'
+  export type GetDiseaseRecordAggregateType<T extends DiseaseRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateDiseaseRecord]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateDiseaseRecords[P]>
-      : GetScalarType<T[P], AggregateDiseaseRecords[P]>
+        : GetScalarType<T[P], AggregateDiseaseRecord[P]>
+      : GetScalarType<T[P], AggregateDiseaseRecord[P]>
   }
 
 
 
 
-  export type DiseaseRecordsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DiseaseRecordsWhereInput
-    orderBy?: DiseaseRecordsOrderByWithAggregationInput | DiseaseRecordsOrderByWithAggregationInput[]
-    by: DiseaseRecordsScalarFieldEnum[] | DiseaseRecordsScalarFieldEnum
-    having?: DiseaseRecordsScalarWhereWithAggregatesInput
+  export type DiseaseRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DiseaseRecordWhereInput
+    orderBy?: DiseaseRecordOrderByWithAggregationInput | DiseaseRecordOrderByWithAggregationInput[]
+    by: DiseaseRecordScalarFieldEnum[] | DiseaseRecordScalarFieldEnum
+    having?: DiseaseRecordScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: DiseaseRecordsCountAggregateInputType | true
-    _avg?: DiseaseRecordsAvgAggregateInputType
-    _sum?: DiseaseRecordsSumAggregateInputType
-    _min?: DiseaseRecordsMinAggregateInputType
-    _max?: DiseaseRecordsMaxAggregateInputType
+    _count?: DiseaseRecordCountAggregateInputType | true
+    _avg?: DiseaseRecordAvgAggregateInputType
+    _sum?: DiseaseRecordSumAggregateInputType
+    _min?: DiseaseRecordMinAggregateInputType
+    _max?: DiseaseRecordMaxAggregateInputType
   }
 
-  export type DiseaseRecordsGroupByOutputType = {
+  export type DiseaseRecordGroupByOutputType = {
     id: number
     diseaseId: number
-    _count: DiseaseRecordsCountAggregateOutputType | null
-    _avg: DiseaseRecordsAvgAggregateOutputType | null
-    _sum: DiseaseRecordsSumAggregateOutputType | null
-    _min: DiseaseRecordsMinAggregateOutputType | null
-    _max: DiseaseRecordsMaxAggregateOutputType | null
+    amount: number
+    timestamp: Date
+    _count: DiseaseRecordCountAggregateOutputType | null
+    _avg: DiseaseRecordAvgAggregateOutputType | null
+    _sum: DiseaseRecordSumAggregateOutputType | null
+    _min: DiseaseRecordMinAggregateOutputType | null
+    _max: DiseaseRecordMaxAggregateOutputType | null
   }
 
-  type GetDiseaseRecordsGroupByPayload<T extends DiseaseRecordsGroupByArgs> = Prisma.PrismaPromise<
+  type GetDiseaseRecordGroupByPayload<T extends DiseaseRecordGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<DiseaseRecordsGroupByOutputType, T['by']> &
+      PickEnumerable<DiseaseRecordGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof DiseaseRecordsGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof DiseaseRecordGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], DiseaseRecordsGroupByOutputType[P]>
-            : GetScalarType<T[P], DiseaseRecordsGroupByOutputType[P]>
+              : GetScalarType<T[P], DiseaseRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], DiseaseRecordGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type DiseaseRecordsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DiseaseRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     diseaseId?: boolean
+    amount?: boolean
+    timestamp?: boolean
     disease?: boolean | DiseaseDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["diseaseRecords"]>
+  }, ExtArgs["result"]["diseaseRecord"]>
 
-  export type DiseaseRecordsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DiseaseRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     diseaseId?: boolean
+    amount?: boolean
+    timestamp?: boolean
     disease?: boolean | DiseaseDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["diseaseRecords"]>
+  }, ExtArgs["result"]["diseaseRecord"]>
 
-  export type DiseaseRecordsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DiseaseRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     diseaseId?: boolean
+    amount?: boolean
+    timestamp?: boolean
     disease?: boolean | DiseaseDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["diseaseRecords"]>
+  }, ExtArgs["result"]["diseaseRecord"]>
 
-  export type DiseaseRecordsSelectScalar = {
+  export type DiseaseRecordSelectScalar = {
     id?: boolean
     diseaseId?: boolean
+    amount?: boolean
+    timestamp?: boolean
   }
 
-  export type DiseaseRecordsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "diseaseId", ExtArgs["result"]["diseaseRecords"]>
-  export type DiseaseRecordsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "diseaseId" | "amount" | "timestamp", ExtArgs["result"]["diseaseRecord"]>
+  export type DiseaseRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     disease?: boolean | DiseaseDefaultArgs<ExtArgs>
   }
-  export type DiseaseRecordsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     disease?: boolean | DiseaseDefaultArgs<ExtArgs>
   }
-  export type DiseaseRecordsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     disease?: boolean | DiseaseDefaultArgs<ExtArgs>
   }
 
-  export type $DiseaseRecordsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "DiseaseRecords"
+  export type $DiseaseRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DiseaseRecord"
     objects: {
       disease: Prisma.$DiseasePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       diseaseId: number
-    }, ExtArgs["result"]["diseaseRecords"]>
+      amount: number
+      timestamp: Date
+    }, ExtArgs["result"]["diseaseRecord"]>
     composites: {}
   }
 
-  type DiseaseRecordsGetPayload<S extends boolean | null | undefined | DiseaseRecordsDefaultArgs> = $Result.GetResult<Prisma.$DiseaseRecordsPayload, S>
+  type DiseaseRecordGetPayload<S extends boolean | null | undefined | DiseaseRecordDefaultArgs> = $Result.GetResult<Prisma.$DiseaseRecordPayload, S>
 
-  type DiseaseRecordsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DiseaseRecordsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: DiseaseRecordsCountAggregateInputType | true
+  type DiseaseRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DiseaseRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DiseaseRecordCountAggregateInputType | true
     }
 
-  export interface DiseaseRecordsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DiseaseRecords'], meta: { name: 'DiseaseRecords' } }
+  export interface DiseaseRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DiseaseRecord'], meta: { name: 'DiseaseRecord' } }
     /**
-     * Find zero or one DiseaseRecords that matches the filter.
-     * @param {DiseaseRecordsFindUniqueArgs} args - Arguments to find a DiseaseRecords
+     * Find zero or one DiseaseRecord that matches the filter.
+     * @param {DiseaseRecordFindUniqueArgs} args - Arguments to find a DiseaseRecord
      * @example
-     * // Get one DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.findUnique({
+     * // Get one DiseaseRecord
+     * const diseaseRecord = await prisma.diseaseRecord.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends DiseaseRecordsFindUniqueArgs>(args: SelectSubset<T, DiseaseRecordsFindUniqueArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends DiseaseRecordFindUniqueArgs>(args: SelectSubset<T, DiseaseRecordFindUniqueArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one DiseaseRecords that matches the filter or throw an error with `error.code='P2025'`
+     * Find one DiseaseRecord that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {DiseaseRecordsFindUniqueOrThrowArgs} args - Arguments to find a DiseaseRecords
+     * @param {DiseaseRecordFindUniqueOrThrowArgs} args - Arguments to find a DiseaseRecord
      * @example
-     * // Get one DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.findUniqueOrThrow({
+     * // Get one DiseaseRecord
+     * const diseaseRecord = await prisma.diseaseRecord.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends DiseaseRecordsFindUniqueOrThrowArgs>(args: SelectSubset<T, DiseaseRecordsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends DiseaseRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, DiseaseRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first DiseaseRecords that matches the filter.
+     * Find the first DiseaseRecord that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsFindFirstArgs} args - Arguments to find a DiseaseRecords
+     * @param {DiseaseRecordFindFirstArgs} args - Arguments to find a DiseaseRecord
      * @example
-     * // Get one DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.findFirst({
+     * // Get one DiseaseRecord
+     * const diseaseRecord = await prisma.diseaseRecord.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends DiseaseRecordsFindFirstArgs>(args?: SelectSubset<T, DiseaseRecordsFindFirstArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends DiseaseRecordFindFirstArgs>(args?: SelectSubset<T, DiseaseRecordFindFirstArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first DiseaseRecords that matches the filter or
+     * Find the first DiseaseRecord that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsFindFirstOrThrowArgs} args - Arguments to find a DiseaseRecords
+     * @param {DiseaseRecordFindFirstOrThrowArgs} args - Arguments to find a DiseaseRecord
      * @example
-     * // Get one DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.findFirstOrThrow({
+     * // Get one DiseaseRecord
+     * const diseaseRecord = await prisma.diseaseRecord.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends DiseaseRecordsFindFirstOrThrowArgs>(args?: SelectSubset<T, DiseaseRecordsFindFirstOrThrowArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends DiseaseRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, DiseaseRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find zero or more DiseaseRecords that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {DiseaseRecordFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.findMany()
+     * const diseaseRecords = await prisma.diseaseRecord.findMany()
      * 
      * // Get first 10 DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.findMany({ take: 10 })
+     * const diseaseRecords = await prisma.diseaseRecord.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const diseaseRecordsWithIdOnly = await prisma.diseaseRecords.findMany({ select: { id: true } })
+     * const diseaseRecordWithIdOnly = await prisma.diseaseRecord.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends DiseaseRecordsFindManyArgs>(args?: SelectSubset<T, DiseaseRecordsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends DiseaseRecordFindManyArgs>(args?: SelectSubset<T, DiseaseRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a DiseaseRecords.
-     * @param {DiseaseRecordsCreateArgs} args - Arguments to create a DiseaseRecords.
+     * Create a DiseaseRecord.
+     * @param {DiseaseRecordCreateArgs} args - Arguments to create a DiseaseRecord.
      * @example
-     * // Create one DiseaseRecords
-     * const DiseaseRecords = await prisma.diseaseRecords.create({
+     * // Create one DiseaseRecord
+     * const DiseaseRecord = await prisma.diseaseRecord.create({
      *   data: {
-     *     // ... data to create a DiseaseRecords
+     *     // ... data to create a DiseaseRecord
      *   }
      * })
      * 
      */
-    create<T extends DiseaseRecordsCreateArgs>(args: SelectSubset<T, DiseaseRecordsCreateArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends DiseaseRecordCreateArgs>(args: SelectSubset<T, DiseaseRecordCreateArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Create many DiseaseRecords.
-     * @param {DiseaseRecordsCreateManyArgs} args - Arguments to create many DiseaseRecords.
+     * @param {DiseaseRecordCreateManyArgs} args - Arguments to create many DiseaseRecords.
      * @example
      * // Create many DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.createMany({
+     * const diseaseRecord = await prisma.diseaseRecord.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends DiseaseRecordsCreateManyArgs>(args?: SelectSubset<T, DiseaseRecordsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends DiseaseRecordCreateManyArgs>(args?: SelectSubset<T, DiseaseRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create many DiseaseRecords and returns the data saved in the database.
-     * @param {DiseaseRecordsCreateManyAndReturnArgs} args - Arguments to create many DiseaseRecords.
+     * @param {DiseaseRecordCreateManyAndReturnArgs} args - Arguments to create many DiseaseRecords.
      * @example
      * // Create many DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.createManyAndReturn({
+     * const diseaseRecord = await prisma.diseaseRecord.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
      * // Create many DiseaseRecords and only return the `id`
-     * const diseaseRecordsWithIdOnly = await prisma.diseaseRecords.createManyAndReturn({
+     * const diseaseRecordWithIdOnly = await prisma.diseaseRecord.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -11282,28 +11248,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends DiseaseRecordsCreateManyAndReturnArgs>(args?: SelectSubset<T, DiseaseRecordsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends DiseaseRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, DiseaseRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a DiseaseRecords.
-     * @param {DiseaseRecordsDeleteArgs} args - Arguments to delete one DiseaseRecords.
+     * Delete a DiseaseRecord.
+     * @param {DiseaseRecordDeleteArgs} args - Arguments to delete one DiseaseRecord.
      * @example
-     * // Delete one DiseaseRecords
-     * const DiseaseRecords = await prisma.diseaseRecords.delete({
+     * // Delete one DiseaseRecord
+     * const DiseaseRecord = await prisma.diseaseRecord.delete({
      *   where: {
-     *     // ... filter to delete one DiseaseRecords
+     *     // ... filter to delete one DiseaseRecord
      *   }
      * })
      * 
      */
-    delete<T extends DiseaseRecordsDeleteArgs>(args: SelectSubset<T, DiseaseRecordsDeleteArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends DiseaseRecordDeleteArgs>(args: SelectSubset<T, DiseaseRecordDeleteArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one DiseaseRecords.
-     * @param {DiseaseRecordsUpdateArgs} args - Arguments to update one DiseaseRecords.
+     * Update one DiseaseRecord.
+     * @param {DiseaseRecordUpdateArgs} args - Arguments to update one DiseaseRecord.
      * @example
-     * // Update one DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.update({
+     * // Update one DiseaseRecord
+     * const diseaseRecord = await prisma.diseaseRecord.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11313,30 +11279,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends DiseaseRecordsUpdateArgs>(args: SelectSubset<T, DiseaseRecordsUpdateArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends DiseaseRecordUpdateArgs>(args: SelectSubset<T, DiseaseRecordUpdateArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Delete zero or more DiseaseRecords.
-     * @param {DiseaseRecordsDeleteManyArgs} args - Arguments to filter DiseaseRecords to delete.
+     * @param {DiseaseRecordDeleteManyArgs} args - Arguments to filter DiseaseRecords to delete.
      * @example
      * // Delete a few DiseaseRecords
-     * const { count } = await prisma.diseaseRecords.deleteMany({
+     * const { count } = await prisma.diseaseRecord.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends DiseaseRecordsDeleteManyArgs>(args?: SelectSubset<T, DiseaseRecordsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends DiseaseRecordDeleteManyArgs>(args?: SelectSubset<T, DiseaseRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more DiseaseRecords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {DiseaseRecordUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.updateMany({
+     * const diseaseRecord = await prisma.diseaseRecord.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11346,14 +11312,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends DiseaseRecordsUpdateManyArgs>(args: SelectSubset<T, DiseaseRecordsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends DiseaseRecordUpdateManyArgs>(args: SelectSubset<T, DiseaseRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more DiseaseRecords and returns the data updated in the database.
-     * @param {DiseaseRecordsUpdateManyAndReturnArgs} args - Arguments to update many DiseaseRecords.
+     * @param {DiseaseRecordUpdateManyAndReturnArgs} args - Arguments to update many DiseaseRecords.
      * @example
      * // Update many DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.updateManyAndReturn({
+     * const diseaseRecord = await prisma.diseaseRecord.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11363,7 +11329,7 @@ export namespace Prisma {
      * })
      * 
      * // Update zero or more DiseaseRecords and only return the `id`
-     * const diseaseRecordsWithIdOnly = await prisma.diseaseRecords.updateManyAndReturn({
+     * const diseaseRecordWithIdOnly = await prisma.diseaseRecord.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -11376,56 +11342,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends DiseaseRecordsUpdateManyAndReturnArgs>(args: SelectSubset<T, DiseaseRecordsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends DiseaseRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, DiseaseRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one DiseaseRecords.
-     * @param {DiseaseRecordsUpsertArgs} args - Arguments to update or create a DiseaseRecords.
+     * Create or update one DiseaseRecord.
+     * @param {DiseaseRecordUpsertArgs} args - Arguments to update or create a DiseaseRecord.
      * @example
-     * // Update or create a DiseaseRecords
-     * const diseaseRecords = await prisma.diseaseRecords.upsert({
+     * // Update or create a DiseaseRecord
+     * const diseaseRecord = await prisma.diseaseRecord.upsert({
      *   create: {
-     *     // ... data to create a DiseaseRecords
+     *     // ... data to create a DiseaseRecord
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the DiseaseRecords we want to update
+     *     // ... the filter for the DiseaseRecord we want to update
      *   }
      * })
      */
-    upsert<T extends DiseaseRecordsUpsertArgs>(args: SelectSubset<T, DiseaseRecordsUpsertArgs<ExtArgs>>): Prisma__DiseaseRecordsClient<$Result.GetResult<Prisma.$DiseaseRecordsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends DiseaseRecordUpsertArgs>(args: SelectSubset<T, DiseaseRecordUpsertArgs<ExtArgs>>): Prisma__DiseaseRecordClient<$Result.GetResult<Prisma.$DiseaseRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
      * Count the number of DiseaseRecords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsCountArgs} args - Arguments to filter DiseaseRecords to count.
+     * @param {DiseaseRecordCountArgs} args - Arguments to filter DiseaseRecords to count.
      * @example
      * // Count the number of DiseaseRecords
-     * const count = await prisma.diseaseRecords.count({
+     * const count = await prisma.diseaseRecord.count({
      *   where: {
      *     // ... the filter for the DiseaseRecords we want to count
      *   }
      * })
     **/
-    count<T extends DiseaseRecordsCountArgs>(
-      args?: Subset<T, DiseaseRecordsCountArgs>,
+    count<T extends DiseaseRecordCountArgs>(
+      args?: Subset<T, DiseaseRecordCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], DiseaseRecordsCountAggregateOutputType>
+          : GetScalarType<T['select'], DiseaseRecordCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a DiseaseRecords.
+     * Allows you to perform aggregations operations on a DiseaseRecord.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {DiseaseRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -11445,13 +11411,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends DiseaseRecordsAggregateArgs>(args: Subset<T, DiseaseRecordsAggregateArgs>): Prisma.PrismaPromise<GetDiseaseRecordsAggregateType<T>>
+    aggregate<T extends DiseaseRecordAggregateArgs>(args: Subset<T, DiseaseRecordAggregateArgs>): Prisma.PrismaPromise<GetDiseaseRecordAggregateType<T>>
 
     /**
-     * Group by DiseaseRecords.
+     * Group by DiseaseRecord.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DiseaseRecordsGroupByArgs} args - Group by arguments.
+     * @param {DiseaseRecordGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -11466,14 +11432,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends DiseaseRecordsGroupByArgs,
+      T extends DiseaseRecordGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DiseaseRecordsGroupByArgs['orderBy'] }
-        : { orderBy?: DiseaseRecordsGroupByArgs['orderBy'] },
+        ? { orderBy: DiseaseRecordGroupByArgs['orderBy'] }
+        : { orderBy?: DiseaseRecordGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -11522,20 +11488,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, DiseaseRecordsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDiseaseRecordsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, DiseaseRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDiseaseRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the DiseaseRecords model
+   * Fields of the DiseaseRecord model
    */
-  readonly fields: DiseaseRecordsFieldRefs;
+  readonly fields: DiseaseRecordFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for DiseaseRecords.
+   * The delegate class that acts as a "Promise-like" for DiseaseRecord.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DiseaseRecordsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__DiseaseRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     disease<T extends DiseaseDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DiseaseDefaultArgs<ExtArgs>>): Prisma__DiseaseClient<$Result.GetResult<Prisma.$DiseasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -11564,91 +11530,93 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the DiseaseRecords model
+   * Fields of the DiseaseRecord model
    */
-  interface DiseaseRecordsFieldRefs {
-    readonly id: FieldRef<"DiseaseRecords", 'Int'>
-    readonly diseaseId: FieldRef<"DiseaseRecords", 'Int'>
+  interface DiseaseRecordFieldRefs {
+    readonly id: FieldRef<"DiseaseRecord", 'Int'>
+    readonly diseaseId: FieldRef<"DiseaseRecord", 'Int'>
+    readonly amount: FieldRef<"DiseaseRecord", 'Int'>
+    readonly timestamp: FieldRef<"DiseaseRecord", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * DiseaseRecords findUnique
+   * DiseaseRecord findUnique
    */
-  export type DiseaseRecordsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * Filter, which DiseaseRecords to fetch.
+     * Filter, which DiseaseRecord to fetch.
      */
-    where: DiseaseRecordsWhereUniqueInput
+    where: DiseaseRecordWhereUniqueInput
   }
 
   /**
-   * DiseaseRecords findUniqueOrThrow
+   * DiseaseRecord findUniqueOrThrow
    */
-  export type DiseaseRecordsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * Filter, which DiseaseRecords to fetch.
+     * Filter, which DiseaseRecord to fetch.
      */
-    where: DiseaseRecordsWhereUniqueInput
+    where: DiseaseRecordWhereUniqueInput
   }
 
   /**
-   * DiseaseRecords findFirst
+   * DiseaseRecord findFirst
    */
-  export type DiseaseRecordsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * Filter, which DiseaseRecords to fetch.
+     * Filter, which DiseaseRecord to fetch.
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of DiseaseRecords to fetch.
      */
-    orderBy?: DiseaseRecordsOrderByWithRelationInput | DiseaseRecordsOrderByWithRelationInput[]
+    orderBy?: DiseaseRecordOrderByWithRelationInput | DiseaseRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for searching for DiseaseRecords.
      */
-    cursor?: DiseaseRecordsWhereUniqueInput
+    cursor?: DiseaseRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -11666,41 +11634,41 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of DiseaseRecords.
      */
-    distinct?: DiseaseRecordsScalarFieldEnum | DiseaseRecordsScalarFieldEnum[]
+    distinct?: DiseaseRecordScalarFieldEnum | DiseaseRecordScalarFieldEnum[]
   }
 
   /**
-   * DiseaseRecords findFirstOrThrow
+   * DiseaseRecord findFirstOrThrow
    */
-  export type DiseaseRecordsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * Filter, which DiseaseRecords to fetch.
+     * Filter, which DiseaseRecord to fetch.
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of DiseaseRecords to fetch.
      */
-    orderBy?: DiseaseRecordsOrderByWithRelationInput | DiseaseRecordsOrderByWithRelationInput[]
+    orderBy?: DiseaseRecordOrderByWithRelationInput | DiseaseRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for searching for DiseaseRecords.
      */
-    cursor?: DiseaseRecordsWhereUniqueInput
+    cursor?: DiseaseRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -11718,41 +11686,41 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of DiseaseRecords.
      */
-    distinct?: DiseaseRecordsScalarFieldEnum | DiseaseRecordsScalarFieldEnum[]
+    distinct?: DiseaseRecordScalarFieldEnum | DiseaseRecordScalarFieldEnum[]
   }
 
   /**
-   * DiseaseRecords findMany
+   * DiseaseRecord findMany
    */
-  export type DiseaseRecordsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
      * Filter, which DiseaseRecords to fetch.
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of DiseaseRecords to fetch.
      */
-    orderBy?: DiseaseRecordsOrderByWithRelationInput | DiseaseRecordsOrderByWithRelationInput[]
+    orderBy?: DiseaseRecordOrderByWithRelationInput | DiseaseRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing DiseaseRecords.
      */
-    cursor?: DiseaseRecordsWhereUniqueInput
+    cursor?: DiseaseRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -11765,103 +11733,103 @@ export namespace Prisma {
      * Skip the first `n` DiseaseRecords.
      */
     skip?: number
-    distinct?: DiseaseRecordsScalarFieldEnum | DiseaseRecordsScalarFieldEnum[]
+    distinct?: DiseaseRecordScalarFieldEnum | DiseaseRecordScalarFieldEnum[]
   }
 
   /**
-   * DiseaseRecords create
+   * DiseaseRecord create
    */
-  export type DiseaseRecordsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * The data needed to create a DiseaseRecords.
+     * The data needed to create a DiseaseRecord.
      */
-    data: XOR<DiseaseRecordsCreateInput, DiseaseRecordsUncheckedCreateInput>
+    data: XOR<DiseaseRecordCreateInput, DiseaseRecordUncheckedCreateInput>
   }
 
   /**
-   * DiseaseRecords createMany
+   * DiseaseRecord createMany
    */
-  export type DiseaseRecordsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many DiseaseRecords.
      */
-    data: DiseaseRecordsCreateManyInput | DiseaseRecordsCreateManyInput[]
+    data: DiseaseRecordCreateManyInput | DiseaseRecordCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * DiseaseRecords createManyAndReturn
+   * DiseaseRecord createManyAndReturn
    */
-  export type DiseaseRecordsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelectCreateManyAndReturn<ExtArgs> | null
+    select?: DiseaseRecordSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * The data used to create many DiseaseRecords.
      */
-    data: DiseaseRecordsCreateManyInput | DiseaseRecordsCreateManyInput[]
+    data: DiseaseRecordCreateManyInput | DiseaseRecordCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: DiseaseRecordIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * DiseaseRecords update
+   * DiseaseRecord update
    */
-  export type DiseaseRecordsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * The data needed to update a DiseaseRecords.
+     * The data needed to update a DiseaseRecord.
      */
-    data: XOR<DiseaseRecordsUpdateInput, DiseaseRecordsUncheckedUpdateInput>
+    data: XOR<DiseaseRecordUpdateInput, DiseaseRecordUncheckedUpdateInput>
     /**
-     * Choose, which DiseaseRecords to update.
+     * Choose, which DiseaseRecord to update.
      */
-    where: DiseaseRecordsWhereUniqueInput
+    where: DiseaseRecordWhereUniqueInput
   }
 
   /**
-   * DiseaseRecords updateMany
+   * DiseaseRecord updateMany
    */
-  export type DiseaseRecordsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update DiseaseRecords.
      */
-    data: XOR<DiseaseRecordsUpdateManyMutationInput, DiseaseRecordsUncheckedUpdateManyInput>
+    data: XOR<DiseaseRecordUpdateManyMutationInput, DiseaseRecordUncheckedUpdateManyInput>
     /**
      * Filter which DiseaseRecords to update
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * Limit how many DiseaseRecords to update.
      */
@@ -11869,25 +11837,25 @@ export namespace Prisma {
   }
 
   /**
-   * DiseaseRecords updateManyAndReturn
+   * DiseaseRecord updateManyAndReturn
    */
-  export type DiseaseRecordsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: DiseaseRecordSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * The data used to update DiseaseRecords.
      */
-    data: XOR<DiseaseRecordsUpdateManyMutationInput, DiseaseRecordsUncheckedUpdateManyInput>
+    data: XOR<DiseaseRecordUpdateManyMutationInput, DiseaseRecordUncheckedUpdateManyInput>
     /**
      * Filter which DiseaseRecords to update
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * Limit how many DiseaseRecords to update.
      */
@@ -11895,69 +11863,69 @@ export namespace Prisma {
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: DiseaseRecordIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * DiseaseRecords upsert
+   * DiseaseRecord upsert
    */
-  export type DiseaseRecordsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * The filter to search for the DiseaseRecords to update in case it exists.
+     * The filter to search for the DiseaseRecord to update in case it exists.
      */
-    where: DiseaseRecordsWhereUniqueInput
+    where: DiseaseRecordWhereUniqueInput
     /**
-     * In case the DiseaseRecords found by the `where` argument doesn't exist, create a new DiseaseRecords with this data.
+     * In case the DiseaseRecord found by the `where` argument doesn't exist, create a new DiseaseRecord with this data.
      */
-    create: XOR<DiseaseRecordsCreateInput, DiseaseRecordsUncheckedCreateInput>
+    create: XOR<DiseaseRecordCreateInput, DiseaseRecordUncheckedCreateInput>
     /**
-     * In case the DiseaseRecords was found with the provided `where` argument, update it with this data.
+     * In case the DiseaseRecord was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<DiseaseRecordsUpdateInput, DiseaseRecordsUncheckedUpdateInput>
+    update: XOR<DiseaseRecordUpdateInput, DiseaseRecordUncheckedUpdateInput>
   }
 
   /**
-   * DiseaseRecords delete
+   * DiseaseRecord delete
    */
-  export type DiseaseRecordsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
     /**
-     * Filter which DiseaseRecords to delete.
+     * Filter which DiseaseRecord to delete.
      */
-    where: DiseaseRecordsWhereUniqueInput
+    where: DiseaseRecordWhereUniqueInput
   }
 
   /**
-   * DiseaseRecords deleteMany
+   * DiseaseRecord deleteMany
    */
-  export type DiseaseRecordsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which DiseaseRecords to delete
      */
-    where?: DiseaseRecordsWhereInput
+    where?: DiseaseRecordWhereInput
     /**
      * Limit how many DiseaseRecords to delete.
      */
@@ -11965,21 +11933,21 @@ export namespace Prisma {
   }
 
   /**
-   * DiseaseRecords without action
+   * DiseaseRecord without action
    */
-  export type DiseaseRecordsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DiseaseRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DiseaseRecords
+     * Select specific fields to fetch from the DiseaseRecord
      */
-    select?: DiseaseRecordsSelect<ExtArgs> | null
+    select?: DiseaseRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DiseaseRecords
+     * Omit specific fields from the DiseaseRecord
      */
-    omit?: DiseaseRecordsOmit<ExtArgs> | null
+    omit?: DiseaseRecordOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DiseaseRecordsInclude<ExtArgs> | null
+    include?: DiseaseRecordInclude<ExtArgs> | null
   }
 
 
@@ -13137,7 +13105,7 @@ export namespace Prisma {
     name: 'name',
     description: 'description',
     brief: 'brief',
-    photoLink: 'photoLink'
+    imageUrl: 'imageUrl'
   };
 
   export type MedicineScalarFieldEnum = (typeof MedicineScalarFieldEnum)[keyof typeof MedicineScalarFieldEnum]
@@ -13162,16 +13130,15 @@ export namespace Prisma {
   export type StockBatchScalarFieldEnum = (typeof StockBatchScalarFieldEnum)[keyof typeof StockBatchScalarFieldEnum]
 
 
-  export const ForecastedMedicineScalarFieldEnum: {
+  export const ForecastedUserStockScalarFieldEnum: {
     id: 'id',
-    medicineId: 'medicineId',
-    userId: 'userId',
+    userStockId: 'userStockId',
     requiredStock: 'requiredStock',
     percentage: 'percentage',
     stockoutDate: 'stockoutDate'
   };
 
-  export type ForecastedMedicineScalarFieldEnum = (typeof ForecastedMedicineScalarFieldEnum)[keyof typeof ForecastedMedicineScalarFieldEnum]
+  export type ForecastedUserStockScalarFieldEnum = (typeof ForecastedUserStockScalarFieldEnum)[keyof typeof ForecastedUserStockScalarFieldEnum]
 
 
   export const DiseaseScalarFieldEnum: {
@@ -13182,12 +13149,14 @@ export namespace Prisma {
   export type DiseaseScalarFieldEnum = (typeof DiseaseScalarFieldEnum)[keyof typeof DiseaseScalarFieldEnum]
 
 
-  export const DiseaseRecordsScalarFieldEnum: {
+  export const DiseaseRecordScalarFieldEnum: {
     id: 'id',
-    diseaseId: 'diseaseId'
+    diseaseId: 'diseaseId',
+    amount: 'amount',
+    timestamp: 'timestamp'
   };
 
-  export type DiseaseRecordsScalarFieldEnum = (typeof DiseaseRecordsScalarFieldEnum)[keyof typeof DiseaseRecordsScalarFieldEnum]
+  export type DiseaseRecordScalarFieldEnum = (typeof DiseaseRecordScalarFieldEnum)[keyof typeof DiseaseRecordScalarFieldEnum]
 
 
   export const DiseaseMedicineCorrelationScalarFieldEnum: {
@@ -13294,7 +13263,6 @@ export namespace Prisma {
     price?: IntNullableListFilter<"User">
     transactionHistory?: TransactionHistoryListRelationFilter
     userStock?: UserStockListRelationFilter
-    forecastedMedicine?: ForecastedMedicineListRelationFilter
     tokens?: TokensListRelationFilter
   }
 
@@ -13309,7 +13277,6 @@ export namespace Prisma {
     price?: SortOrder
     transactionHistory?: TransactionHistoryOrderByRelationAggregateInput
     userStock?: UserStockOrderByRelationAggregateInput
-    forecastedMedicine?: ForecastedMedicineOrderByRelationAggregateInput
     tokens?: TokensOrderByRelationAggregateInput
   }
 
@@ -13327,7 +13294,6 @@ export namespace Prisma {
     price?: IntNullableListFilter<"User">
     transactionHistory?: TransactionHistoryListRelationFilter
     userStock?: UserStockListRelationFilter
-    forecastedMedicine?: ForecastedMedicineListRelationFilter
     tokens?: TokensListRelationFilter
   }, "id" | "username">
 
@@ -13486,11 +13452,10 @@ export namespace Prisma {
     name?: StringFilter<"Medicine"> | string
     description?: StringFilter<"Medicine"> | string
     brief?: StringFilter<"Medicine"> | string
-    photoLink?: StringFilter<"Medicine"> | string
+    imageUrl?: StringFilter<"Medicine"> | string
     transactionHistory?: TransactionHistoryListRelationFilter
     userStock?: UserStockListRelationFilter
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationListRelationFilter
-    forecastedMedicine?: ForecastedMedicineListRelationFilter
   }
 
   export type MedicineOrderByWithRelationInput = {
@@ -13498,11 +13463,10 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     brief?: SortOrder
-    photoLink?: SortOrder
+    imageUrl?: SortOrder
     transactionHistory?: TransactionHistoryOrderByRelationAggregateInput
     userStock?: UserStockOrderByRelationAggregateInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationOrderByRelationAggregateInput
-    forecastedMedicine?: ForecastedMedicineOrderByRelationAggregateInput
   }
 
   export type MedicineWhereUniqueInput = Prisma.AtLeast<{
@@ -13513,11 +13477,10 @@ export namespace Prisma {
     name?: StringFilter<"Medicine"> | string
     description?: StringFilter<"Medicine"> | string
     brief?: StringFilter<"Medicine"> | string
-    photoLink?: StringFilter<"Medicine"> | string
+    imageUrl?: StringFilter<"Medicine"> | string
     transactionHistory?: TransactionHistoryListRelationFilter
     userStock?: UserStockListRelationFilter
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationListRelationFilter
-    forecastedMedicine?: ForecastedMedicineListRelationFilter
   }, "id">
 
   export type MedicineOrderByWithAggregationInput = {
@@ -13525,7 +13488,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     brief?: SortOrder
-    photoLink?: SortOrder
+    imageUrl?: SortOrder
     _count?: MedicineCountOrderByAggregateInput
     _avg?: MedicineAvgOrderByAggregateInput
     _max?: MedicineMaxOrderByAggregateInput
@@ -13541,7 +13504,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Medicine"> | string
     description?: StringWithAggregatesFilter<"Medicine"> | string
     brief?: StringWithAggregatesFilter<"Medicine"> | string
-    photoLink?: StringWithAggregatesFilter<"Medicine"> | string
+    imageUrl?: StringWithAggregatesFilter<"Medicine"> | string
   }
 
   export type UserStockWhereInput = {
@@ -13554,6 +13517,7 @@ export namespace Prisma {
     medicine?: XOR<MedicineScalarRelationFilter, MedicineWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     batches?: StockBatchListRelationFilter
+    ForecastedUserStock?: ForecastedUserStockListRelationFilter
   }
 
   export type UserStockOrderByWithRelationInput = {
@@ -13563,10 +13527,12 @@ export namespace Prisma {
     medicine?: MedicineOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     batches?: StockBatchOrderByRelationAggregateInput
+    ForecastedUserStock?: ForecastedUserStockOrderByRelationAggregateInput
   }
 
   export type UserStockWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    userId_medicineId?: UserStockUserIdMedicineIdCompoundUniqueInput
     AND?: UserStockWhereInput | UserStockWhereInput[]
     OR?: UserStockWhereInput[]
     NOT?: UserStockWhereInput | UserStockWhereInput[]
@@ -13575,7 +13541,8 @@ export namespace Prisma {
     medicine?: XOR<MedicineScalarRelationFilter, MedicineWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     batches?: StockBatchListRelationFilter
-  }, "id">
+    ForecastedUserStock?: ForecastedUserStockListRelationFilter
+  }, "id" | "userId_medicineId">
 
   export type UserStockOrderByWithAggregationInput = {
     id?: SortOrder
@@ -13618,6 +13585,7 @@ export namespace Prisma {
 
   export type StockBatchWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    userStockId_expirationDate?: StockBatchUserStockIdExpirationDateCompoundUniqueInput
     AND?: StockBatchWhereInput | StockBatchWhereInput[]
     OR?: StockBatchWhereInput[]
     NOT?: StockBatchWhereInput | StockBatchWhereInput[]
@@ -13625,7 +13593,7 @@ export namespace Prisma {
     amount?: IntFilter<"StockBatch"> | number
     userStockId?: IntFilter<"StockBatch"> | number
     userStock?: XOR<UserStockScalarRelationFilter, UserStockWhereInput>
-  }, "id">
+  }, "id" | "userStockId_expirationDate">
 
   export type StockBatchOrderByWithAggregationInput = {
     id?: SortOrder
@@ -13649,69 +13617,61 @@ export namespace Prisma {
     userStockId?: IntWithAggregatesFilter<"StockBatch"> | number
   }
 
-  export type ForecastedMedicineWhereInput = {
-    AND?: ForecastedMedicineWhereInput | ForecastedMedicineWhereInput[]
-    OR?: ForecastedMedicineWhereInput[]
-    NOT?: ForecastedMedicineWhereInput | ForecastedMedicineWhereInput[]
-    id?: IntFilter<"ForecastedMedicine"> | number
-    medicineId?: IntFilter<"ForecastedMedicine"> | number
-    userId?: IntFilter<"ForecastedMedicine"> | number
-    requiredStock?: IntFilter<"ForecastedMedicine"> | number
-    percentage?: IntFilter<"ForecastedMedicine"> | number
-    stockoutDate?: DateTimeFilter<"ForecastedMedicine"> | Date | string
-    medicine?: XOR<MedicineScalarRelationFilter, MedicineWhereInput>
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  export type ForecastedUserStockWhereInput = {
+    AND?: ForecastedUserStockWhereInput | ForecastedUserStockWhereInput[]
+    OR?: ForecastedUserStockWhereInput[]
+    NOT?: ForecastedUserStockWhereInput | ForecastedUserStockWhereInput[]
+    id?: IntFilter<"ForecastedUserStock"> | number
+    userStockId?: IntFilter<"ForecastedUserStock"> | number
+    requiredStock?: IntFilter<"ForecastedUserStock"> | number
+    percentage?: IntFilter<"ForecastedUserStock"> | number
+    stockoutDate?: DateTimeFilter<"ForecastedUserStock"> | Date | string
+    userStock?: XOR<UserStockScalarRelationFilter, UserStockWhereInput>
   }
 
-  export type ForecastedMedicineOrderByWithRelationInput = {
+  export type ForecastedUserStockOrderByWithRelationInput = {
     id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
+    userStockId?: SortOrder
     requiredStock?: SortOrder
     percentage?: SortOrder
     stockoutDate?: SortOrder
-    medicine?: MedicineOrderByWithRelationInput
-    user?: UserOrderByWithRelationInput
+    userStock?: UserStockOrderByWithRelationInput
   }
 
-  export type ForecastedMedicineWhereUniqueInput = Prisma.AtLeast<{
+  export type ForecastedUserStockWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: ForecastedMedicineWhereInput | ForecastedMedicineWhereInput[]
-    OR?: ForecastedMedicineWhereInput[]
-    NOT?: ForecastedMedicineWhereInput | ForecastedMedicineWhereInput[]
-    medicineId?: IntFilter<"ForecastedMedicine"> | number
-    userId?: IntFilter<"ForecastedMedicine"> | number
-    requiredStock?: IntFilter<"ForecastedMedicine"> | number
-    percentage?: IntFilter<"ForecastedMedicine"> | number
-    stockoutDate?: DateTimeFilter<"ForecastedMedicine"> | Date | string
-    medicine?: XOR<MedicineScalarRelationFilter, MedicineWhereInput>
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    AND?: ForecastedUserStockWhereInput | ForecastedUserStockWhereInput[]
+    OR?: ForecastedUserStockWhereInput[]
+    NOT?: ForecastedUserStockWhereInput | ForecastedUserStockWhereInput[]
+    userStockId?: IntFilter<"ForecastedUserStock"> | number
+    requiredStock?: IntFilter<"ForecastedUserStock"> | number
+    percentage?: IntFilter<"ForecastedUserStock"> | number
+    stockoutDate?: DateTimeFilter<"ForecastedUserStock"> | Date | string
+    userStock?: XOR<UserStockScalarRelationFilter, UserStockWhereInput>
   }, "id">
 
-  export type ForecastedMedicineOrderByWithAggregationInput = {
+  export type ForecastedUserStockOrderByWithAggregationInput = {
     id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
+    userStockId?: SortOrder
     requiredStock?: SortOrder
     percentage?: SortOrder
     stockoutDate?: SortOrder
-    _count?: ForecastedMedicineCountOrderByAggregateInput
-    _avg?: ForecastedMedicineAvgOrderByAggregateInput
-    _max?: ForecastedMedicineMaxOrderByAggregateInput
-    _min?: ForecastedMedicineMinOrderByAggregateInput
-    _sum?: ForecastedMedicineSumOrderByAggregateInput
+    _count?: ForecastedUserStockCountOrderByAggregateInput
+    _avg?: ForecastedUserStockAvgOrderByAggregateInput
+    _max?: ForecastedUserStockMaxOrderByAggregateInput
+    _min?: ForecastedUserStockMinOrderByAggregateInput
+    _sum?: ForecastedUserStockSumOrderByAggregateInput
   }
 
-  export type ForecastedMedicineScalarWhereWithAggregatesInput = {
-    AND?: ForecastedMedicineScalarWhereWithAggregatesInput | ForecastedMedicineScalarWhereWithAggregatesInput[]
-    OR?: ForecastedMedicineScalarWhereWithAggregatesInput[]
-    NOT?: ForecastedMedicineScalarWhereWithAggregatesInput | ForecastedMedicineScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ForecastedMedicine"> | number
-    medicineId?: IntWithAggregatesFilter<"ForecastedMedicine"> | number
-    userId?: IntWithAggregatesFilter<"ForecastedMedicine"> | number
-    requiredStock?: IntWithAggregatesFilter<"ForecastedMedicine"> | number
-    percentage?: IntWithAggregatesFilter<"ForecastedMedicine"> | number
-    stockoutDate?: DateTimeWithAggregatesFilter<"ForecastedMedicine"> | Date | string
+  export type ForecastedUserStockScalarWhereWithAggregatesInput = {
+    AND?: ForecastedUserStockScalarWhereWithAggregatesInput | ForecastedUserStockScalarWhereWithAggregatesInput[]
+    OR?: ForecastedUserStockScalarWhereWithAggregatesInput[]
+    NOT?: ForecastedUserStockScalarWhereWithAggregatesInput | ForecastedUserStockScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ForecastedUserStock"> | number
+    userStockId?: IntWithAggregatesFilter<"ForecastedUserStock"> | number
+    requiredStock?: IntWithAggregatesFilter<"ForecastedUserStock"> | number
+    percentage?: IntWithAggregatesFilter<"ForecastedUserStock"> | number
+    stockoutDate?: DateTimeWithAggregatesFilter<"ForecastedUserStock"> | Date | string
   }
 
   export type DiseaseWhereInput = {
@@ -13721,14 +13681,14 @@ export namespace Prisma {
     id?: IntFilter<"Disease"> | number
     name?: StringFilter<"Disease"> | string
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationListRelationFilter
-    diseaseRecords?: DiseaseRecordsListRelationFilter
+    diseaseRecords?: DiseaseRecordListRelationFilter
   }
 
   export type DiseaseOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationOrderByRelationAggregateInput
-    diseaseRecords?: DiseaseRecordsOrderByRelationAggregateInput
+    diseaseRecords?: DiseaseRecordOrderByRelationAggregateInput
   }
 
   export type DiseaseWhereUniqueInput = Prisma.AtLeast<{
@@ -13738,7 +13698,7 @@ export namespace Prisma {
     NOT?: DiseaseWhereInput | DiseaseWhereInput[]
     name?: StringFilter<"Disease"> | string
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationListRelationFilter
-    diseaseRecords?: DiseaseRecordsListRelationFilter
+    diseaseRecords?: DiseaseRecordListRelationFilter
   }, "id">
 
   export type DiseaseOrderByWithAggregationInput = {
@@ -13759,46 +13719,56 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Disease"> | string
   }
 
-  export type DiseaseRecordsWhereInput = {
-    AND?: DiseaseRecordsWhereInput | DiseaseRecordsWhereInput[]
-    OR?: DiseaseRecordsWhereInput[]
-    NOT?: DiseaseRecordsWhereInput | DiseaseRecordsWhereInput[]
-    id?: IntFilter<"DiseaseRecords"> | number
-    diseaseId?: IntFilter<"DiseaseRecords"> | number
+  export type DiseaseRecordWhereInput = {
+    AND?: DiseaseRecordWhereInput | DiseaseRecordWhereInput[]
+    OR?: DiseaseRecordWhereInput[]
+    NOT?: DiseaseRecordWhereInput | DiseaseRecordWhereInput[]
+    id?: IntFilter<"DiseaseRecord"> | number
+    diseaseId?: IntFilter<"DiseaseRecord"> | number
+    amount?: IntFilter<"DiseaseRecord"> | number
+    timestamp?: DateTimeFilter<"DiseaseRecord"> | Date | string
     disease?: XOR<DiseaseScalarRelationFilter, DiseaseWhereInput>
   }
 
-  export type DiseaseRecordsOrderByWithRelationInput = {
+  export type DiseaseRecordOrderByWithRelationInput = {
     id?: SortOrder
     diseaseId?: SortOrder
+    amount?: SortOrder
+    timestamp?: SortOrder
     disease?: DiseaseOrderByWithRelationInput
   }
 
-  export type DiseaseRecordsWhereUniqueInput = Prisma.AtLeast<{
+  export type DiseaseRecordWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: DiseaseRecordsWhereInput | DiseaseRecordsWhereInput[]
-    OR?: DiseaseRecordsWhereInput[]
-    NOT?: DiseaseRecordsWhereInput | DiseaseRecordsWhereInput[]
-    diseaseId?: IntFilter<"DiseaseRecords"> | number
+    AND?: DiseaseRecordWhereInput | DiseaseRecordWhereInput[]
+    OR?: DiseaseRecordWhereInput[]
+    NOT?: DiseaseRecordWhereInput | DiseaseRecordWhereInput[]
+    diseaseId?: IntFilter<"DiseaseRecord"> | number
+    amount?: IntFilter<"DiseaseRecord"> | number
+    timestamp?: DateTimeFilter<"DiseaseRecord"> | Date | string
     disease?: XOR<DiseaseScalarRelationFilter, DiseaseWhereInput>
   }, "id">
 
-  export type DiseaseRecordsOrderByWithAggregationInput = {
+  export type DiseaseRecordOrderByWithAggregationInput = {
     id?: SortOrder
     diseaseId?: SortOrder
-    _count?: DiseaseRecordsCountOrderByAggregateInput
-    _avg?: DiseaseRecordsAvgOrderByAggregateInput
-    _max?: DiseaseRecordsMaxOrderByAggregateInput
-    _min?: DiseaseRecordsMinOrderByAggregateInput
-    _sum?: DiseaseRecordsSumOrderByAggregateInput
+    amount?: SortOrder
+    timestamp?: SortOrder
+    _count?: DiseaseRecordCountOrderByAggregateInput
+    _avg?: DiseaseRecordAvgOrderByAggregateInput
+    _max?: DiseaseRecordMaxOrderByAggregateInput
+    _min?: DiseaseRecordMinOrderByAggregateInput
+    _sum?: DiseaseRecordSumOrderByAggregateInput
   }
 
-  export type DiseaseRecordsScalarWhereWithAggregatesInput = {
-    AND?: DiseaseRecordsScalarWhereWithAggregatesInput | DiseaseRecordsScalarWhereWithAggregatesInput[]
-    OR?: DiseaseRecordsScalarWhereWithAggregatesInput[]
-    NOT?: DiseaseRecordsScalarWhereWithAggregatesInput | DiseaseRecordsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"DiseaseRecords"> | number
-    diseaseId?: IntWithAggregatesFilter<"DiseaseRecords"> | number
+  export type DiseaseRecordScalarWhereWithAggregatesInput = {
+    AND?: DiseaseRecordScalarWhereWithAggregatesInput | DiseaseRecordScalarWhereWithAggregatesInput[]
+    OR?: DiseaseRecordScalarWhereWithAggregatesInput[]
+    NOT?: DiseaseRecordScalarWhereWithAggregatesInput | DiseaseRecordScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DiseaseRecord"> | number
+    diseaseId?: IntWithAggregatesFilter<"DiseaseRecord"> | number
+    amount?: IntWithAggregatesFilter<"DiseaseRecord"> | number
+    timestamp?: DateTimeWithAggregatesFilter<"DiseaseRecord"> | Date | string
   }
 
   export type DiseaseMedicineCorrelationWhereInput = {
@@ -13867,7 +13837,6 @@ export namespace Prisma {
     price?: UserCreatepriceInput | number[]
     transactionHistory?: TransactionHistoryCreateNestedManyWithoutUserInput
     userStock?: UserStockCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutUserInput
     tokens?: TokensCreateNestedManyWithoutUserInput
   }
 
@@ -13882,7 +13851,6 @@ export namespace Prisma {
     price?: UserCreatepriceInput | number[]
     transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutUserInput
     userStock?: UserStockUncheckedCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutUserInput
     tokens?: TokensUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -13896,7 +13864,6 @@ export namespace Prisma {
     price?: UserUpdatepriceInput | number[]
     transactionHistory?: TransactionHistoryUpdateManyWithoutUserNestedInput
     userStock?: UserStockUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutUserNestedInput
     tokens?: TokensUpdateManyWithoutUserNestedInput
   }
 
@@ -13911,7 +13878,6 @@ export namespace Prisma {
     price?: UserUpdatepriceInput | number[]
     transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutUserNestedInput
     userStock?: UserStockUncheckedUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutUserNestedInput
     tokens?: TokensUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -14057,11 +14023,10 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     transactionHistory?: TransactionHistoryCreateNestedManyWithoutMedicineInput
     userStock?: UserStockCreateNestedManyWithoutMedicineInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineUncheckedCreateInput = {
@@ -14069,22 +14034,20 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutMedicineInput
     userStock?: UserStockUncheckedCreateNestedManyWithoutMedicineInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     transactionHistory?: TransactionHistoryUpdateManyWithoutMedicineNestedInput
     userStock?: UserStockUpdateManyWithoutMedicineNestedInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutMedicineNestedInput
   }
 
   export type MedicineUncheckedUpdateInput = {
@@ -14092,11 +14055,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutMedicineNestedInput
     userStock?: UserStockUncheckedUpdateManyWithoutMedicineNestedInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutMedicineNestedInput
   }
 
   export type MedicineCreateManyInput = {
@@ -14104,14 +14066,14 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
   }
 
   export type MedicineUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type MedicineUncheckedUpdateManyInput = {
@@ -14119,13 +14081,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserStockCreateInput = {
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     user: UserCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateInput = {
@@ -14133,12 +14096,14 @@ export namespace Prisma {
     medicineId: number
     userId: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockUpdateInput = {
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateInput = {
@@ -14146,6 +14111,7 @@ export namespace Prisma {
     medicineId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockCreateManyInput = {
@@ -14209,59 +14175,53 @@ export namespace Prisma {
     userStockId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ForecastedMedicineCreateInput = {
+  export type ForecastedUserStockCreateInput = {
     requiredStock: number
     percentage: number
     stockoutDate: Date | string
-    medicine: MedicineCreateNestedOneWithoutForecastedMedicineInput
-    user: UserCreateNestedOneWithoutForecastedMedicineInput
+    userStock: UserStockCreateNestedOneWithoutForecastedUserStockInput
   }
 
-  export type ForecastedMedicineUncheckedCreateInput = {
+  export type ForecastedUserStockUncheckedCreateInput = {
     id?: number
-    medicineId: number
-    userId: number
+    userStockId: number
     requiredStock: number
     percentage: number
     stockoutDate: Date | string
   }
 
-  export type ForecastedMedicineUpdateInput = {
+  export type ForecastedUserStockUpdateInput = {
     requiredStock?: IntFieldUpdateOperationsInput | number
     percentage?: IntFieldUpdateOperationsInput | number
     stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    medicine?: MedicineUpdateOneRequiredWithoutForecastedMedicineNestedInput
-    user?: UserUpdateOneRequiredWithoutForecastedMedicineNestedInput
+    userStock?: UserStockUpdateOneRequiredWithoutForecastedUserStockNestedInput
   }
 
-  export type ForecastedMedicineUncheckedUpdateInput = {
+  export type ForecastedUserStockUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    medicineId?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
+    userStockId?: IntFieldUpdateOperationsInput | number
     requiredStock?: IntFieldUpdateOperationsInput | number
     percentage?: IntFieldUpdateOperationsInput | number
     stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ForecastedMedicineCreateManyInput = {
+  export type ForecastedUserStockCreateManyInput = {
     id?: number
-    medicineId: number
-    userId: number
+    userStockId: number
     requiredStock: number
     percentage: number
     stockoutDate: Date | string
   }
 
-  export type ForecastedMedicineUpdateManyMutationInput = {
+  export type ForecastedUserStockUpdateManyMutationInput = {
     requiredStock?: IntFieldUpdateOperationsInput | number
     percentage?: IntFieldUpdateOperationsInput | number
     stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ForecastedMedicineUncheckedUpdateManyInput = {
+  export type ForecastedUserStockUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    medicineId?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
+    userStockId?: IntFieldUpdateOperationsInput | number
     requiredStock?: IntFieldUpdateOperationsInput | number
     percentage?: IntFieldUpdateOperationsInput | number
     stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14270,27 +14230,27 @@ export namespace Prisma {
   export type DiseaseCreateInput = {
     name: string
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationCreateNestedManyWithoutDiseaseInput
-    diseaseRecords?: DiseaseRecordsCreateNestedManyWithoutDiseaseInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutDiseaseInput
   }
 
   export type DiseaseUncheckedCreateInput = {
     id?: number
     name: string
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedCreateNestedManyWithoutDiseaseInput
-    diseaseRecords?: DiseaseRecordsUncheckedCreateNestedManyWithoutDiseaseInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutDiseaseInput
   }
 
   export type DiseaseUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUpdateManyWithoutDiseaseNestedInput
-    diseaseRecords?: DiseaseRecordsUpdateManyWithoutDiseaseNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutDiseaseNestedInput
   }
 
   export type DiseaseUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedUpdateManyWithoutDiseaseNestedInput
-    diseaseRecords?: DiseaseRecordsUncheckedUpdateManyWithoutDiseaseNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutDiseaseNestedInput
   }
 
   export type DiseaseCreateManyInput = {
@@ -14307,36 +14267,49 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type DiseaseRecordsCreateInput = {
+  export type DiseaseRecordCreateInput = {
+    amount: number
+    timestamp: Date | string
     disease: DiseaseCreateNestedOneWithoutDiseaseRecordsInput
   }
 
-  export type DiseaseRecordsUncheckedCreateInput = {
+  export type DiseaseRecordUncheckedCreateInput = {
     id?: number
     diseaseId: number
+    amount: number
+    timestamp: Date | string
   }
 
-  export type DiseaseRecordsUpdateInput = {
+  export type DiseaseRecordUpdateInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     disease?: DiseaseUpdateOneRequiredWithoutDiseaseRecordsNestedInput
   }
 
-  export type DiseaseRecordsUncheckedUpdateInput = {
+  export type DiseaseRecordUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     diseaseId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DiseaseRecordsCreateManyInput = {
+  export type DiseaseRecordCreateManyInput = {
     id?: number
     diseaseId: number
+    amount: number
+    timestamp: Date | string
   }
 
-  export type DiseaseRecordsUpdateManyMutationInput = {
-
+  export type DiseaseRecordUpdateManyMutationInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DiseaseRecordsUncheckedUpdateManyInput = {
+  export type DiseaseRecordUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     diseaseId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DiseaseMedicineCorrelationCreateInput = {
@@ -14429,12 +14402,6 @@ export namespace Prisma {
     none?: UserStockWhereInput
   }
 
-  export type ForecastedMedicineListRelationFilter = {
-    every?: ForecastedMedicineWhereInput
-    some?: ForecastedMedicineWhereInput
-    none?: ForecastedMedicineWhereInput
-  }
-
   export type TokensListRelationFilter = {
     every?: TokensWhereInput
     some?: TokensWhereInput
@@ -14446,10 +14413,6 @@ export namespace Prisma {
   }
 
   export type UserStockOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ForecastedMedicineOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14658,7 +14621,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     brief?: SortOrder
-    photoLink?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type MedicineAvgOrderByAggregateInput = {
@@ -14670,7 +14633,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     brief?: SortOrder
-    photoLink?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type MedicineMinOrderByAggregateInput = {
@@ -14678,7 +14641,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     brief?: SortOrder
-    photoLink?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type MedicineSumOrderByAggregateInput = {
@@ -14691,8 +14654,23 @@ export namespace Prisma {
     none?: StockBatchWhereInput
   }
 
+  export type ForecastedUserStockListRelationFilter = {
+    every?: ForecastedUserStockWhereInput
+    some?: ForecastedUserStockWhereInput
+    none?: ForecastedUserStockWhereInput
+  }
+
   export type StockBatchOrderByRelationAggregateInput = {
     _count?: SortOrder
+  }
+
+  export type ForecastedUserStockOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserStockUserIdMedicineIdCompoundUniqueInput = {
+    userId: number
+    medicineId: number
   }
 
   export type UserStockCountOrderByAggregateInput = {
@@ -14730,6 +14708,11 @@ export namespace Prisma {
     isNot?: UserStockWhereInput
   }
 
+  export type StockBatchUserStockIdExpirationDateCompoundUniqueInput = {
+    userStockId: number
+    expirationDate: Date | string
+  }
+
   export type StockBatchCountOrderByAggregateInput = {
     id?: SortOrder
     expirationDate?: SortOrder
@@ -14763,56 +14746,51 @@ export namespace Prisma {
     userStockId?: SortOrder
   }
 
-  export type ForecastedMedicineCountOrderByAggregateInput = {
+  export type ForecastedUserStockCountOrderByAggregateInput = {
     id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
+    userStockId?: SortOrder
     requiredStock?: SortOrder
     percentage?: SortOrder
     stockoutDate?: SortOrder
   }
 
-  export type ForecastedMedicineAvgOrderByAggregateInput = {
+  export type ForecastedUserStockAvgOrderByAggregateInput = {
     id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
+    userStockId?: SortOrder
     requiredStock?: SortOrder
     percentage?: SortOrder
   }
 
-  export type ForecastedMedicineMaxOrderByAggregateInput = {
+  export type ForecastedUserStockMaxOrderByAggregateInput = {
     id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
-    requiredStock?: SortOrder
-    percentage?: SortOrder
-    stockoutDate?: SortOrder
-  }
-
-  export type ForecastedMedicineMinOrderByAggregateInput = {
-    id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
+    userStockId?: SortOrder
     requiredStock?: SortOrder
     percentage?: SortOrder
     stockoutDate?: SortOrder
   }
 
-  export type ForecastedMedicineSumOrderByAggregateInput = {
+  export type ForecastedUserStockMinOrderByAggregateInput = {
     id?: SortOrder
-    medicineId?: SortOrder
-    userId?: SortOrder
+    userStockId?: SortOrder
+    requiredStock?: SortOrder
+    percentage?: SortOrder
+    stockoutDate?: SortOrder
+  }
+
+  export type ForecastedUserStockSumOrderByAggregateInput = {
+    id?: SortOrder
+    userStockId?: SortOrder
     requiredStock?: SortOrder
     percentage?: SortOrder
   }
 
-  export type DiseaseRecordsListRelationFilter = {
-    every?: DiseaseRecordsWhereInput
-    some?: DiseaseRecordsWhereInput
-    none?: DiseaseRecordsWhereInput
+  export type DiseaseRecordListRelationFilter = {
+    every?: DiseaseRecordWhereInput
+    some?: DiseaseRecordWhereInput
+    none?: DiseaseRecordWhereInput
   }
 
-  export type DiseaseRecordsOrderByRelationAggregateInput = {
+  export type DiseaseRecordOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14844,29 +14822,37 @@ export namespace Prisma {
     isNot?: DiseaseWhereInput
   }
 
-  export type DiseaseRecordsCountOrderByAggregateInput = {
+  export type DiseaseRecordCountOrderByAggregateInput = {
     id?: SortOrder
     diseaseId?: SortOrder
+    amount?: SortOrder
+    timestamp?: SortOrder
   }
 
-  export type DiseaseRecordsAvgOrderByAggregateInput = {
+  export type DiseaseRecordAvgOrderByAggregateInput = {
     id?: SortOrder
     diseaseId?: SortOrder
+    amount?: SortOrder
   }
 
-  export type DiseaseRecordsMaxOrderByAggregateInput = {
+  export type DiseaseRecordMaxOrderByAggregateInput = {
     id?: SortOrder
     diseaseId?: SortOrder
+    amount?: SortOrder
+    timestamp?: SortOrder
   }
 
-  export type DiseaseRecordsMinOrderByAggregateInput = {
+  export type DiseaseRecordMinOrderByAggregateInput = {
     id?: SortOrder
     diseaseId?: SortOrder
+    amount?: SortOrder
+    timestamp?: SortOrder
   }
 
-  export type DiseaseRecordsSumOrderByAggregateInput = {
+  export type DiseaseRecordSumOrderByAggregateInput = {
     id?: SortOrder
     diseaseId?: SortOrder
+    amount?: SortOrder
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -14954,13 +14940,6 @@ export namespace Prisma {
     connect?: UserStockWhereUniqueInput | UserStockWhereUniqueInput[]
   }
 
-  export type ForecastedMedicineCreateNestedManyWithoutUserInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutUserInput, ForecastedMedicineUncheckedCreateWithoutUserInput> | ForecastedMedicineCreateWithoutUserInput[] | ForecastedMedicineUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutUserInput | ForecastedMedicineCreateOrConnectWithoutUserInput[]
-    createMany?: ForecastedMedicineCreateManyUserInputEnvelope
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-  }
-
   export type TokensCreateNestedManyWithoutUserInput = {
     create?: XOR<TokensCreateWithoutUserInput, TokensUncheckedCreateWithoutUserInput> | TokensCreateWithoutUserInput[] | TokensUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TokensCreateOrConnectWithoutUserInput | TokensCreateOrConnectWithoutUserInput[]
@@ -14980,13 +14959,6 @@ export namespace Prisma {
     connectOrCreate?: UserStockCreateOrConnectWithoutUserInput | UserStockCreateOrConnectWithoutUserInput[]
     createMany?: UserStockCreateManyUserInputEnvelope
     connect?: UserStockWhereUniqueInput | UserStockWhereUniqueInput[]
-  }
-
-  export type ForecastedMedicineUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutUserInput, ForecastedMedicineUncheckedCreateWithoutUserInput> | ForecastedMedicineCreateWithoutUserInput[] | ForecastedMedicineUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutUserInput | ForecastedMedicineCreateOrConnectWithoutUserInput[]
-    createMany?: ForecastedMedicineCreateManyUserInputEnvelope
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
   }
 
   export type TokensUncheckedCreateNestedManyWithoutUserInput = {
@@ -15041,20 +15013,6 @@ export namespace Prisma {
     deleteMany?: UserStockScalarWhereInput | UserStockScalarWhereInput[]
   }
 
-  export type ForecastedMedicineUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutUserInput, ForecastedMedicineUncheckedCreateWithoutUserInput> | ForecastedMedicineCreateWithoutUserInput[] | ForecastedMedicineUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutUserInput | ForecastedMedicineCreateOrConnectWithoutUserInput[]
-    upsert?: ForecastedMedicineUpsertWithWhereUniqueWithoutUserInput | ForecastedMedicineUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ForecastedMedicineCreateManyUserInputEnvelope
-    set?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    disconnect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    delete?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    update?: ForecastedMedicineUpdateWithWhereUniqueWithoutUserInput | ForecastedMedicineUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ForecastedMedicineUpdateManyWithWhereWithoutUserInput | ForecastedMedicineUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ForecastedMedicineScalarWhereInput | ForecastedMedicineScalarWhereInput[]
-  }
-
   export type TokensUpdateManyWithoutUserNestedInput = {
     create?: XOR<TokensCreateWithoutUserInput, TokensUncheckedCreateWithoutUserInput> | TokensCreateWithoutUserInput[] | TokensUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TokensCreateOrConnectWithoutUserInput | TokensCreateOrConnectWithoutUserInput[]
@@ -15095,20 +15053,6 @@ export namespace Prisma {
     update?: UserStockUpdateWithWhereUniqueWithoutUserInput | UserStockUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserStockUpdateManyWithWhereWithoutUserInput | UserStockUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserStockScalarWhereInput | UserStockScalarWhereInput[]
-  }
-
-  export type ForecastedMedicineUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutUserInput, ForecastedMedicineUncheckedCreateWithoutUserInput> | ForecastedMedicineCreateWithoutUserInput[] | ForecastedMedicineUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutUserInput | ForecastedMedicineCreateOrConnectWithoutUserInput[]
-    upsert?: ForecastedMedicineUpsertWithWhereUniqueWithoutUserInput | ForecastedMedicineUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ForecastedMedicineCreateManyUserInputEnvelope
-    set?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    disconnect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    delete?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    update?: ForecastedMedicineUpdateWithWhereUniqueWithoutUserInput | ForecastedMedicineUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ForecastedMedicineUpdateManyWithWhereWithoutUserInput | ForecastedMedicineUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ForecastedMedicineScalarWhereInput | ForecastedMedicineScalarWhereInput[]
   }
 
   export type TokensUncheckedUpdateManyWithoutUserNestedInput = {
@@ -15192,13 +15136,6 @@ export namespace Prisma {
     connect?: DiseaseMedicineCorrelationWhereUniqueInput | DiseaseMedicineCorrelationWhereUniqueInput[]
   }
 
-  export type ForecastedMedicineCreateNestedManyWithoutMedicineInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutMedicineInput, ForecastedMedicineUncheckedCreateWithoutMedicineInput> | ForecastedMedicineCreateWithoutMedicineInput[] | ForecastedMedicineUncheckedCreateWithoutMedicineInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutMedicineInput | ForecastedMedicineCreateOrConnectWithoutMedicineInput[]
-    createMany?: ForecastedMedicineCreateManyMedicineInputEnvelope
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-  }
-
   export type TransactionHistoryUncheckedCreateNestedManyWithoutMedicineInput = {
     create?: XOR<TransactionHistoryCreateWithoutMedicineInput, TransactionHistoryUncheckedCreateWithoutMedicineInput> | TransactionHistoryCreateWithoutMedicineInput[] | TransactionHistoryUncheckedCreateWithoutMedicineInput[]
     connectOrCreate?: TransactionHistoryCreateOrConnectWithoutMedicineInput | TransactionHistoryCreateOrConnectWithoutMedicineInput[]
@@ -15218,13 +15155,6 @@ export namespace Prisma {
     connectOrCreate?: DiseaseMedicineCorrelationCreateOrConnectWithoutMedicineInput | DiseaseMedicineCorrelationCreateOrConnectWithoutMedicineInput[]
     createMany?: DiseaseMedicineCorrelationCreateManyMedicineInputEnvelope
     connect?: DiseaseMedicineCorrelationWhereUniqueInput | DiseaseMedicineCorrelationWhereUniqueInput[]
-  }
-
-  export type ForecastedMedicineUncheckedCreateNestedManyWithoutMedicineInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutMedicineInput, ForecastedMedicineUncheckedCreateWithoutMedicineInput> | ForecastedMedicineCreateWithoutMedicineInput[] | ForecastedMedicineUncheckedCreateWithoutMedicineInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutMedicineInput | ForecastedMedicineCreateOrConnectWithoutMedicineInput[]
-    createMany?: ForecastedMedicineCreateManyMedicineInputEnvelope
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
   }
 
   export type TransactionHistoryUpdateManyWithoutMedicineNestedInput = {
@@ -15269,20 +15199,6 @@ export namespace Prisma {
     deleteMany?: DiseaseMedicineCorrelationScalarWhereInput | DiseaseMedicineCorrelationScalarWhereInput[]
   }
 
-  export type ForecastedMedicineUpdateManyWithoutMedicineNestedInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutMedicineInput, ForecastedMedicineUncheckedCreateWithoutMedicineInput> | ForecastedMedicineCreateWithoutMedicineInput[] | ForecastedMedicineUncheckedCreateWithoutMedicineInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutMedicineInput | ForecastedMedicineCreateOrConnectWithoutMedicineInput[]
-    upsert?: ForecastedMedicineUpsertWithWhereUniqueWithoutMedicineInput | ForecastedMedicineUpsertWithWhereUniqueWithoutMedicineInput[]
-    createMany?: ForecastedMedicineCreateManyMedicineInputEnvelope
-    set?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    disconnect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    delete?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    update?: ForecastedMedicineUpdateWithWhereUniqueWithoutMedicineInput | ForecastedMedicineUpdateWithWhereUniqueWithoutMedicineInput[]
-    updateMany?: ForecastedMedicineUpdateManyWithWhereWithoutMedicineInput | ForecastedMedicineUpdateManyWithWhereWithoutMedicineInput[]
-    deleteMany?: ForecastedMedicineScalarWhereInput | ForecastedMedicineScalarWhereInput[]
-  }
-
   export type TransactionHistoryUncheckedUpdateManyWithoutMedicineNestedInput = {
     create?: XOR<TransactionHistoryCreateWithoutMedicineInput, TransactionHistoryUncheckedCreateWithoutMedicineInput> | TransactionHistoryCreateWithoutMedicineInput[] | TransactionHistoryUncheckedCreateWithoutMedicineInput[]
     connectOrCreate?: TransactionHistoryCreateOrConnectWithoutMedicineInput | TransactionHistoryCreateOrConnectWithoutMedicineInput[]
@@ -15325,20 +15241,6 @@ export namespace Prisma {
     deleteMany?: DiseaseMedicineCorrelationScalarWhereInput | DiseaseMedicineCorrelationScalarWhereInput[]
   }
 
-  export type ForecastedMedicineUncheckedUpdateManyWithoutMedicineNestedInput = {
-    create?: XOR<ForecastedMedicineCreateWithoutMedicineInput, ForecastedMedicineUncheckedCreateWithoutMedicineInput> | ForecastedMedicineCreateWithoutMedicineInput[] | ForecastedMedicineUncheckedCreateWithoutMedicineInput[]
-    connectOrCreate?: ForecastedMedicineCreateOrConnectWithoutMedicineInput | ForecastedMedicineCreateOrConnectWithoutMedicineInput[]
-    upsert?: ForecastedMedicineUpsertWithWhereUniqueWithoutMedicineInput | ForecastedMedicineUpsertWithWhereUniqueWithoutMedicineInput[]
-    createMany?: ForecastedMedicineCreateManyMedicineInputEnvelope
-    set?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    disconnect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    delete?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    connect?: ForecastedMedicineWhereUniqueInput | ForecastedMedicineWhereUniqueInput[]
-    update?: ForecastedMedicineUpdateWithWhereUniqueWithoutMedicineInput | ForecastedMedicineUpdateWithWhereUniqueWithoutMedicineInput[]
-    updateMany?: ForecastedMedicineUpdateManyWithWhereWithoutMedicineInput | ForecastedMedicineUpdateManyWithWhereWithoutMedicineInput[]
-    deleteMany?: ForecastedMedicineScalarWhereInput | ForecastedMedicineScalarWhereInput[]
-  }
-
   export type MedicineCreateNestedOneWithoutUserStockInput = {
     create?: XOR<MedicineCreateWithoutUserStockInput, MedicineUncheckedCreateWithoutUserStockInput>
     connectOrCreate?: MedicineCreateOrConnectWithoutUserStockInput
@@ -15358,11 +15260,25 @@ export namespace Prisma {
     connect?: StockBatchWhereUniqueInput | StockBatchWhereUniqueInput[]
   }
 
+  export type ForecastedUserStockCreateNestedManyWithoutUserStockInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
+    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
+    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+  }
+
   export type StockBatchUncheckedCreateNestedManyWithoutUserStockInput = {
     create?: XOR<StockBatchCreateWithoutUserStockInput, StockBatchUncheckedCreateWithoutUserStockInput> | StockBatchCreateWithoutUserStockInput[] | StockBatchUncheckedCreateWithoutUserStockInput[]
     connectOrCreate?: StockBatchCreateOrConnectWithoutUserStockInput | StockBatchCreateOrConnectWithoutUserStockInput[]
     createMany?: StockBatchCreateManyUserStockInputEnvelope
     connect?: StockBatchWhereUniqueInput | StockBatchWhereUniqueInput[]
+  }
+
+  export type ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
+    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
+    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
   }
 
   export type MedicineUpdateOneRequiredWithoutUserStockNestedInput = {
@@ -15395,6 +15311,20 @@ export namespace Prisma {
     deleteMany?: StockBatchScalarWhereInput | StockBatchScalarWhereInput[]
   }
 
+  export type ForecastedUserStockUpdateManyWithoutUserStockNestedInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
+    upsert?: ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput[]
+    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
+    set?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    disconnect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    delete?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    update?: ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput[]
+    updateMany?: ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput | ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput[]
+    deleteMany?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
+  }
+
   export type StockBatchUncheckedUpdateManyWithoutUserStockNestedInput = {
     create?: XOR<StockBatchCreateWithoutUserStockInput, StockBatchUncheckedCreateWithoutUserStockInput> | StockBatchCreateWithoutUserStockInput[] | StockBatchUncheckedCreateWithoutUserStockInput[]
     connectOrCreate?: StockBatchCreateOrConnectWithoutUserStockInput | StockBatchCreateOrConnectWithoutUserStockInput[]
@@ -15407,6 +15337,20 @@ export namespace Prisma {
     update?: StockBatchUpdateWithWhereUniqueWithoutUserStockInput | StockBatchUpdateWithWhereUniqueWithoutUserStockInput[]
     updateMany?: StockBatchUpdateManyWithWhereWithoutUserStockInput | StockBatchUpdateManyWithWhereWithoutUserStockInput[]
     deleteMany?: StockBatchScalarWhereInput | StockBatchScalarWhereInput[]
+  }
+
+  export type ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput = {
+    create?: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput> | ForecastedUserStockCreateWithoutUserStockInput[] | ForecastedUserStockUncheckedCreateWithoutUserStockInput[]
+    connectOrCreate?: ForecastedUserStockCreateOrConnectWithoutUserStockInput | ForecastedUserStockCreateOrConnectWithoutUserStockInput[]
+    upsert?: ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput[]
+    createMany?: ForecastedUserStockCreateManyUserStockInputEnvelope
+    set?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    disconnect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    delete?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    connect?: ForecastedUserStockWhereUniqueInput | ForecastedUserStockWhereUniqueInput[]
+    update?: ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput | ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput[]
+    updateMany?: ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput | ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput[]
+    deleteMany?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
   }
 
   export type UserStockCreateNestedOneWithoutBatchesInput = {
@@ -15423,32 +15367,18 @@ export namespace Prisma {
     update?: XOR<XOR<UserStockUpdateToOneWithWhereWithoutBatchesInput, UserStockUpdateWithoutBatchesInput>, UserStockUncheckedUpdateWithoutBatchesInput>
   }
 
-  export type MedicineCreateNestedOneWithoutForecastedMedicineInput = {
-    create?: XOR<MedicineCreateWithoutForecastedMedicineInput, MedicineUncheckedCreateWithoutForecastedMedicineInput>
-    connectOrCreate?: MedicineCreateOrConnectWithoutForecastedMedicineInput
-    connect?: MedicineWhereUniqueInput
+  export type UserStockCreateNestedOneWithoutForecastedUserStockInput = {
+    create?: XOR<UserStockCreateWithoutForecastedUserStockInput, UserStockUncheckedCreateWithoutForecastedUserStockInput>
+    connectOrCreate?: UserStockCreateOrConnectWithoutForecastedUserStockInput
+    connect?: UserStockWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutForecastedMedicineInput = {
-    create?: XOR<UserCreateWithoutForecastedMedicineInput, UserUncheckedCreateWithoutForecastedMedicineInput>
-    connectOrCreate?: UserCreateOrConnectWithoutForecastedMedicineInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type MedicineUpdateOneRequiredWithoutForecastedMedicineNestedInput = {
-    create?: XOR<MedicineCreateWithoutForecastedMedicineInput, MedicineUncheckedCreateWithoutForecastedMedicineInput>
-    connectOrCreate?: MedicineCreateOrConnectWithoutForecastedMedicineInput
-    upsert?: MedicineUpsertWithoutForecastedMedicineInput
-    connect?: MedicineWhereUniqueInput
-    update?: XOR<XOR<MedicineUpdateToOneWithWhereWithoutForecastedMedicineInput, MedicineUpdateWithoutForecastedMedicineInput>, MedicineUncheckedUpdateWithoutForecastedMedicineInput>
-  }
-
-  export type UserUpdateOneRequiredWithoutForecastedMedicineNestedInput = {
-    create?: XOR<UserCreateWithoutForecastedMedicineInput, UserUncheckedCreateWithoutForecastedMedicineInput>
-    connectOrCreate?: UserCreateOrConnectWithoutForecastedMedicineInput
-    upsert?: UserUpsertWithoutForecastedMedicineInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutForecastedMedicineInput, UserUpdateWithoutForecastedMedicineInput>, UserUncheckedUpdateWithoutForecastedMedicineInput>
+  export type UserStockUpdateOneRequiredWithoutForecastedUserStockNestedInput = {
+    create?: XOR<UserStockCreateWithoutForecastedUserStockInput, UserStockUncheckedCreateWithoutForecastedUserStockInput>
+    connectOrCreate?: UserStockCreateOrConnectWithoutForecastedUserStockInput
+    upsert?: UserStockUpsertWithoutForecastedUserStockInput
+    connect?: UserStockWhereUniqueInput
+    update?: XOR<XOR<UserStockUpdateToOneWithWhereWithoutForecastedUserStockInput, UserStockUpdateWithoutForecastedUserStockInput>, UserStockUncheckedUpdateWithoutForecastedUserStockInput>
   }
 
   export type DiseaseMedicineCorrelationCreateNestedManyWithoutDiseaseInput = {
@@ -15458,11 +15388,11 @@ export namespace Prisma {
     connect?: DiseaseMedicineCorrelationWhereUniqueInput | DiseaseMedicineCorrelationWhereUniqueInput[]
   }
 
-  export type DiseaseRecordsCreateNestedManyWithoutDiseaseInput = {
-    create?: XOR<DiseaseRecordsCreateWithoutDiseaseInput, DiseaseRecordsUncheckedCreateWithoutDiseaseInput> | DiseaseRecordsCreateWithoutDiseaseInput[] | DiseaseRecordsUncheckedCreateWithoutDiseaseInput[]
-    connectOrCreate?: DiseaseRecordsCreateOrConnectWithoutDiseaseInput | DiseaseRecordsCreateOrConnectWithoutDiseaseInput[]
-    createMany?: DiseaseRecordsCreateManyDiseaseInputEnvelope
-    connect?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
+  export type DiseaseRecordCreateNestedManyWithoutDiseaseInput = {
+    create?: XOR<DiseaseRecordCreateWithoutDiseaseInput, DiseaseRecordUncheckedCreateWithoutDiseaseInput> | DiseaseRecordCreateWithoutDiseaseInput[] | DiseaseRecordUncheckedCreateWithoutDiseaseInput[]
+    connectOrCreate?: DiseaseRecordCreateOrConnectWithoutDiseaseInput | DiseaseRecordCreateOrConnectWithoutDiseaseInput[]
+    createMany?: DiseaseRecordCreateManyDiseaseInputEnvelope
+    connect?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
   }
 
   export type DiseaseMedicineCorrelationUncheckedCreateNestedManyWithoutDiseaseInput = {
@@ -15472,11 +15402,11 @@ export namespace Prisma {
     connect?: DiseaseMedicineCorrelationWhereUniqueInput | DiseaseMedicineCorrelationWhereUniqueInput[]
   }
 
-  export type DiseaseRecordsUncheckedCreateNestedManyWithoutDiseaseInput = {
-    create?: XOR<DiseaseRecordsCreateWithoutDiseaseInput, DiseaseRecordsUncheckedCreateWithoutDiseaseInput> | DiseaseRecordsCreateWithoutDiseaseInput[] | DiseaseRecordsUncheckedCreateWithoutDiseaseInput[]
-    connectOrCreate?: DiseaseRecordsCreateOrConnectWithoutDiseaseInput | DiseaseRecordsCreateOrConnectWithoutDiseaseInput[]
-    createMany?: DiseaseRecordsCreateManyDiseaseInputEnvelope
-    connect?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
+  export type DiseaseRecordUncheckedCreateNestedManyWithoutDiseaseInput = {
+    create?: XOR<DiseaseRecordCreateWithoutDiseaseInput, DiseaseRecordUncheckedCreateWithoutDiseaseInput> | DiseaseRecordCreateWithoutDiseaseInput[] | DiseaseRecordUncheckedCreateWithoutDiseaseInput[]
+    connectOrCreate?: DiseaseRecordCreateOrConnectWithoutDiseaseInput | DiseaseRecordCreateOrConnectWithoutDiseaseInput[]
+    createMany?: DiseaseRecordCreateManyDiseaseInputEnvelope
+    connect?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
   }
 
   export type DiseaseMedicineCorrelationUpdateManyWithoutDiseaseNestedInput = {
@@ -15493,18 +15423,18 @@ export namespace Prisma {
     deleteMany?: DiseaseMedicineCorrelationScalarWhereInput | DiseaseMedicineCorrelationScalarWhereInput[]
   }
 
-  export type DiseaseRecordsUpdateManyWithoutDiseaseNestedInput = {
-    create?: XOR<DiseaseRecordsCreateWithoutDiseaseInput, DiseaseRecordsUncheckedCreateWithoutDiseaseInput> | DiseaseRecordsCreateWithoutDiseaseInput[] | DiseaseRecordsUncheckedCreateWithoutDiseaseInput[]
-    connectOrCreate?: DiseaseRecordsCreateOrConnectWithoutDiseaseInput | DiseaseRecordsCreateOrConnectWithoutDiseaseInput[]
-    upsert?: DiseaseRecordsUpsertWithWhereUniqueWithoutDiseaseInput | DiseaseRecordsUpsertWithWhereUniqueWithoutDiseaseInput[]
-    createMany?: DiseaseRecordsCreateManyDiseaseInputEnvelope
-    set?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    disconnect?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    delete?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    connect?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    update?: DiseaseRecordsUpdateWithWhereUniqueWithoutDiseaseInput | DiseaseRecordsUpdateWithWhereUniqueWithoutDiseaseInput[]
-    updateMany?: DiseaseRecordsUpdateManyWithWhereWithoutDiseaseInput | DiseaseRecordsUpdateManyWithWhereWithoutDiseaseInput[]
-    deleteMany?: DiseaseRecordsScalarWhereInput | DiseaseRecordsScalarWhereInput[]
+  export type DiseaseRecordUpdateManyWithoutDiseaseNestedInput = {
+    create?: XOR<DiseaseRecordCreateWithoutDiseaseInput, DiseaseRecordUncheckedCreateWithoutDiseaseInput> | DiseaseRecordCreateWithoutDiseaseInput[] | DiseaseRecordUncheckedCreateWithoutDiseaseInput[]
+    connectOrCreate?: DiseaseRecordCreateOrConnectWithoutDiseaseInput | DiseaseRecordCreateOrConnectWithoutDiseaseInput[]
+    upsert?: DiseaseRecordUpsertWithWhereUniqueWithoutDiseaseInput | DiseaseRecordUpsertWithWhereUniqueWithoutDiseaseInput[]
+    createMany?: DiseaseRecordCreateManyDiseaseInputEnvelope
+    set?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    disconnect?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    delete?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    connect?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    update?: DiseaseRecordUpdateWithWhereUniqueWithoutDiseaseInput | DiseaseRecordUpdateWithWhereUniqueWithoutDiseaseInput[]
+    updateMany?: DiseaseRecordUpdateManyWithWhereWithoutDiseaseInput | DiseaseRecordUpdateManyWithWhereWithoutDiseaseInput[]
+    deleteMany?: DiseaseRecordScalarWhereInput | DiseaseRecordScalarWhereInput[]
   }
 
   export type DiseaseMedicineCorrelationUncheckedUpdateManyWithoutDiseaseNestedInput = {
@@ -15521,18 +15451,18 @@ export namespace Prisma {
     deleteMany?: DiseaseMedicineCorrelationScalarWhereInput | DiseaseMedicineCorrelationScalarWhereInput[]
   }
 
-  export type DiseaseRecordsUncheckedUpdateManyWithoutDiseaseNestedInput = {
-    create?: XOR<DiseaseRecordsCreateWithoutDiseaseInput, DiseaseRecordsUncheckedCreateWithoutDiseaseInput> | DiseaseRecordsCreateWithoutDiseaseInput[] | DiseaseRecordsUncheckedCreateWithoutDiseaseInput[]
-    connectOrCreate?: DiseaseRecordsCreateOrConnectWithoutDiseaseInput | DiseaseRecordsCreateOrConnectWithoutDiseaseInput[]
-    upsert?: DiseaseRecordsUpsertWithWhereUniqueWithoutDiseaseInput | DiseaseRecordsUpsertWithWhereUniqueWithoutDiseaseInput[]
-    createMany?: DiseaseRecordsCreateManyDiseaseInputEnvelope
-    set?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    disconnect?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    delete?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    connect?: DiseaseRecordsWhereUniqueInput | DiseaseRecordsWhereUniqueInput[]
-    update?: DiseaseRecordsUpdateWithWhereUniqueWithoutDiseaseInput | DiseaseRecordsUpdateWithWhereUniqueWithoutDiseaseInput[]
-    updateMany?: DiseaseRecordsUpdateManyWithWhereWithoutDiseaseInput | DiseaseRecordsUpdateManyWithWhereWithoutDiseaseInput[]
-    deleteMany?: DiseaseRecordsScalarWhereInput | DiseaseRecordsScalarWhereInput[]
+  export type DiseaseRecordUncheckedUpdateManyWithoutDiseaseNestedInput = {
+    create?: XOR<DiseaseRecordCreateWithoutDiseaseInput, DiseaseRecordUncheckedCreateWithoutDiseaseInput> | DiseaseRecordCreateWithoutDiseaseInput[] | DiseaseRecordUncheckedCreateWithoutDiseaseInput[]
+    connectOrCreate?: DiseaseRecordCreateOrConnectWithoutDiseaseInput | DiseaseRecordCreateOrConnectWithoutDiseaseInput[]
+    upsert?: DiseaseRecordUpsertWithWhereUniqueWithoutDiseaseInput | DiseaseRecordUpsertWithWhereUniqueWithoutDiseaseInput[]
+    createMany?: DiseaseRecordCreateManyDiseaseInputEnvelope
+    set?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    disconnect?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    delete?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    connect?: DiseaseRecordWhereUniqueInput | DiseaseRecordWhereUniqueInput[]
+    update?: DiseaseRecordUpdateWithWhereUniqueWithoutDiseaseInput | DiseaseRecordUpdateWithWhereUniqueWithoutDiseaseInput[]
+    updateMany?: DiseaseRecordUpdateManyWithWhereWithoutDiseaseInput | DiseaseRecordUpdateManyWithWhereWithoutDiseaseInput[]
+    deleteMany?: DiseaseRecordScalarWhereInput | DiseaseRecordScalarWhereInput[]
   }
 
   export type DiseaseCreateNestedOneWithoutDiseaseRecordsInput = {
@@ -15725,12 +15655,14 @@ export namespace Prisma {
   export type UserStockCreateWithoutUserInput = {
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateWithoutUserInput = {
     id?: number
     medicineId: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockCreateOrConnectWithoutUserInput = {
@@ -15740,31 +15672,6 @@ export namespace Prisma {
 
   export type UserStockCreateManyUserInputEnvelope = {
     data: UserStockCreateManyUserInput | UserStockCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ForecastedMedicineCreateWithoutUserInput = {
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
-    medicine: MedicineCreateNestedOneWithoutForecastedMedicineInput
-  }
-
-  export type ForecastedMedicineUncheckedCreateWithoutUserInput = {
-    id?: number
-    medicineId: number
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
-  }
-
-  export type ForecastedMedicineCreateOrConnectWithoutUserInput = {
-    where: ForecastedMedicineWhereUniqueInput
-    create: XOR<ForecastedMedicineCreateWithoutUserInput, ForecastedMedicineUncheckedCreateWithoutUserInput>
-  }
-
-  export type ForecastedMedicineCreateManyUserInputEnvelope = {
-    data: ForecastedMedicineCreateManyUserInput | ForecastedMedicineCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -15842,34 +15749,6 @@ export namespace Prisma {
     userId?: IntFilter<"UserStock"> | number
   }
 
-  export type ForecastedMedicineUpsertWithWhereUniqueWithoutUserInput = {
-    where: ForecastedMedicineWhereUniqueInput
-    update: XOR<ForecastedMedicineUpdateWithoutUserInput, ForecastedMedicineUncheckedUpdateWithoutUserInput>
-    create: XOR<ForecastedMedicineCreateWithoutUserInput, ForecastedMedicineUncheckedCreateWithoutUserInput>
-  }
-
-  export type ForecastedMedicineUpdateWithWhereUniqueWithoutUserInput = {
-    where: ForecastedMedicineWhereUniqueInput
-    data: XOR<ForecastedMedicineUpdateWithoutUserInput, ForecastedMedicineUncheckedUpdateWithoutUserInput>
-  }
-
-  export type ForecastedMedicineUpdateManyWithWhereWithoutUserInput = {
-    where: ForecastedMedicineScalarWhereInput
-    data: XOR<ForecastedMedicineUpdateManyMutationInput, ForecastedMedicineUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type ForecastedMedicineScalarWhereInput = {
-    AND?: ForecastedMedicineScalarWhereInput | ForecastedMedicineScalarWhereInput[]
-    OR?: ForecastedMedicineScalarWhereInput[]
-    NOT?: ForecastedMedicineScalarWhereInput | ForecastedMedicineScalarWhereInput[]
-    id?: IntFilter<"ForecastedMedicine"> | number
-    medicineId?: IntFilter<"ForecastedMedicine"> | number
-    userId?: IntFilter<"ForecastedMedicine"> | number
-    requiredStock?: IntFilter<"ForecastedMedicine"> | number
-    percentage?: IntFilter<"ForecastedMedicine"> | number
-    stockoutDate?: DateTimeFilter<"ForecastedMedicine"> | Date | string
-  }
-
   export type TokensUpsertWithWhereUniqueWithoutUserInput = {
     where: TokensWhereUniqueInput
     update: XOR<TokensUpdateWithoutUserInput, TokensUncheckedUpdateWithoutUserInput>
@@ -15905,7 +15784,6 @@ export namespace Prisma {
     price?: UserCreatepriceInput | number[]
     transactionHistory?: TransactionHistoryCreateNestedManyWithoutUserInput
     userStock?: UserStockCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTokensInput = {
@@ -15919,7 +15797,6 @@ export namespace Prisma {
     price?: UserCreatepriceInput | number[]
     transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutUserInput
     userStock?: UserStockUncheckedCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTokensInput = {
@@ -15948,7 +15825,6 @@ export namespace Prisma {
     price?: UserUpdatepriceInput | number[]
     transactionHistory?: TransactionHistoryUpdateManyWithoutUserNestedInput
     userStock?: UserStockUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTokensInput = {
@@ -15962,7 +15838,6 @@ export namespace Prisma {
     price?: UserUpdatepriceInput | number[]
     transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutUserNestedInput
     userStock?: UserStockUncheckedUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutTransactionHistoryInput = {
@@ -15974,7 +15849,6 @@ export namespace Prisma {
     quantitySold?: number
     price?: UserCreatepriceInput | number[]
     userStock?: UserStockCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutUserInput
     tokens?: TokensCreateNestedManyWithoutUserInput
   }
 
@@ -15988,7 +15862,6 @@ export namespace Prisma {
     quantitySold?: number
     price?: UserCreatepriceInput | number[]
     userStock?: UserStockUncheckedCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutUserInput
     tokens?: TokensUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -16001,10 +15874,9 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     userStock?: UserStockCreateNestedManyWithoutMedicineInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineUncheckedCreateWithoutTransactionHistoryInput = {
@@ -16012,10 +15884,9 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     userStock?: UserStockUncheckedCreateNestedManyWithoutMedicineInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineCreateOrConnectWithoutTransactionHistoryInput = {
@@ -16043,7 +15914,6 @@ export namespace Prisma {
     quantitySold?: IntFieldUpdateOperationsInput | number
     price?: UserUpdatepriceInput | number[]
     userStock?: UserStockUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutUserNestedInput
     tokens?: TokensUpdateManyWithoutUserNestedInput
   }
 
@@ -16057,7 +15927,6 @@ export namespace Prisma {
     quantitySold?: IntFieldUpdateOperationsInput | number
     price?: UserUpdatepriceInput | number[]
     userStock?: UserStockUncheckedUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutUserNestedInput
     tokens?: TokensUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -16076,10 +15945,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     userStock?: UserStockUpdateManyWithoutMedicineNestedInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutMedicineNestedInput
   }
 
   export type MedicineUncheckedUpdateWithoutTransactionHistoryInput = {
@@ -16087,10 +15955,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     userStock?: UserStockUncheckedUpdateManyWithoutMedicineNestedInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutMedicineNestedInput
   }
 
   export type TransactionHistoryCreateWithoutMedicineInput = {
@@ -16123,12 +15990,14 @@ export namespace Prisma {
   export type UserStockCreateWithoutMedicineInput = {
     user: UserCreateNestedOneWithoutUserStockInput
     batches?: StockBatchCreateNestedManyWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateWithoutMedicineInput = {
     id?: number
     userId: number
     batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockCreateOrConnectWithoutMedicineInput = {
@@ -16159,31 +16028,6 @@ export namespace Prisma {
 
   export type DiseaseMedicineCorrelationCreateManyMedicineInputEnvelope = {
     data: DiseaseMedicineCorrelationCreateManyMedicineInput | DiseaseMedicineCorrelationCreateManyMedicineInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ForecastedMedicineCreateWithoutMedicineInput = {
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
-    user: UserCreateNestedOneWithoutForecastedMedicineInput
-  }
-
-  export type ForecastedMedicineUncheckedCreateWithoutMedicineInput = {
-    id?: number
-    userId: number
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
-  }
-
-  export type ForecastedMedicineCreateOrConnectWithoutMedicineInput = {
-    where: ForecastedMedicineWhereUniqueInput
-    create: XOR<ForecastedMedicineCreateWithoutMedicineInput, ForecastedMedicineUncheckedCreateWithoutMedicineInput>
-  }
-
-  export type ForecastedMedicineCreateManyMedicineInputEnvelope = {
-    data: ForecastedMedicineCreateManyMedicineInput | ForecastedMedicineCreateManyMedicineInput[]
     skipDuplicates?: boolean
   }
 
@@ -16245,30 +16089,13 @@ export namespace Prisma {
     correlationPercentage?: FloatFilter<"DiseaseMedicineCorrelation"> | number
   }
 
-  export type ForecastedMedicineUpsertWithWhereUniqueWithoutMedicineInput = {
-    where: ForecastedMedicineWhereUniqueInput
-    update: XOR<ForecastedMedicineUpdateWithoutMedicineInput, ForecastedMedicineUncheckedUpdateWithoutMedicineInput>
-    create: XOR<ForecastedMedicineCreateWithoutMedicineInput, ForecastedMedicineUncheckedCreateWithoutMedicineInput>
-  }
-
-  export type ForecastedMedicineUpdateWithWhereUniqueWithoutMedicineInput = {
-    where: ForecastedMedicineWhereUniqueInput
-    data: XOR<ForecastedMedicineUpdateWithoutMedicineInput, ForecastedMedicineUncheckedUpdateWithoutMedicineInput>
-  }
-
-  export type ForecastedMedicineUpdateManyWithWhereWithoutMedicineInput = {
-    where: ForecastedMedicineScalarWhereInput
-    data: XOR<ForecastedMedicineUpdateManyMutationInput, ForecastedMedicineUncheckedUpdateManyWithoutMedicineInput>
-  }
-
   export type MedicineCreateWithoutUserStockInput = {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     transactionHistory?: TransactionHistoryCreateNestedManyWithoutMedicineInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineUncheckedCreateWithoutUserStockInput = {
@@ -16276,10 +16103,9 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutMedicineInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineCreateOrConnectWithoutUserStockInput = {
@@ -16296,7 +16122,6 @@ export namespace Prisma {
     quantitySold?: number
     price?: UserCreatepriceInput | number[]
     transactionHistory?: TransactionHistoryCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutUserInput
     tokens?: TokensCreateNestedManyWithoutUserInput
   }
 
@@ -16310,7 +16135,6 @@ export namespace Prisma {
     quantitySold?: number
     price?: UserCreatepriceInput | number[]
     transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutUserInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutUserInput
     tokens?: TokensUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -16340,6 +16164,29 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ForecastedUserStockCreateWithoutUserStockInput = {
+    requiredStock: number
+    percentage: number
+    stockoutDate: Date | string
+  }
+
+  export type ForecastedUserStockUncheckedCreateWithoutUserStockInput = {
+    id?: number
+    requiredStock: number
+    percentage: number
+    stockoutDate: Date | string
+  }
+
+  export type ForecastedUserStockCreateOrConnectWithoutUserStockInput = {
+    where: ForecastedUserStockWhereUniqueInput
+    create: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+  }
+
+  export type ForecastedUserStockCreateManyUserStockInputEnvelope = {
+    data: ForecastedUserStockCreateManyUserStockInput | ForecastedUserStockCreateManyUserStockInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MedicineUpsertWithoutUserStockInput = {
     update: XOR<MedicineUpdateWithoutUserStockInput, MedicineUncheckedUpdateWithoutUserStockInput>
     create: XOR<MedicineCreateWithoutUserStockInput, MedicineUncheckedCreateWithoutUserStockInput>
@@ -16355,10 +16202,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     transactionHistory?: TransactionHistoryUpdateManyWithoutMedicineNestedInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutMedicineNestedInput
   }
 
   export type MedicineUncheckedUpdateWithoutUserStockInput = {
@@ -16366,10 +16212,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutMedicineNestedInput
     diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutMedicineNestedInput
   }
 
   export type UserUpsertWithoutUserStockInput = {
@@ -16392,7 +16237,6 @@ export namespace Prisma {
     quantitySold?: IntFieldUpdateOperationsInput | number
     price?: UserUpdatepriceInput | number[]
     transactionHistory?: TransactionHistoryUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutUserNestedInput
     tokens?: TokensUpdateManyWithoutUserNestedInput
   }
 
@@ -16406,7 +16250,6 @@ export namespace Prisma {
     quantitySold?: IntFieldUpdateOperationsInput | number
     price?: UserUpdatepriceInput | number[]
     transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutUserNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutUserNestedInput
     tokens?: TokensUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -16436,15 +16279,44 @@ export namespace Prisma {
     userStockId?: IntFilter<"StockBatch"> | number
   }
 
+  export type ForecastedUserStockUpsertWithWhereUniqueWithoutUserStockInput = {
+    where: ForecastedUserStockWhereUniqueInput
+    update: XOR<ForecastedUserStockUpdateWithoutUserStockInput, ForecastedUserStockUncheckedUpdateWithoutUserStockInput>
+    create: XOR<ForecastedUserStockCreateWithoutUserStockInput, ForecastedUserStockUncheckedCreateWithoutUserStockInput>
+  }
+
+  export type ForecastedUserStockUpdateWithWhereUniqueWithoutUserStockInput = {
+    where: ForecastedUserStockWhereUniqueInput
+    data: XOR<ForecastedUserStockUpdateWithoutUserStockInput, ForecastedUserStockUncheckedUpdateWithoutUserStockInput>
+  }
+
+  export type ForecastedUserStockUpdateManyWithWhereWithoutUserStockInput = {
+    where: ForecastedUserStockScalarWhereInput
+    data: XOR<ForecastedUserStockUpdateManyMutationInput, ForecastedUserStockUncheckedUpdateManyWithoutUserStockInput>
+  }
+
+  export type ForecastedUserStockScalarWhereInput = {
+    AND?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
+    OR?: ForecastedUserStockScalarWhereInput[]
+    NOT?: ForecastedUserStockScalarWhereInput | ForecastedUserStockScalarWhereInput[]
+    id?: IntFilter<"ForecastedUserStock"> | number
+    userStockId?: IntFilter<"ForecastedUserStock"> | number
+    requiredStock?: IntFilter<"ForecastedUserStock"> | number
+    percentage?: IntFilter<"ForecastedUserStock"> | number
+    stockoutDate?: DateTimeFilter<"ForecastedUserStock"> | Date | string
+  }
+
   export type UserStockCreateWithoutBatchesInput = {
     medicine: MedicineCreateNestedOneWithoutUserStockInput
     user: UserCreateNestedOneWithoutUserStockInput
+    ForecastedUserStock?: ForecastedUserStockCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockUncheckedCreateWithoutBatchesInput = {
     id?: number
     medicineId: number
     userId: number
+    ForecastedUserStock?: ForecastedUserStockUncheckedCreateNestedManyWithoutUserStockInput
   }
 
   export type UserStockCreateOrConnectWithoutBatchesInput = {
@@ -16466,140 +16338,56 @@ export namespace Prisma {
   export type UserStockUpdateWithoutBatchesInput = {
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateWithoutBatchesInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
+    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
   }
 
-  export type MedicineCreateWithoutForecastedMedicineInput = {
-    name: string
-    description: string
-    brief: string
-    photoLink: string
-    transactionHistory?: TransactionHistoryCreateNestedManyWithoutMedicineInput
-    userStock?: UserStockCreateNestedManyWithoutMedicineInput
-    diseaseMedicineCorrelation?: DiseaseMedicineCorrelationCreateNestedManyWithoutMedicineInput
+  export type UserStockCreateWithoutForecastedUserStockInput = {
+    medicine: MedicineCreateNestedOneWithoutUserStockInput
+    user: UserCreateNestedOneWithoutUserStockInput
+    batches?: StockBatchCreateNestedManyWithoutUserStockInput
   }
 
-  export type MedicineUncheckedCreateWithoutForecastedMedicineInput = {
+  export type UserStockUncheckedCreateWithoutForecastedUserStockInput = {
     id?: number
-    name: string
-    description: string
-    brief: string
-    photoLink: string
-    transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutMedicineInput
-    userStock?: UserStockUncheckedCreateNestedManyWithoutMedicineInput
-    diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedCreateNestedManyWithoutMedicineInput
+    medicineId: number
+    userId: number
+    batches?: StockBatchUncheckedCreateNestedManyWithoutUserStockInput
   }
 
-  export type MedicineCreateOrConnectWithoutForecastedMedicineInput = {
-    where: MedicineWhereUniqueInput
-    create: XOR<MedicineCreateWithoutForecastedMedicineInput, MedicineUncheckedCreateWithoutForecastedMedicineInput>
+  export type UserStockCreateOrConnectWithoutForecastedUserStockInput = {
+    where: UserStockWhereUniqueInput
+    create: XOR<UserStockCreateWithoutForecastedUserStockInput, UserStockUncheckedCreateWithoutForecastedUserStockInput>
   }
 
-  export type UserCreateWithoutForecastedMedicineInput = {
-    username: string
-    name: string
-    passwordHash: string
-    region: string
-    sales?: number
-    quantitySold?: number
-    price?: UserCreatepriceInput | number[]
-    transactionHistory?: TransactionHistoryCreateNestedManyWithoutUserInput
-    userStock?: UserStockCreateNestedManyWithoutUserInput
-    tokens?: TokensCreateNestedManyWithoutUserInput
+  export type UserStockUpsertWithoutForecastedUserStockInput = {
+    update: XOR<UserStockUpdateWithoutForecastedUserStockInput, UserStockUncheckedUpdateWithoutForecastedUserStockInput>
+    create: XOR<UserStockCreateWithoutForecastedUserStockInput, UserStockUncheckedCreateWithoutForecastedUserStockInput>
+    where?: UserStockWhereInput
   }
 
-  export type UserUncheckedCreateWithoutForecastedMedicineInput = {
-    id?: number
-    username: string
-    name: string
-    passwordHash: string
-    region: string
-    sales?: number
-    quantitySold?: number
-    price?: UserCreatepriceInput | number[]
-    transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutUserInput
-    userStock?: UserStockUncheckedCreateNestedManyWithoutUserInput
-    tokens?: TokensUncheckedCreateNestedManyWithoutUserInput
+  export type UserStockUpdateToOneWithWhereWithoutForecastedUserStockInput = {
+    where?: UserStockWhereInput
+    data: XOR<UserStockUpdateWithoutForecastedUserStockInput, UserStockUncheckedUpdateWithoutForecastedUserStockInput>
   }
 
-  export type UserCreateOrConnectWithoutForecastedMedicineInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutForecastedMedicineInput, UserUncheckedCreateWithoutForecastedMedicineInput>
+  export type UserStockUpdateWithoutForecastedUserStockInput = {
+    medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
+    user?: UserUpdateOneRequiredWithoutUserStockNestedInput
+    batches?: StockBatchUpdateManyWithoutUserStockNestedInput
   }
 
-  export type MedicineUpsertWithoutForecastedMedicineInput = {
-    update: XOR<MedicineUpdateWithoutForecastedMedicineInput, MedicineUncheckedUpdateWithoutForecastedMedicineInput>
-    create: XOR<MedicineCreateWithoutForecastedMedicineInput, MedicineUncheckedCreateWithoutForecastedMedicineInput>
-    where?: MedicineWhereInput
-  }
-
-  export type MedicineUpdateToOneWithWhereWithoutForecastedMedicineInput = {
-    where?: MedicineWhereInput
-    data: XOR<MedicineUpdateWithoutForecastedMedicineInput, MedicineUncheckedUpdateWithoutForecastedMedicineInput>
-  }
-
-  export type MedicineUpdateWithoutForecastedMedicineInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
-    transactionHistory?: TransactionHistoryUpdateManyWithoutMedicineNestedInput
-    userStock?: UserStockUpdateManyWithoutMedicineNestedInput
-    diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUpdateManyWithoutMedicineNestedInput
-  }
-
-  export type MedicineUncheckedUpdateWithoutForecastedMedicineInput = {
+  export type UserStockUncheckedUpdateWithoutForecastedUserStockInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
-    transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutMedicineNestedInput
-    userStock?: UserStockUncheckedUpdateManyWithoutMedicineNestedInput
-    diseaseMedicineCorrelation?: DiseaseMedicineCorrelationUncheckedUpdateManyWithoutMedicineNestedInput
-  }
-
-  export type UserUpsertWithoutForecastedMedicineInput = {
-    update: XOR<UserUpdateWithoutForecastedMedicineInput, UserUncheckedUpdateWithoutForecastedMedicineInput>
-    create: XOR<UserCreateWithoutForecastedMedicineInput, UserUncheckedCreateWithoutForecastedMedicineInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutForecastedMedicineInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutForecastedMedicineInput, UserUncheckedUpdateWithoutForecastedMedicineInput>
-  }
-
-  export type UserUpdateWithoutForecastedMedicineInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
-    region?: StringFieldUpdateOperationsInput | string
-    sales?: IntFieldUpdateOperationsInput | number
-    quantitySold?: IntFieldUpdateOperationsInput | number
-    price?: UserUpdatepriceInput | number[]
-    transactionHistory?: TransactionHistoryUpdateManyWithoutUserNestedInput
-    userStock?: UserStockUpdateManyWithoutUserNestedInput
-    tokens?: TokensUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutForecastedMedicineInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
-    region?: StringFieldUpdateOperationsInput | string
-    sales?: IntFieldUpdateOperationsInput | number
-    quantitySold?: IntFieldUpdateOperationsInput | number
-    price?: UserUpdatepriceInput | number[]
-    transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutUserNestedInput
-    userStock?: UserStockUncheckedUpdateManyWithoutUserNestedInput
-    tokens?: TokensUncheckedUpdateManyWithoutUserNestedInput
+    medicineId?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
   }
 
   export type DiseaseMedicineCorrelationCreateWithoutDiseaseInput = {
@@ -16623,21 +16411,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type DiseaseRecordsCreateWithoutDiseaseInput = {
-
+  export type DiseaseRecordCreateWithoutDiseaseInput = {
+    amount: number
+    timestamp: Date | string
   }
 
-  export type DiseaseRecordsUncheckedCreateWithoutDiseaseInput = {
+  export type DiseaseRecordUncheckedCreateWithoutDiseaseInput = {
     id?: number
+    amount: number
+    timestamp: Date | string
   }
 
-  export type DiseaseRecordsCreateOrConnectWithoutDiseaseInput = {
-    where: DiseaseRecordsWhereUniqueInput
-    create: XOR<DiseaseRecordsCreateWithoutDiseaseInput, DiseaseRecordsUncheckedCreateWithoutDiseaseInput>
+  export type DiseaseRecordCreateOrConnectWithoutDiseaseInput = {
+    where: DiseaseRecordWhereUniqueInput
+    create: XOR<DiseaseRecordCreateWithoutDiseaseInput, DiseaseRecordUncheckedCreateWithoutDiseaseInput>
   }
 
-  export type DiseaseRecordsCreateManyDiseaseInputEnvelope = {
-    data: DiseaseRecordsCreateManyDiseaseInput | DiseaseRecordsCreateManyDiseaseInput[]
+  export type DiseaseRecordCreateManyDiseaseInputEnvelope = {
+    data: DiseaseRecordCreateManyDiseaseInput | DiseaseRecordCreateManyDiseaseInput[]
     skipDuplicates?: boolean
   }
 
@@ -16657,28 +16448,30 @@ export namespace Prisma {
     data: XOR<DiseaseMedicineCorrelationUpdateManyMutationInput, DiseaseMedicineCorrelationUncheckedUpdateManyWithoutDiseaseInput>
   }
 
-  export type DiseaseRecordsUpsertWithWhereUniqueWithoutDiseaseInput = {
-    where: DiseaseRecordsWhereUniqueInput
-    update: XOR<DiseaseRecordsUpdateWithoutDiseaseInput, DiseaseRecordsUncheckedUpdateWithoutDiseaseInput>
-    create: XOR<DiseaseRecordsCreateWithoutDiseaseInput, DiseaseRecordsUncheckedCreateWithoutDiseaseInput>
+  export type DiseaseRecordUpsertWithWhereUniqueWithoutDiseaseInput = {
+    where: DiseaseRecordWhereUniqueInput
+    update: XOR<DiseaseRecordUpdateWithoutDiseaseInput, DiseaseRecordUncheckedUpdateWithoutDiseaseInput>
+    create: XOR<DiseaseRecordCreateWithoutDiseaseInput, DiseaseRecordUncheckedCreateWithoutDiseaseInput>
   }
 
-  export type DiseaseRecordsUpdateWithWhereUniqueWithoutDiseaseInput = {
-    where: DiseaseRecordsWhereUniqueInput
-    data: XOR<DiseaseRecordsUpdateWithoutDiseaseInput, DiseaseRecordsUncheckedUpdateWithoutDiseaseInput>
+  export type DiseaseRecordUpdateWithWhereUniqueWithoutDiseaseInput = {
+    where: DiseaseRecordWhereUniqueInput
+    data: XOR<DiseaseRecordUpdateWithoutDiseaseInput, DiseaseRecordUncheckedUpdateWithoutDiseaseInput>
   }
 
-  export type DiseaseRecordsUpdateManyWithWhereWithoutDiseaseInput = {
-    where: DiseaseRecordsScalarWhereInput
-    data: XOR<DiseaseRecordsUpdateManyMutationInput, DiseaseRecordsUncheckedUpdateManyWithoutDiseaseInput>
+  export type DiseaseRecordUpdateManyWithWhereWithoutDiseaseInput = {
+    where: DiseaseRecordScalarWhereInput
+    data: XOR<DiseaseRecordUpdateManyMutationInput, DiseaseRecordUncheckedUpdateManyWithoutDiseaseInput>
   }
 
-  export type DiseaseRecordsScalarWhereInput = {
-    AND?: DiseaseRecordsScalarWhereInput | DiseaseRecordsScalarWhereInput[]
-    OR?: DiseaseRecordsScalarWhereInput[]
-    NOT?: DiseaseRecordsScalarWhereInput | DiseaseRecordsScalarWhereInput[]
-    id?: IntFilter<"DiseaseRecords"> | number
-    diseaseId?: IntFilter<"DiseaseRecords"> | number
+  export type DiseaseRecordScalarWhereInput = {
+    AND?: DiseaseRecordScalarWhereInput | DiseaseRecordScalarWhereInput[]
+    OR?: DiseaseRecordScalarWhereInput[]
+    NOT?: DiseaseRecordScalarWhereInput | DiseaseRecordScalarWhereInput[]
+    id?: IntFilter<"DiseaseRecord"> | number
+    diseaseId?: IntFilter<"DiseaseRecord"> | number
+    amount?: IntFilter<"DiseaseRecord"> | number
+    timestamp?: DateTimeFilter<"DiseaseRecord"> | Date | string
   }
 
   export type DiseaseCreateWithoutDiseaseRecordsInput = {
@@ -16721,13 +16514,13 @@ export namespace Prisma {
 
   export type DiseaseCreateWithoutDiseaseMedicineCorrelationInput = {
     name: string
-    diseaseRecords?: DiseaseRecordsCreateNestedManyWithoutDiseaseInput
+    diseaseRecords?: DiseaseRecordCreateNestedManyWithoutDiseaseInput
   }
 
   export type DiseaseUncheckedCreateWithoutDiseaseMedicineCorrelationInput = {
     id?: number
     name: string
-    diseaseRecords?: DiseaseRecordsUncheckedCreateNestedManyWithoutDiseaseInput
+    diseaseRecords?: DiseaseRecordUncheckedCreateNestedManyWithoutDiseaseInput
   }
 
   export type DiseaseCreateOrConnectWithoutDiseaseMedicineCorrelationInput = {
@@ -16739,10 +16532,9 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     transactionHistory?: TransactionHistoryCreateNestedManyWithoutMedicineInput
     userStock?: UserStockCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineUncheckedCreateWithoutDiseaseMedicineCorrelationInput = {
@@ -16750,10 +16542,9 @@ export namespace Prisma {
     name: string
     description: string
     brief: string
-    photoLink: string
+    imageUrl: string
     transactionHistory?: TransactionHistoryUncheckedCreateNestedManyWithoutMedicineInput
     userStock?: UserStockUncheckedCreateNestedManyWithoutMedicineInput
-    forecastedMedicine?: ForecastedMedicineUncheckedCreateNestedManyWithoutMedicineInput
   }
 
   export type MedicineCreateOrConnectWithoutDiseaseMedicineCorrelationInput = {
@@ -16774,13 +16565,13 @@ export namespace Prisma {
 
   export type DiseaseUpdateWithoutDiseaseMedicineCorrelationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    diseaseRecords?: DiseaseRecordsUpdateManyWithoutDiseaseNestedInput
+    diseaseRecords?: DiseaseRecordUpdateManyWithoutDiseaseNestedInput
   }
 
   export type DiseaseUncheckedUpdateWithoutDiseaseMedicineCorrelationInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    diseaseRecords?: DiseaseRecordsUncheckedUpdateManyWithoutDiseaseNestedInput
+    diseaseRecords?: DiseaseRecordUncheckedUpdateManyWithoutDiseaseNestedInput
   }
 
   export type MedicineUpsertWithoutDiseaseMedicineCorrelationInput = {
@@ -16798,10 +16589,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     transactionHistory?: TransactionHistoryUpdateManyWithoutMedicineNestedInput
     userStock?: UserStockUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUpdateManyWithoutMedicineNestedInput
   }
 
   export type MedicineUncheckedUpdateWithoutDiseaseMedicineCorrelationInput = {
@@ -16809,10 +16599,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     brief?: StringFieldUpdateOperationsInput | string
-    photoLink?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
     transactionHistory?: TransactionHistoryUncheckedUpdateManyWithoutMedicineNestedInput
     userStock?: UserStockUncheckedUpdateManyWithoutMedicineNestedInput
-    forecastedMedicine?: ForecastedMedicineUncheckedUpdateManyWithoutMedicineNestedInput
   }
 
   export type TransactionHistoryCreateManyUserInput = {
@@ -16827,14 +16616,6 @@ export namespace Prisma {
   export type UserStockCreateManyUserInput = {
     id?: number
     medicineId: number
-  }
-
-  export type ForecastedMedicineCreateManyUserInput = {
-    id?: number
-    medicineId: number
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
   }
 
   export type TokensCreateManyUserInput = {
@@ -16871,40 +16652,19 @@ export namespace Prisma {
   export type UserStockUpdateWithoutUserInput = {
     medicine?: MedicineUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     medicineId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type ForecastedMedicineUpdateWithoutUserInput = {
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    medicine?: MedicineUpdateOneRequiredWithoutForecastedMedicineNestedInput
-  }
-
-  export type ForecastedMedicineUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    medicineId?: IntFieldUpdateOperationsInput | number
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ForecastedMedicineUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    medicineId?: IntFieldUpdateOperationsInput | number
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TokensUpdateWithoutUserInput = {
@@ -16942,14 +16702,6 @@ export namespace Prisma {
     correlationPercentage: number
   }
 
-  export type ForecastedMedicineCreateManyMedicineInput = {
-    id?: number
-    userId: number
-    requiredStock: number
-    percentage: number
-    stockoutDate: Date | string
-  }
-
   export type TransactionHistoryUpdateWithoutMedicineInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -16979,12 +16731,14 @@ export namespace Prisma {
   export type UserStockUpdateWithoutMedicineInput = {
     user?: UserUpdateOneRequiredWithoutUserStockNestedInput
     batches?: StockBatchUpdateManyWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateWithoutMedicineInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     batches?: StockBatchUncheckedUpdateManyWithoutUserStockNestedInput
+    ForecastedUserStock?: ForecastedUserStockUncheckedUpdateManyWithoutUserStockNestedInput
   }
 
   export type UserStockUncheckedUpdateManyWithoutMedicineInput = {
@@ -17009,33 +16763,17 @@ export namespace Prisma {
     correlationPercentage?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type ForecastedMedicineUpdateWithoutMedicineInput = {
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutForecastedMedicineNestedInput
-  }
-
-  export type ForecastedMedicineUncheckedUpdateWithoutMedicineInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ForecastedMedicineUncheckedUpdateManyWithoutMedicineInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    requiredStock?: IntFieldUpdateOperationsInput | number
-    percentage?: IntFieldUpdateOperationsInput | number
-    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type StockBatchCreateManyUserStockInput = {
     id?: number
     expirationDate: Date | string
     amount?: number
+  }
+
+  export type ForecastedUserStockCreateManyUserStockInput = {
+    id?: number
+    requiredStock: number
+    percentage: number
+    stockoutDate: Date | string
   }
 
   export type StockBatchUpdateWithoutUserStockInput = {
@@ -17055,14 +16793,36 @@ export namespace Prisma {
     amount?: IntFieldUpdateOperationsInput | number
   }
 
+  export type ForecastedUserStockUpdateWithoutUserStockInput = {
+    requiredStock?: IntFieldUpdateOperationsInput | number
+    percentage?: IntFieldUpdateOperationsInput | number
+    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ForecastedUserStockUncheckedUpdateWithoutUserStockInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    requiredStock?: IntFieldUpdateOperationsInput | number
+    percentage?: IntFieldUpdateOperationsInput | number
+    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ForecastedUserStockUncheckedUpdateManyWithoutUserStockInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    requiredStock?: IntFieldUpdateOperationsInput | number
+    percentage?: IntFieldUpdateOperationsInput | number
+    stockoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type DiseaseMedicineCorrelationCreateManyDiseaseInput = {
     id?: number
     medicineId: number
     correlationPercentage: number
   }
 
-  export type DiseaseRecordsCreateManyDiseaseInput = {
+  export type DiseaseRecordCreateManyDiseaseInput = {
     id?: number
+    amount: number
+    timestamp: Date | string
   }
 
   export type DiseaseMedicineCorrelationUpdateWithoutDiseaseInput = {
@@ -17082,16 +16842,21 @@ export namespace Prisma {
     correlationPercentage?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type DiseaseRecordsUpdateWithoutDiseaseInput = {
-
+  export type DiseaseRecordUpdateWithoutDiseaseInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DiseaseRecordsUncheckedUpdateWithoutDiseaseInput = {
+  export type DiseaseRecordUncheckedUpdateWithoutDiseaseInput = {
     id?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DiseaseRecordsUncheckedUpdateManyWithoutDiseaseInput = {
+  export type DiseaseRecordUncheckedUpdateManyWithoutDiseaseInput = {
     id?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

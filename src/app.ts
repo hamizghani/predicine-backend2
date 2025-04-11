@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 app.use(express.json({ limit: "64mb" }));
 app.use(cookieParser());
 app.use(compression());
@@ -17,9 +17,13 @@ if (app.get('env') === 'production') {
 
 
 import userRouter from './routes/user';
+import productRouter from './routes/product';
+import medicineRouter from './routes/medicine';
 
 // Routes
 app.use('/api/user', userRouter);
+app.use('/api/product', productRouter);
+app.use('/api/medicine', medicineRouter);
 
 // Global error handler (should be after routes)
 // app.use(errorHandler);

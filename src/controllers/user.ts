@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import prismaClient from "../services/db";
 import { Prisma } from "@prisma/client";
-import ms from "../types/msStuff";
 import { TokenEnv } from "../types/user";
 
 const {
@@ -14,6 +13,31 @@ const {
     ACCESS_TOKEN_LIFETIME,
     ACCESS_TOKEN_LIFETIME_AFTER_LOGIN
 } = env as unknown as TokenEnv;
+
+
+export const getSelf = async (req: Request, res: Response) => {
+    if (!req?.user?.id) {res.sendStatus(403);return;}
+    const selfData = await prismaClient.user.findUnique({
+        where: {
+            id: req.user.id
+        },
+        include: {
+            userStock: {
+                include: {
+                    batches: true,
+                    ForecastedUserStock: true,
+                }
+            },
+            transactionHistory: {
+                include: {
+                    medicine: true
+                }
+            }
+        }
+    })
+    res.json({'user':selfData})
+}
+
 
 // Post
 // accounts are created by a super user.

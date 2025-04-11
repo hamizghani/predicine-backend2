@@ -149,7 +149,7 @@ exports.Prisma.MedicineScalarFieldEnum = {
   name: 'name',
   description: 'description',
   brief: 'brief',
-  photoLink: 'photoLink'
+  imageUrl: 'imageUrl'
 };
 
 exports.Prisma.UserStockScalarFieldEnum = {
@@ -165,10 +165,9 @@ exports.Prisma.StockBatchScalarFieldEnum = {
   userStockId: 'userStockId'
 };
 
-exports.Prisma.ForecastedMedicineScalarFieldEnum = {
+exports.Prisma.ForecastedUserStockScalarFieldEnum = {
   id: 'id',
-  medicineId: 'medicineId',
-  userId: 'userId',
+  userStockId: 'userStockId',
   requiredStock: 'requiredStock',
   percentage: 'percentage',
   stockoutDate: 'stockoutDate'
@@ -179,9 +178,11 @@ exports.Prisma.DiseaseScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.DiseaseRecordsScalarFieldEnum = {
+exports.Prisma.DiseaseRecordScalarFieldEnum = {
   id: 'id',
-  diseaseId: 'diseaseId'
+  diseaseId: 'diseaseId',
+  amount: 'amount',
+  timestamp: 'timestamp'
 };
 
 exports.Prisma.DiseaseMedicineCorrelationScalarFieldEnum = {
@@ -209,9 +210,9 @@ exports.Prisma.ModelName = {
   Medicine: 'Medicine',
   UserStock: 'UserStock',
   StockBatch: 'StockBatch',
-  ForecastedMedicine: 'ForecastedMedicine',
+  ForecastedUserStock: 'ForecastedUserStock',
   Disease: 'Disease',
-  DiseaseRecords: 'DiseaseRecords',
+  DiseaseRecord: 'DiseaseRecord',
   DiseaseMedicineCorrelation: 'DiseaseMedicineCorrelation'
 };
 
