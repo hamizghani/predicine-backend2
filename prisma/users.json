@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "region": "Jawa",
+    "username": "jawaa",
+    "name": "jawaaa",
+    "passwordHash": "jawaaaa"
+  },
+  {
+    "id": "2",
+    "region": "Sulawesi",
+    "username": "sul",
+    "name": "sull",
+    "passwordHash": "sulll"
+  },
+  {
+    "id": "3",
+    "region": "Sumatra",
+    "username": "sum",
+    "name": "summ",
+    "passwordHash": "summ"
+  },
+  {
+    "id": "4",
+    "region": "Kalimantan",
+    "username": "kal",
+    "name": "kall",
+    "passwordHash": "kalll"
+  },
+  {
+    "id": "5",
+    "region": "Papua",
+    "username": "pap",
+    "name": "papp",
+    "passwordHash": "pappp"
+  }
+]

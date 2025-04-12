@@ -233,7 +233,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:7Zg1331gZ7@localhost:5432/predicine-db-testing?schema=public"
+        "value": "postgresql://neondb_owner:npg_E0Tg1nPZQIkC@ep-long-brook-a5mzisln-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
       }
     }
   },

@@ -21,6 +21,7 @@ import productRouter from './routes/product';
 import medicineRouter from './routes/medicine';
 import StockBatchRouter from './routes/batch';
 import TransactionHistoryRouter from './routes/transactionHistory';
+import PredictionRouter from './routes/prediction';
 
 // Routes
 app.use('/api/user', userRouter);
@@ -28,6 +29,7 @@ app.use('/api/product', productRouter);
 app.use('/api/medicine', medicineRouter);
 app.use('/api/batch', StockBatchRouter);
 app.use('/api/history', TransactionHistoryRouter);
+// app.use('/api/prediction', PredictionRouter)
 
 
 // Global error handler (should be after routes)
